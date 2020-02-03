@@ -1,16 +1,16 @@
 <?php
   
 namespace App;
-  
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+
 use Laravel\Passport\HasApiTokens;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
   
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, Notifiable;
-  
+
     /**
      * The attributes that are mass assignable.
      *
@@ -29,8 +29,23 @@ class User extends Authenticatable implements MustVerifyEmail
         'password', 'remember_token',
     ];
 
-    public function profiles()
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
+    public function articles()
     {
-        return $this->hasOne(Profile::class); 
+        return $this->hasMany(Article::class);
     }
+
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
+
 }
