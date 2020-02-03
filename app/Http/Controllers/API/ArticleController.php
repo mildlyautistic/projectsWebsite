@@ -6,6 +6,7 @@ namespace App\Http\Controllers\API;
 
 
 
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\API\BaseController as BaseController;
@@ -63,15 +64,28 @@ class ArticleController extends BaseController
         $input = $request->all();
 
 
-
         $validator = Validator::make($input, [
 
             'title' => 'required',
 
-            'body' => 'required'
-            
+            'body' => 'required',
+
+            'featured_image_url' => 'url'
 
         ]);
+
+
+
+
+        /*if($request->hasFile('image')){
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(300, 300)->save( storage_path('/uploads/' . $filename ) );
+
+
+            $input->image = $filename;
+            $input->save();
+        }; */
 
 
 
@@ -126,19 +140,12 @@ class ArticleController extends BaseController
     }
 
 
-
     /**
-
      * Update the specified resource in storage.
-
      *
-
-     * @param  \Illuminate\Http\Request  $request
-
-     * @param  int  $id
-
+     * @param \Illuminate\Http\Request $request
+     * @param Article $article
      * @return \Illuminate\Http\Response
-
      */
 
     public function update(Request $request, Article $article)
@@ -146,6 +153,10 @@ class ArticleController extends BaseController
     {
 
         $input = $request->all();
+        //$article_id = $request ->id;
+        $aid = $request->user_id;
+        $usid = auth()->user()->id;
+       // $user_id= $user->id;
 
 
 
@@ -155,13 +166,9 @@ class ArticleController extends BaseController
 
             'excerpt' => 'required',
 
-            'body' => 'required',
-
-            'tags' => 'exists:tags,id'
+            'body' => 'required'
 
         ]);
-
-
 
         if($validator->fails()){
 
@@ -177,13 +184,26 @@ class ArticleController extends BaseController
 
         $article->body = $input['body'];
 
-        $article->tags = $input['tags'];
-
         $article->save();
 
 
 
-        return $this->sendResponse(new ArticleResource($article), 'Article updated successfully.');
+        //Verify if the article belongs to the particular user
+
+        if($aid != $usid)
+        {
+            return $this->sendError('Sorry! You can only edit your own Articles');
+        }
+
+        $article->update($this->validateArticle());
+        return $this->sendResponse(new ArticleResource($article), 'article updated successfully.');
+
+        //return $this->sendResponse(new ArticleResource($article), 'Article updated successfully.');
+
+
+
+
+
 
     }
 
@@ -211,6 +231,17 @@ class ArticleController extends BaseController
 
         return $this->sendResponse([], 'Article deleted successfully.');
 
+    }
+
+    protected function validateArticle()
+    {
+        return request()->validate([
+            'title' => 'required',
+
+            'body' => 'required',
+
+            'featured_image_url' => 'url'
+        ]);
     }
 
 }

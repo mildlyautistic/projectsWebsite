@@ -30,17 +30,24 @@ class CreateArticlesTable extends Migration
 
             $table->bigIncrements('id');
 
-           // $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id');
 
             $table->string('title');
 
             $table->text('excerpt')->nullable();
+
+            $table->string('featured_image_url')->nullable();
 
             $table->text('body');
 
             $table->text('tags')->nullable();
 
             $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
 
         });
 
