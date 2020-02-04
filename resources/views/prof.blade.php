@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
 <body>
-	<link href=http://localhost:8001/user/profile/id>
+<a href="http://127.0.0.1:8000/user/profile/id"></a>
 </body>
 </html>
