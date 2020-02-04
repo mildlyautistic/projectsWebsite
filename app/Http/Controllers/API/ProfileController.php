@@ -34,6 +34,7 @@ class ProfileController extends BaseController
         $parts = explode('@', $email);
         $emailpart=$parts[1];
         $data = ['ipropal.com','allps.ch'];
+        $c=count($data);
         //$profile = Profile::create($input);
         //$profile -> user() -> associate($user) -> save();
 
@@ -58,14 +59,14 @@ class ProfileController extends BaseController
         }
 
         // check if $emailPart exists in the $data array
-        for($x=0; $x<2; $x++)
+        for($x=0; $x<$c; $x++)
         {
             if($emailpart==$data[$x]){
                 $profile = Profile::create($input);
                return $this->sendResponse(new ProfileResource($profile), 'profile created successfully.');
             }
         }
-        if($x==2){
+        if($x==$c){
 
             return $this->sendError('Invalid email.');
         }
@@ -110,6 +111,7 @@ class ProfileController extends BaseController
         $parts = explode('@', $email);
         $emailpart=$parts[1];
         $data = ['ipropal.com','allps.ch'];
+        $c=count($data);
 
         $validator = Validator::make($input, [
 
@@ -117,7 +119,7 @@ class ProfileController extends BaseController
             'name' => 'required',
             'username' => 'required',
             'email' => 'required|email',
-            //'user_id'=>'required',
+            'user_id'=>'required',
             'url'=>'url',
             'l_url'=>'required|url',
             'g_url'=>'required|url'
@@ -132,7 +134,7 @@ class ProfileController extends BaseController
         if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors());
         }
-        for($x=0; $x<2; $x++)
+        for($x=0; $x<$c; $x++)
         {
             if($emailpart==$data[$x]){
 
@@ -141,7 +143,7 @@ class ProfileController extends BaseController
                 return $this->sendResponse(new ProfileResource($profile), 'profile updated successfully.');
             }
         }
-        if($x==2){
+        if($x==$c){
 
             return $this->sendError('Invalid email.');
         }

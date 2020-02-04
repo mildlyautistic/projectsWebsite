@@ -25,8 +25,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 Route::post('register', 'API\RegisterController@register');
 Route::post('login', 'API\RegisterController@login');
- */  
+ */
 Route::middleware('auth:api')->group( function () {
     Route::resource('profiles', 'API\ProfileController');
+    Route::get('/profile/show/{profileId}', 'API\ProfileController@show');
 });
 
