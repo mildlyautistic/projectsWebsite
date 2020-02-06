@@ -1,12 +1,12 @@
 <?php
-  
+
 namespace App;
 
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-  
+
 class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, Notifiable;
@@ -19,7 +19,7 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $fillable = [
         'name', 'email', 'password',
     ];
-  
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -47,5 +47,8 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasOne(Profile::class);
     }
-
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
 }
