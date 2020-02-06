@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Tag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
 use App\Article;
@@ -31,19 +32,8 @@ class ArticleController extends BaseController
     public function store(Request $request)
     {
         $input = $request->all();
-        $tags_c = $request->tags;
-        $tags_p = explode(',',$tags_c);
-        $cnt = count($tags_p);
-        for($x=0;$x<$cnt;$x++)
-        {
-            $tag = new App\Tag;
-            $tag->name = $tags_p[$x];
-            $tag->save();
-        }
-        $article = new Article($this->validateArticle());
-        $article->save();
-        $article->tags()->attach(request('tags'));
 
+        $article = Article::create($input);
 
         $validator = Validator::make($input, [
             'title' => 'required',
@@ -52,22 +42,23 @@ class ArticleController extends BaseController
             'featured_image_url' => 'url'
         ]);
 
-        /*if($request->hasFile('image')){
-            $image = $request->file('image');
-            $filename = time() . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(300, 300)->save( storage_path('/uploads/' . $filename ) );
-
-
-            $input->image = $filename;
-            $input->save();
-        }; */
-
-
         if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors());
         }
 
-        $article = Article::create($input);
+        $tags_string = $input['tags'];
+        $tags_array = explode(',', $tags_string);
+       $tag_id_array = array();
+
+        foreach($tags_array as $tag_all) {
+            $tag = new App\Tag;
+            $tag->name = $tag_all;
+            $tag->save();
+
+            array_push($tag_id_array, $tag->id);
+        }
+
+        $article->tags()->attach($tag_id_array);
 
         return $this->sendResponse(new ArticleResource($article), 'Article created successfully.');
     }
