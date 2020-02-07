@@ -37,7 +37,7 @@ class ArticleController extends BaseController
 
         if($aid!=$usid)
         {
-            //return $this->sendError('You cannot update this Article.');
+            
             return $this->sendError('Sorry, your user_id should be the id in which you are logged in.');
 
         }
@@ -51,11 +51,9 @@ class ArticleController extends BaseController
             'featured_image_url' => 'url'
         ]);
 
-
         if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors());
         }
-
 
         $tags_string = $input['tags'];
         $tags_array = explode(',', $tags_string);
@@ -101,15 +99,12 @@ class ArticleController extends BaseController
     public function update(Request $request, Article $article)
     {
         $input = $request->all();
-
         $aid =$request->user_id;
         $usid = auth()->user()->id;
 
         if($aid!=$usid)
         {
-            //return $this->sendError('You cannot update this Article.');
             return $this->sendError('Sorry, edit your own article.');
-
         }
         $article->tags()->detach();
 
@@ -125,7 +120,9 @@ class ArticleController extends BaseController
 
         $tags_string = $input['tags'];
         $tags_array = explode(',', $tags_string);
+
         $tag_id_array = array();
+
 
         foreach($tags_array as $tag_all) {
             $tag = new App\Tag;
@@ -139,13 +136,12 @@ class ArticleController extends BaseController
 
         $article->title = $input['title'];
         $article->body = $input['body'];
+        $article->tags = $input['tags'];
         $article->save();
 
         $article->update($this->validateArticle());
 
         return $this->sendResponse(new ArticleResource($article), 'Article updated successfully.');
-
-       // return $this->sendResponse(new ArticleResource($article), 'Article updated successfully.');
     }
 
     /**
@@ -168,7 +164,6 @@ class ArticleController extends BaseController
             'title' => 'required',
             'body' => 'required',
             'user_id' => 'required',
-
             'featured_image_url' => 'url'
 
         ]);
