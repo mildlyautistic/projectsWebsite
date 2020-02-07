@@ -122,9 +122,9 @@ class ProfileController extends BaseController
             'user_id'=>'required',
             'url'=>'url',
             'l_url'=>'required|url',
-            'g_url'=>'required|url'
+            'g_url'=>'required|url',
             //'about_me' => 'required',
-            //'likes' => 'required',
+            //'likes' => 'required'
             //'dislikes' => 'required'
         ]);
 

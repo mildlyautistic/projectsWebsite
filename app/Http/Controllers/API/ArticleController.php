@@ -32,6 +32,15 @@ class ArticleController extends BaseController
     public function store(Request $request)
     {
         $input = $request->all();
+        $aid =$input['user_id'];
+        $usid = auth()->user()->id;
+
+        if($aid!=$usid)
+        {
+            //return $this->sendError('You cannot update this Article.');
+            return $this->sendError('Sorry, your user_id should be the id in which you are logged in.');
+
+        }
 
         $article = Article::create($input);
 
@@ -42,13 +51,15 @@ class ArticleController extends BaseController
             'featured_image_url' => 'url'
         ]);
 
+
         if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors());
         }
 
+
         $tags_string = $input['tags'];
         $tags_array = explode(',', $tags_string);
-       $tag_id_array = array();
+        $tag_id_array = array();
 
         foreach($tags_array as $tag_all) {
             $tag = new App\Tag;
@@ -91,7 +102,6 @@ class ArticleController extends BaseController
     {
         $input = $request->all();
 
-
         $aid =$request->user_id;
         $usid = auth()->user()->id;
 
@@ -101,6 +111,7 @@ class ArticleController extends BaseController
             return $this->sendError('Sorry, edit your own article.');
 
         }
+        $article->tags()->detach();
 
         $validator = Validator::make($input, [
             'title' => 'required',
@@ -111,6 +122,20 @@ class ArticleController extends BaseController
         if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors());
         }
+
+        $tags_string = $input['tags'];
+        $tags_array = explode(',', $tags_string);
+        $tag_id_array = array();
+
+        foreach($tags_array as $tag_all) {
+            $tag = new App\Tag;
+            $tag->name = $tag_all;
+            $tag->save();
+
+            array_push($tag_id_array, $tag->id);
+        }
+
+        $article->tags()->attach($tag_id_array);
 
         $article->title = $input['title'];
         $article->body = $input['body'];

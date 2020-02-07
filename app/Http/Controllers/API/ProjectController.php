@@ -21,16 +21,30 @@ class ProjectController extends BaseController
     public function store(Request $request)
     {
         $input = $request->all();
-        $project = Project::create($input);
 
+        $proj_id =$input['user_id'];
+        $usid = auth()->user()->id;
+
+        if($proj_id!=$usid)
+        {
+            //return $this->sendError('You cannot update this Article.');
+            return $this->sendError('Sorry, your user_id should be the id in which you are logged in.');
+
+        }
+
+        $project = Project::create($input);
         $validator = Validator::make($input, [
 
+            'name' => 'required',
+           // 's_month',
+            //'e_month' ,
+            //'associated_with',
+            //'description' ,
+            'proj_url' => 'url',
+            'user_id' => 'required'
 
-
-            //'about_me' => 'required',
-            //'likes' => 'required',
-            //'dislikes' => 'required'
         ]);
+
 
         if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors());
@@ -46,16 +60,28 @@ class ProjectController extends BaseController
             return $this->sendError('Project not found.');
         }
 
-        return $this->sendResponse(new ProjectResource($project), 'Profile retrieved successfully.');
+        return $this->sendResponse(new ProjectResource($project), 'Project retrieved successfully.');
     }
 
 
     public function update(Request $request, Project $project)
     {
         $input = $request->all();
+        $proj_id =$request->user_id;
+        $usid = auth()->user()->id;
+
+        if($proj_id!=$usid)
+        {
+            //return $this->sendError('You cannot update this Article.');
+            return $this->sendError('Sorry, edit your own project.');
+
+        }
 
 
         $validator = Validator::make($input, [
+            'name' => 'required',
+            'proj_url' => 'url',
+            'user_id' => 'required'
 
 
         ]);
@@ -66,6 +92,17 @@ class ProjectController extends BaseController
         }
 
 
+
+        $project->name = $input['name'];
+        $project->s_month = $input['s_month'];
+        $project->s_year = $input['s_year'];
+        $project->e_month = $input['e_month'];
+        $project->e_year = $input['e_year'];
+        //$project->associated_with = $input['associated_with'];
+        $project->description = $input['description'];
+        $project->proj_url = $input['proj_url'];
+        $project->user_id=$input['user_id'];
+        $project->save();
 
         return $this->sendResponse(new ProjectResource($project), 'project updated successfully.');
 
@@ -79,10 +116,15 @@ class ProjectController extends BaseController
         return $this->sendResponse([], 'Project deleted successfully.');
     }
 
-    protected function validateProject()
+    /*protected function validateProject()
     {
         return request()->validate([
-
+            'name' => 'required',
+            // 's_month',
+            //'e_month' ,
+            //'associated_with',
+            //'description' ,
+            'proj_url' => 'url'
         ]);
-    }
+    } */
 }

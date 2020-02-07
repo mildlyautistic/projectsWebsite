@@ -28,6 +28,9 @@ Route::post('login', 'API\RegisterController@login');
  */
 Route::middleware('auth:api')->group( function () {
     Route::resource('profiles', 'API\ProfileController');
-    Route::get('/profile/show/{profileId}', 'API\ProfileController@show');
+   // Route::get('/profile/show/{profileId}', 'API\ProfileController@show');
 });
 
+Route::middleware('auth:api')->group( function () {
+    Route::resource('projects', 'API\ProjectController');
+});
