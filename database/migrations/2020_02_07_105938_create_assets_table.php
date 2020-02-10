@@ -21,17 +21,6 @@ class CreateAssetsTable extends Migration
             $table->timestamps();
         });
 
-        Schema::create('asset_project', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('project_id');
-            $table->unsignedBigInteger('asset_id');
-            $table->timestamps();
-
-            $table->unique(['project_id', 'asset_id']);
-
-            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
-            $table->foreign('asset_id')->references('id')->on('assets')->onDelete('cascade');
-        });
     }
 
     /**
