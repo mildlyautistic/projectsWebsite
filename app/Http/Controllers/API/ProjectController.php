@@ -49,7 +49,7 @@ class ProjectController extends BaseController
         if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors());
         }
-        return $this->sendResponse(new ProjectResource($project), 'project updated successfully.');
+        return $this->sendResponse(new ProjectResource($project), 'project created successfully.');
     }
 
     public function show($id)

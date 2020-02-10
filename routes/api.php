@@ -34,3 +34,7 @@ Route::middleware('auth:api')->group( function () {
 Route::middleware('auth:api')->group( function () {
     Route::resource('projects', 'API\ProjectController');
 });
+
+Route::middleware('auth:api')->group( function () {
+    Route::resource('assets', 'API\AssetController');
+});
