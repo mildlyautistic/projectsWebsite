@@ -20,6 +20,7 @@ class CreateAssetsTable extends Migration
             $table->string('project_url');
             $table->timestamps();
         });
+
     }
 
     /**

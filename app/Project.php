@@ -14,7 +14,7 @@ class Project extends Model
     }
     public function assets()
     {
-        return $this->belongsTo(Asset::class);
+        return $this->belongsToMany(Asset::class,'asset_project');
     }
 
 }
