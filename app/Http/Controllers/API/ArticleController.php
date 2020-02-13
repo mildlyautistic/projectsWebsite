@@ -32,8 +32,6 @@ class ArticleController extends BaseController
 
         }
 
-        $article = Article::create($input);
-
         $validator = Validator::make($input, [
             'title' => 'required',
             'body' => 'required',
@@ -44,6 +42,9 @@ class ArticleController extends BaseController
         if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors());
         }
+
+        $article = Article::create($input);
+
         $tags_string = $input['tags'];
         $tags_array = explode(',', $tags_string);
         $tag_id_array = array();
@@ -103,7 +104,9 @@ class ArticleController extends BaseController
             array_push($tag_id_array, $tag->id);
         }
         $article->tags()->sync($tag_id_array);
+
         $article->title = $input['title'];
+        $article->excerpt = $input['excerpt'];
         $article->body = $input['body'];
         $article->tags = $input['tags'];
         $article->excerpt=$input['excerpt'];

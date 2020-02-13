@@ -23,8 +23,6 @@ class AssetController extends BaseController
     {
         $input = $request->all();
 
-        $asset = Asset::create($input);
-
         $validator = Validator::make($input, [
             'location' => 'required',
             'type' => 'required',
@@ -34,6 +32,8 @@ class AssetController extends BaseController
         if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors());
         }
+
+        $asset = Asset::create($input);
 
 
         return $this->sendResponse(new AssetResource($asset), 'Asset created successfully.');
