@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\API;
-
+use App\Asset;
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
 use App\Project;
+use App;
 use Validator;
 use App\Http\Resources\Project as ProjectResource;
 
@@ -45,6 +46,14 @@ class ProjectController extends BaseController
 
         ]);
 
+        $asset=Asset::all('id');
+        //return $asset;
+       // $asset_id_array = array();
+        //array_push($asset_id_array, $asset);
+        //$project->assets()->attach($asset_id_array);
+        foreach($asset as $asset_id){
+            $project->assets()->attach($asset_id->id);
+        }
 
         if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors());

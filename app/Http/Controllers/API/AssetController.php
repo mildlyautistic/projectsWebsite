@@ -14,7 +14,7 @@ class AssetController extends BaseController
 {
     public function index()
     {
-        $assets = Article::all();
+        $assets = Asset::all();
 
         return $this->sendResponse(AssetResource::collection($assets), 'Assets retrieved successfully.');
     }
