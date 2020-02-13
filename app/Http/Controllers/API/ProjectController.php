@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Asset;
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
 use App\Project;
+use App;
 use Validator;
 use App\Http\Resources\Project as ProjectResource;
 
@@ -27,12 +29,9 @@ class ProjectController extends BaseController
 
         if($proj_id!=$usid)
         {
-            //return $this->sendError('You cannot update this Article.');
             return $this->sendError('Sorry, your user_id should be the id in which you are logged in.');
-
         }
 
-        $project = Project::create($input);
         $validator = Validator::make($input, [
 
             'name' => 'required',
@@ -49,6 +48,15 @@ class ProjectController extends BaseController
         if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors());
         }
+
+        $project = Project::create($input);
+
+        $asset = Asset::all('id');
+        foreach($asset as $asset_id)
+        {
+            $project->assets()->attach($asset_id->id);
+        }
+
         return $this->sendResponse(new ProjectResource($project), 'project created successfully.');
     }
 
@@ -72,9 +80,7 @@ class ProjectController extends BaseController
 
         if($proj_id!=$usid)
         {
-            //return $this->sendError('You cannot update this Article.');
             return $this->sendError('Sorry, edit your own project.');
-
         }
 
 

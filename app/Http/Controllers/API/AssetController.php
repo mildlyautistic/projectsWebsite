@@ -14,7 +14,7 @@ class AssetController extends BaseController
 {
     public function index()
     {
-        $assets = Article::all();
+        $assets = Asset::all();
 
         return $this->sendResponse(AssetResource::collection($assets), 'Assets retrieved successfully.');
     }
@@ -22,8 +22,6 @@ class AssetController extends BaseController
     public function store(Request $request)
     {
         $input = $request->all();
-
-        $asset = Asset::create($input);
 
         $validator = Validator::make($input, [
             'location' => 'required',
@@ -34,6 +32,8 @@ class AssetController extends BaseController
         if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors());
         }
+
+        $asset = Asset::create($input);
 
 
         return $this->sendResponse(new AssetResource($asset), 'Asset created successfully.');

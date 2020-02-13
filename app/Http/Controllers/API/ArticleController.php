@@ -18,7 +18,7 @@ class ArticleController extends BaseController
 
         return $this->sendResponse(ArticleResource::collection($articles), 'Articles retrieved successfully.');
     }
-    
+
     public function store(Request $request)
     {
         $input = $request->all();
@@ -32,8 +32,6 @@ class ArticleController extends BaseController
 
         }
 
-        $article = Article::create($input);
-
         $validator = Validator::make($input, [
             'title' => 'required',
             'body' => 'required',
@@ -44,6 +42,9 @@ class ArticleController extends BaseController
         if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors());
         }
+
+        $article = Article::create($input);
+
         $tags_string = $input['tags'];
         $tags_array = explode(',', $tags_string);
         $tag_id_array = array();
@@ -82,7 +83,8 @@ class ArticleController extends BaseController
         {
             return $this->sendError('Sorry, edit your own article.');
         }
-        $article->tags()->detach();
+
+       // $article->tags()->detach();
 
         $validator = Validator::make($input, [
             'title' => 'required',
@@ -103,8 +105,10 @@ class ArticleController extends BaseController
             $tag->save();
             array_push($tag_id_array, $tag->id);
         }
-        $article->tags()->attach($tag_id_array);
+        $article->tags()->sync($tag_id_array);
+
         $article->title = $input['title'];
+        $article->excerpt = $input['excerpt'];
         $article->body = $input['body'];
         $article->tags = $input['tags'];
         $article->save();
