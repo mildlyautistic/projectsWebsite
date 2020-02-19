@@ -16,7 +16,8 @@ class ArticleController extends BaseController
     {
         $articles = Article::all();
 
-        return $this->sendResponse(ArticleResource::collection($articles), 'Articles retrieved successfully.');
+        //return $this->sendResponse(ArticleResource::collection($article), 'Articles retrieved successfully.');
+        return view('article.index', ['article' => $articles]);
     }
 
     public function store(Request $request)
@@ -59,7 +60,9 @@ class ArticleController extends BaseController
 
         $article->tags()->attach($tag_id_array);
 
-        return $this->sendResponse(new ArticleResource($article), 'Article created successfully.');
+       // return $this->sendResponse(new ArticleResource($article), 'Article created successfully.');
+        return view('article.create', ['article' => $article]);
+       // return redirect(route('article.index'));
     }
 
     public function show($id)
@@ -70,7 +73,8 @@ class ArticleController extends BaseController
             return $this->sendError('Article not found.');
         }
 
-        return $this->sendResponse(new ArticleResource($article), 'Article retrieved successfully.');
+        //return $this->sendResponse(new ArticleResource($article), 'Article retrieved successfully.');
+        return view('article.show', ['article' => $article]);
     }
 
     public function update(Request $request, Article $article)
@@ -112,14 +116,23 @@ class ArticleController extends BaseController
         $article->excerpt=$input['excerpt'];
         $article->save();
         $article->update($this->validateArticle());
-        return $this->sendResponse(new ArticleResource($article), 'Article updated successfully.');
+        //return $this->sendResponse(new ArticleResource($article), 'Article updated successfully.');
+        return redirect($article->path());
     }
 
     public function destroy(Article $article)
     {
         $article->delete();
 
-        return $this->sendResponse([], 'Article deleted successfully.');
+       // return $this->sendResponse([], 'Article deleted successfully.');
+        return view('article.show', ['article' => $article]);
+    }
+
+    public function edit(Article $article)
+    {
+        return view('article.edit', ['article' => $article]);
+        //find the article associated with the id
+
     }
 
     protected function validateArticle()

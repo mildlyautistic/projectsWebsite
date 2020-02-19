@@ -26,7 +26,7 @@ class CreateArticlesTable extends Migration
 
     {
 
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create('article', function (Blueprint $table) {
 
             $table->bigIncrements('id');
 
@@ -68,7 +68,7 @@ class CreateArticlesTable extends Migration
 
     {
 
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists('article');
 
     }
 
