@@ -15,4 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/profile/show/{profileId}', 'API\ProfileController');
+//Route::resource('/profile/show/{profileId}', 'API\ProfileController');
+Route::get('/contact', function () {
+    return view('contact');
+});
+Route::get('/about', function () {
+    return view('about');
+});
+Route::get('/tour', function () {
+    return view('tour');
+});
