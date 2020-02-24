@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Allps Template</title>
+    <title>Allps Digital</title>
     <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
     <!-- Bulma Version 0.8.x-->
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
@@ -21,8 +21,8 @@
 
 <nav class="navbar is-dark">
     <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
-            <img src="https://media-exp1.licdn.com/dms/image/C560BAQFUuSqW6xc71Q/company-logo_200_200/0?e=2159024400&v=beta&t=B49cbspR92zuQ38j1qCiZBox6wKzLGl9N-NqJKQqc2M" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+        <a class="navbar-item" href="/">
+            <img src="https://media-exp1.licdn.com/dms/image/C560BAQFUuSqW6xc71Q/company-logo_200_200/0?e=2159024400&v=beta&t=B49cbspR92zuQ38j1qCiZBox6wKzLGl9N-NqJKQqc2M" alt="Allps Logo" width="40" height="60">
         </a>
         <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
             <span></span>
@@ -39,8 +39,8 @@
             <a class="navbar-item" href="/about" accesskey="2" title="">
                 About Us
             </a>
-            <a class="navbar-item" href="/tour" accesskey="3" title="">
-                Tour
+            <a class="navbar-item" href="/press" accesskey="3" title="">
+                Press
             </a>
             <a class="navbar-item" href="/contact" accesskey="4" title="">
                 Contact
