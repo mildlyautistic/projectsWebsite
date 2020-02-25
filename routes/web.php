@@ -15,15 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::resource('/profile/show/{profileId}', 'API\ProfileController');
+//Route::resource('/articles/show}', 'API\ArticleController');
 
 
-Route::get('/article', 'API\ArticleController@index')->name('article.index');
-Route::post('/article','API\ArticleController@store');
-Route::get('/article/create','API\ArticleController@create');
-Route::get('/article/{article}','API\ArticleController@show')->name('article.show');
-Route::get('/article/{article}/edit','API\ArticleController@edit');
-Route::put('/article/{article}','API\ArticleController@update');
+Route::get('/articles', 'API\ArticleController@index')->name('articles.index');
+Route::post('/articles','API\ArticleController@store');
+Route::get('/articles/create','API\ArticleController@create');
+Route::get('/articles/{articles}','API\ArticleController@show')->name('articles.show');
+Route::get('/articles/{articles}/edit','API\ArticleController@edit');
+Route::put('/articles/{articles}','API\ArticleController@update');
 //Route::resource('/profile/show/{profileId}', 'API\ProfileController');
 Route::get('/contact', function () {
     return view('contact');

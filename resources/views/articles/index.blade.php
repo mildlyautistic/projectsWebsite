@@ -4,6 +4,7 @@
 
     <div id = "wrapper" >
         <div id="page" class="container">
+            <h1 class="title">Articles</h1>
 
             @forelse ($article as $articles)
                 <div id="content">

@@ -17,15 +17,15 @@ class ArticleController extends BaseController
     {
         $articles = Article::all();
 
-        //return $this->sendResponse(ArticleResource::collection($article), 'Articles retrieved successfully.');
-        return view('article.index', ['article' => $articles]);
+        //return $this->sendResponse(ArticleResource::collection($articles), 'Articles retrieved successfully.');
+        return view('articles.index', ['articles' => $articles]);
     }
 
     public function create()
     {
-
-        return view('article.create', ['tags' => Tag::all()]);
+        return view('articles.create', ['tags' => Tag::all()]);
     }
+
 
     public function store(Request $request)
     {
@@ -68,7 +68,7 @@ class ArticleController extends BaseController
         $article->tags()->attach($tag_id_array);
 
        // return $this->sendResponse(new ArticleResource($article), 'Article created successfully.');
-        return view('article.show', ['article' => $article]);
+        return view('articles.show', ['article' => $article]);
        // return redirect(route('article.index'));
     }
 
@@ -80,8 +80,8 @@ class ArticleController extends BaseController
             return $this->sendError('Article not found.');
         }
 
-        //return $this->sendResponse(new ArticleResource($article), 'Article retrieved successfully.');
-        return view('article.show', ['article' => $article]);
+        //return $this->sendResponse(new ArticleResource($articles), 'Article retrieved successfully.');
+        return view('articles.show', ['articles' => $article]);
     }
 
     public function update(Request $request, Article $article)
@@ -92,7 +92,7 @@ class ArticleController extends BaseController
 
         if($aid!=$usid)
         {
-            return $this->sendError('Sorry, edit your own article.');
+            return $this->sendError('Sorry, edit your own articles.');
         }
 
         $validator = Validator::make($input, [
@@ -123,7 +123,7 @@ class ArticleController extends BaseController
         $article->excerpt=$input['excerpt'];
         $article->save();
         $article->update($this->validateArticle());
-        //return $this->sendResponse(new ArticleResource($article), 'Article updated successfully.');
+        //return $this->sendResponse(new ArticleResource($articles), 'Article updated successfully.');
         return redirect($article->path());
     }
 
@@ -132,13 +132,13 @@ class ArticleController extends BaseController
         $article->delete();
 
        // return $this->sendResponse([], 'Article deleted successfully.');
-        return view('article.show', ['article' => $article]);
+        return view('articles.show', ['articles' => $article]);
     }
 
     public function edit(Article $article)
     {
-        return view('article.edit', ['article' => $article]);
-        //find the article associated with the id
+        return view('articles.edit', ['articles' => $article]);
+        //find the articles associated with the id
 
     }
 

@@ -11,6 +11,21 @@
             <form method="POST" action="/article">
                 @csrf
                 <div class="field">
+                    <label class="label" for="user_id">User_ID</label>
+
+                    <div class="control">
+                        <input class="input @error('user_id') is-danger @enderror"
+                               type="text"
+                               name="user_id"
+                               id="user_id"
+                               value="{{ old('user_id') }}" >
+                        @error('user_id')
+                        <p class="help is-danger">{{ $errors->first('user_id') }}</p>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="field">
                     <label class="label" for="title">Title</label>
 
                     <div class="control">

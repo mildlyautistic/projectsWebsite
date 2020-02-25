@@ -10,7 +10,7 @@ class Article extends Model
 
     public function path()
     {
-        return route('article.show', $this);
+        return route('articles.show', $this);
     }
 
     public function user()
