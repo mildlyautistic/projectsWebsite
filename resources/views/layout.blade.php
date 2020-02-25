@@ -13,7 +13,18 @@
 
     <link href="default.css" rel="stylesheet"/>
     <link href="fonts.css" rel="stylesheet" />
-
+    <style>
+    body  {
+    background-image: url("Images/banner.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    }
+    footer{
+        background-image: url("Images/banner.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    </style>
 
 </head>
 
@@ -21,8 +32,8 @@
 
 <nav class="navbar is-dark">
     <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
-            <img src="https://media-exp1.licdn.com/dms/image/C560BAQFUuSqW6xc71Q/company-logo_200_200/0?e=2159024400&v=beta&t=B49cbspR92zuQ38j1qCiZBox6wKzLGl9N-NqJKQqc2M" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+        <a class="navbar-item" href="/">
+            <img src="https://media-exp1.licdn.com/dms/image/C560BAQFUuSqW6xc71Q/company-logo_200_200/0?e=2159024400&v=beta&t=B49cbspR92zuQ38j1qCiZBox6wKzLGl9N-NqJKQqc2M" alt="Allps" width="40" height="60">
         </a>
         <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
             <span></span>
@@ -33,14 +44,14 @@
 
     <div id="navbarExampleTransparentExample" class="navbar-menu">
         <div class="navbar-start">
-            <a class="navbar-item" href="/" accesskey="1" title="">
+            <a class="navbar-item " href="/" accesskey="1" title="">
                 Home
             </a>
             <a class="navbar-item" href="/about" accesskey="2" title="">
                 About Us
             </a>
-            <a class="navbar-item" href="/tour" accesskey="3" title="">
-                Tour
+            <a class="navbar-item" href="/press" accesskey="3" title="">
+                Press
             </a>
             <a class="navbar-item" href="/contact" accesskey="4" title="">
                 Contact
@@ -74,6 +85,50 @@
         </div>
     </div>
 </nav>
+
+<!--<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Times;
+        font-size: 20px;
+    }
+
+    #myVideo {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+    }
+
+    .content {
+        position: fixed;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        color: #f1f1f1;
+        width: 100%;
+        padding: 20px;
+    }
+
+    #myBtn {
+        width: 200px;
+        font-size: 18px;
+        padding: 10px;
+        border: none;
+        background: #000;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    #myBtn:hover {
+        background: #ddd;
+        color: black;
+    }
+</style>-->
 
 
 @yield('content')

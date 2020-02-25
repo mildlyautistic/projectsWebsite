@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Tag;
 use Illuminate\Http\Request;
+
 use App\Http\Controllers\API\BaseController as BaseController;
 use App\Article;
 use App;
@@ -18,6 +19,12 @@ class ArticleController extends BaseController
 
         //return $this->sendResponse(ArticleResource::collection($article), 'Articles retrieved successfully.');
         return view('article.index', ['article' => $articles]);
+    }
+
+    public function create()
+    {
+
+        return view('article.create', ['tags' => Tag::all()]);
     }
 
     public function store(Request $request)
@@ -61,7 +68,7 @@ class ArticleController extends BaseController
         $article->tags()->attach($tag_id_array);
 
        // return $this->sendResponse(new ArticleResource($article), 'Article created successfully.');
-        return view('article.create', ['article' => $article]);
+        return view('article.show', ['article' => $article]);
        // return redirect(route('article.index'));
     }
 
