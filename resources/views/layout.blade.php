@@ -130,7 +130,6 @@
     }
 </style>-->
 
-
 @yield('content')
 </body>
 

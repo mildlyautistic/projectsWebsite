@@ -17,7 +17,9 @@ class ProjectController extends BaseController
     {
         $projects = Project::all();
 
-        return $this->sendResponse(ProjectResource::collection($projects), 'Projects retrieved successfully.');
+        return view('projects');
+
+       // return $this->sendResponse(ProjectResource::collection($projects), 'Projects retrieved successfully.');
     }
 
     public function store(Request $request)
@@ -61,7 +63,9 @@ class ProjectController extends BaseController
             $project->assets()->attach($asset_id->id);
         }
 
-        return $this->sendResponse(new ProjectResource($project), 'project created successfully.');
+        return response()->json($project);
+
+        //return $this->sendResponse(new ProjectResource($project), 'project created successfully.');
     }
 
     public function show($id)
@@ -72,7 +76,9 @@ class ProjectController extends BaseController
             return $this->sendError('Project not found.');
         }
 
-        return $this->sendResponse(new ProjectResource($project), 'Project retrieved successfully.');
+        return response()->json($project);
+
+       // return $this->sendResponse(new ProjectResource($project), 'Project retrieved successfully.');
     }
 
 
@@ -114,7 +120,9 @@ class ProjectController extends BaseController
         $project->user_id=$input['user_id'];
         $project->save();
 
-        return $this->sendResponse(new ProjectResource($project), 'project updated successfully.');
+        return response()->json($project);
+
+        //return $this->sendResponse(new ProjectResource($project), 'project updated successfully.');
 
     }
 
@@ -123,7 +131,9 @@ class ProjectController extends BaseController
     {
         $project->delete();
 
-        return $this->sendResponse([], 'Project deleted successfully.');
+        return response()->json("ok");
+
+        //return $this->sendResponse([], 'Project deleted successfully.');
     }
 
     /*protected function validateProject()
