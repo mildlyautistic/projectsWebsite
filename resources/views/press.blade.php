@@ -7,9 +7,11 @@
             border-radius: 5px;
             margin-bottom: 50px;
         }
+
         .panel.radius {
             border-radius: 3px;
         }
+
         .panel.callout {
             border-style: solid;
             border-width: 1px;
@@ -19,45 +21,56 @@
             background: #f2fafc;
             color: #333;
         }
+
         .panel {
             border-style: solid;
             border-width: 1px;
             border-color: #d8d8d8;
+            text-align: left;
             margin-bottom: 10px;
             padding: 5px;
             background: #f2f2f2;
             color: #333;
         }
+
         div.logo {
             text-align: left;
             font-size: x-large;
             padding: 15px;
         }
+
         div.tile {
             width: 300px;
         }
+
         div.tile:hover {
             box-shadow: 0 0 15px #939393;
         }
+
         .title {
             font-size: 25px;
         }
+
         .subtitle {
             font-size: 18px;
         }
+
         .download-checkbox:hover {
             box-shadow: 0 0 15px #91e3e8;
         }
+
         .condition {
             padding-top: 5px;
             font-size: 15px;
         }
+
         .column {
             float: left;
             width: 30%;
             padding: 5px;
             /* height: 300px;*/ /* Should be removed. Only for demonstration */
         }
+
         /* Clear floats after the columns */
         .row:after {
             content: "";
@@ -65,11 +78,13 @@
             clear: both;
             padding: 60px;
         }
+
         div.name {
             text-align: left;
             font-size: x-large;
             padding: 15px;
         }
+
         a.button, a:visited.button {
             color: #fff;
             bottom: -20px;
@@ -77,10 +92,12 @@
             border-bottom-right-radius: .3em;
             border-bottom-left-radius: .3em;
         }
+
         .download-button:hover {
             background-color: #e8e8e8;
             box-shadow: 0 0 15px #939393;
         }
+
         @media only screen and (min-width: 40.0625em) {
             .button {
                 -webkit-appearance: none;
@@ -89,7 +106,7 @@
                 border-style: solid;
                 border-width: 0;
                 cursor: pointer;
-                font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+                font-family: "Noto Sans", sans-serif;
                 font-weight: 400;
                 line-height: normal;
                 margin: 0 0 1.25rem;
@@ -97,48 +114,58 @@
                 text-align: center;
                 text-decoration: none;
                 display: inline-block;
-                padding: 1rem 2rem 1.0625rem;
+                padding: 10px 20px;
                 font-size: 1rem;
                 background-color: #2ba6cb;
                 border-color: #2285a2;
                 color: #fff;
                 transition: background-color .3s ease-out;
             }
+
             a, a:visited {
                 color: #128c7e;
                 text-decoration: none;
             }
+
             a {
                 background-color: transparent;
             }
+
             .naming-usage-box {
                 margin-top: 25px;
             }
+
             .naming-icon {
                 top: 20px;
                 right: 135px;
                 position: relative;
             }
+
             .naming-icon img {
                 width: 38px;
             }
+
             img {
                 display: inline-block;
                 vertical-align: middle;
             }
+
             img {
                 max-width: 100%;
                 height: auto;
             }
+
             img, legend {
                 border: 0;
             }
+
             .naming-caption {
                 margin-left: -25px;
                 position: relative;
                 left: 20px;
                 top: -5px;
             }
+
             .naming-caption-header {
                 font-size: 20px;
                 font-weight: 400;
@@ -147,6 +174,7 @@
                 top: 15px;
                 right: 110px;
             }
+
             .naming-caption-text {
                 display: inline-block;
                 margin-left: 25px;
@@ -158,15 +186,18 @@
                 text-align: left;
                 padding-left: 15px;
             }
+
             div.color {
                 text-align: left;
                 font-size: x-large;
                 padding: 15px;
             }
+
             .color-caption > h5 {
                 margin-top: 10px;
                 margin-bottom: 5px;
             }
+
             h2 {
                 color: #555;
                 font-size: 26px;
@@ -175,6 +206,7 @@
                 margin-top: 20px;
                 margin-bottom: 30px;
             }
+
             h2 {
                 display: block;
                 font-size: 1.5em;
@@ -184,6 +216,7 @@
                 margin-inline-end: 0;
                 font-weight: bold;
             }
+
             h5 {
                 color: #555;
                 font-size: 40px;
@@ -192,6 +225,7 @@
                 margin-bottom: -16px;
                 padding-top: 90px;
             }
+
             h5 {
                 display: block;
                 font-size: 20px;
@@ -201,6 +235,7 @@
                 margin-inline-end: 0;
                 text-align: left;
             }
+
             .color-caption p {
                 color: #555;
                 font-weight: 300;
@@ -209,6 +244,7 @@
                 margin-top: 4px;
                 line-height: 22px;
             }
+
             .color-swatch {
                 height: 115px;
                 width: 200px;
@@ -218,73 +254,89 @@
                 margin-top: 5px;
                 padding-top: 30px;
             }
+
             div.screenshot {
                 text-align: left;
                 font-size: x-large;
                 padding: 15px;
             }
+
             .screenshots-platforms ul {
                 list-style-type: none;
             }
+
             .tabs {
                 margin-left: -70px;
             }
+
             .tabs {
                 margin-bottom: 0 !important;
                 margin-left: 0;
             }
+
             ul {
                 display: block;
                 list-style-type: disc;
                 padding-inline-start: 40px;
             }
+
             .tabs:after {
                 clear: both;
             }
+
             .tabs:before, .tabs:after {
                 content: " ";
                 display: table;
             }
+
             .tabs .tab-title {
                 display: inline !important;
                 background-color: transparent !important;
             }
+
             .tabs dd, .tabs .tab-title {
                 float: left;
                 list-style: none;
                 margin-bottom: 0 !important;
                 position: relative;
             }
+
             .screenshots-platforms li {
                 display: inline;
             }
+
             .tab-title {
                 color: #bababa;
             }
+
             .tabs dd.active a, .tabs .tab-title.active a {
                 background-color: #fff;
                 color: #222;
             }
+
             .tab-title.active a {
                 color: #8b8b8b !important;
                 background-color: transparent !important;
             }
+
             .tabs dd > a, .tabs .tab-title > a {
                 display: block;
                 background-color: #efefef;
                 color: #222;
-                font-family: Roboto, Arial, sans-serif;
+                font-family: "Noto Sans", sans-serif;
                 font-size: 1rem;
                 padding: 1rem 2rem;
             }
+
             .tabs dd > a, .tabs .tab-title > a {
                 display: block;
                 background-color: #efefef;
                 color: #222;
-                font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+                font-family: "Noto Sans", sans-serif;
                 font-size: 1rem;
                 padding: 1rem 2rem;
             }
+
             .screenshots-platforms a {
                 color: #00bfa5 !important;
                 font-size: 18px !important;
@@ -293,6 +345,7 @@
                 padding-left: 10px !important;
                 font-weight: 300;
             }
+
             .screenshot-block {
                 border-top-left-radius: 5px;
                 border-top-right-radius: 5px;
@@ -304,17 +357,20 @@
                 margin-bottom: 30px;
                 padding: 10px;
             }
+
             .screenshot-copy {
                 margin-top: 0;
                 padding-top: 0;
                 padding-left: 81px;
             }
+
             .screenshot-copy h5 {
                 margin-top: 20px;
                 font-weight: 400;
                 font-size: 20px;
                 color: #555555;
             }
+
             .screenshot-overlay {
                 position: relative;
                 bottom: 0;
@@ -326,6 +382,7 @@
                 border-radius: 5px;
                 color: #555555;
             }
+
             .screenshot-overlay p {
                 background-color: #fff;
                 font-size: 15px;
@@ -338,55 +395,68 @@
                 width: 85%;
                 margin-right: 20px;
             }
+
             .screenshot-download-checkbox {
                 margin-right: 6px !important;
                 zoom: 1.2;
                 position: relative;
                 bottom: 0;
             }
+
             .screenshot-download-checkbox:hover {
                 box-shadow: 0 0 15px #91e3e8;
             }
+
             .screenshot-download-button {
                 background-color: #e8e8e8;
                 bottom: -10px;
                 margin-left: -30px;
                 width: 100% !important;
             }
+
             .screenshot-download-button:hover {
                 background-color: #e8e8e8;
                 box-shadow: 0 0 15px #939393;
             }
+
             div.promote {
                 text-align: left;
                 font-size: x-large;
                 padding: 15px;
             }
+
             a, a:visited {
                 color: #128c7e;
                 text-decoration: none;
             }
+
             a {
                 background-color: transparent;
             }
+
             .dot {
                 padding-right: 20px;
                 font-size: 18px;
             }
+
             li {
                 text-align: -webkit-match-parent;
             }
+
             .screenshots-platforms ul {
                 list-style-type: none;
             }
+
             ul {
                 list-style-type: disc;
             }
+
             .get strong {
                 color: #128c7e;
                 font-weight: 300;
                 text-align: left;
             }
+
             .get span {
                 margin-left: 96px;
                 font-size: 14px;
@@ -394,20 +464,24 @@
                 left: 100px;
                 position: relative;
             }
+
             .get img {
                 margin-right: 5px;
                 margin-top: -2px;
             }
+
             div.brand_guidelines {
                 text-align: left;
                 font-size: x-large;
                 padding: 15px;
             }
+
             div.legal-details {
                 text-align: left;
                 font-size: x-large;
                 padding: 15px;
             }
+
             #brand-guidelines h3 {
                 font-size: 22px;
                 font-weight: 300;
@@ -415,51 +489,57 @@
                 margin-bottom: -5px;
                 letter-spacing: .01em;
             }
+
             h3 {
-                font-size: 18px;
+                color: #555555;
+                font-size: 40px;
                 font-weight: 400;
                 letter-spacing: .01em;
                 margin-top: 30px;
-                margin-bottom: 15px;
+                margin-bottom: -15px;
+                padding-top: 90px;
             }
+
             h3 {
                 display: block;
-                font-size: 1.17em;
-                margin-block-start: 1em;
+                font-size: 20px;
+                margin-block-start: 1.67em;
                 margin-block-end: 1em;
                 margin-inline-start: 0;
                 margin-inline-end: 0;
-                font-weight: bold;
             }
+
             #guidelines-more {
                 text-align: center;
                 color: #00bfa5;
                 font-size: 22px;
                 font-weight: 300;
                 cursor: pointer;
-                cursor: hand;
             }
+
             #guidelines-less {
                 text-align: center;
                 color: #00bfa5;
                 font-size: 22px;
                 font-weight: 300;
-                cursor: pointer;
                 cursor: hand;
             }
+
             body {
                 background-color: #f0f0f0;
                 color: #8a8a8a;
-                font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                font-family: "Noto Sans", sans-serif;
             }
+
             body {
                 background: #fff;
                 color: #222;
                 cursor: auto;
-                font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+                font-family: "Noto Sans" , sans-serif;
                 font-style: normal;
                 font-weight: 400;
                 line-height: 1.5;
+                text-align: left;
                 margin: 0;
                 padding: 0;
                 position: relative;
@@ -493,6 +573,7 @@
                                         alt="Allps Logo" style="width: 200px; height: 150px; padding-left: 40px">
                                 </figure>
                                 <div class="logotype-caption" style="opacity: 1;">
+
                                     <p class="title">Allps Logo</p>
                                     <p class="subtitle">Use this whenever possible.</p>
                                 </div>
@@ -690,9 +771,8 @@
             <div class="screenshots-platforms">
                 <ul class="tabs main" data-tab>
                     <li class="tab-title active">
-                        <a href="#panel-android" style="display:inline; background-color: transparent;"
-                           aria-selected="true" tabindex="0">Android</a>
-                        <span class="dot">.</span>
+                        <a href="#panel-android" style="display:inline; background-color: transparent;" tabindex="0">Android</a>
+                            <span class="dot">.</span>
                     </li>
                     <li class="tab-title">
                         <a href="#panel-ios" style="display:inline; background-color: transparent;"
@@ -712,305 +792,307 @@
                 </ul>
             </div>
 
-            <div class="row">
-                <div class="tabs-content">
-                    <div id="panel-android" class="content active" aria-hidden="false">
-                        <div class="column">
-                            <div class="screenshot-block" style="background-color:rgba(255,255,255,0);">
-                                <div class="screenshot-box">
-                                    <img
-                                        src="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/images/chat-thumb-android-1.png"
-                                        alt style="width: 270px; height: 450px">
-                                </div>
-                                <div class="screenshot-copy">
-                                    <h5>Chats</h5>
-                                    <p></p>
-                                </div>
-                                <div class="screenshot-overlay" style="opacity:1;">
-                                    <p>
-                                        <label>
-                                            <input class="screenshot-download-checkbox" type="checkbox">
-                                        </label>
-                                        I have read and agree to the <a
-                                            href="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/downloads/WhatsApp-Brand-Guidelines-Optimized.pdf"
-                                            target="_blank">usage guidelines.</a>
-                                    </p>
-                                    <a onclick="" class="button screenshot-download-button"
-                                       style="background-color: rgb(255,45,75);">Download</a>
-                                </div>
+        <div class="row">
+            <div class="tabs-content">
+                <div id="panel-android" class="content active" aria-hidden="false">
+                    <div class="column">
+                        <div class="screenshot-block" style="background-color:rgba(255,255,255,0);">
+                            <div class="screenshot-box">
+                                <img
+                                    src="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/images/chat-thumb-android-1.png"
+                                    alt style="width: 270px; height: 450px">
+                            </div>
+                            <div class="screenshot-copy">
+                                <h5>Chats</h5>
+                                <p></p>
+                            </div>
+                            <div class="screenshot-overlay" style="opacity:1;">
+                                <p>
+                                    <label>
+                                        <input class="screenshot-download-checkbox" type="checkbox">
+                                    </label>
+                                    I have read and agree to the <a
+                                        href="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/downloads/WhatsApp-Brand-Guidelines-Optimized.pdf"
+                                        target="_blank">usage guidelines.</a>
+                                </p>
+                                <a onclick="" class="button screenshot-download-button"
+                                   style="background-color: rgb(255,45,75);">Download</a>
                             </div>
                         </div>
-                        <div class="column">
-                            <div class="screenshot-block" style="background-color:rgba(255,255,255,0);">
-                                <div class="screenshot-box">
-                                    <img
-                                        src="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/images/photo-thumb-android-2.png"
-                                        alt style="width: 270px; height: 450px">
-                                </div>
-                                <div class="screenshot-copy">
-                                    <h5>Photo and video sending</h5>
-                                    <p></p>
-                                </div>
-                                <div class="screenshot-overlay" style="opacity:1;">
-                                    <p>
-                                        <label>
-                                            <input class="screenshot-download-checkbox" type="checkbox">
-                                        </label>
-                                        I have read and agree to the <a
-                                            href="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/downloads/WhatsApp-Brand-Guidelines-Optimized.pdf"
-                                            target="_blank">usage guidelines.</a>
-                                    </p>
-                                    <a onclick="" class="button screenshot-download-button"
-                                       style="background-color: rgb(255,45,75);">Download</a>
-                                </div>
+                    </div>
+                    <div class="column">
+                        <div class="screenshot-block" style="background-color:rgba(255,255,255,0);">
+                            <div class="screenshot-box">
+                                <img
+                                    src="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/images/photo-thumb-android-2.png"
+                                    alt style="width: 270px; height: 450px">
+                            </div>
+                            <div class="screenshot-copy">
+                                <h5>Photo and video sending</h5>
+                                <p></p>
+                            </div>
+                            <div class="screenshot-overlay" style="opacity:1;">
+                                <p>
+                                    <label>
+                                        <input class="screenshot-download-checkbox" type="checkbox">
+                                    </label>
+                                    I have read and agree to the <a
+                                        href="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/downloads/WhatsApp-Brand-Guidelines-Optimized.pdf"
+                                        target="_blank">usage guidelines.</a>
+                                </p>
+                                <a onclick="" class="button screenshot-download-button"
+                                   style="background-color: rgb(255,45,75);">Download</a>
                             </div>
                         </div>
-                        <div class="column">
-                            <div class="screenshot-block" style="background-color:rgba(255,255,255,0);">
-                                <div class="screenshot-box">
-                                    <img
-                                        src="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/images/calling-thumb-android-3.png"
-                                        alt style="width: 270px; height: 450px">
-                                </div>
-                                <div class="screenshot-copy">
-                                    <h5>WhatsApp Calling</h5>
-                                    <p></p>
-                                </div>
-                                <div class="screenshot-overlay" style="opacity:1;">
-                                    <p>
-                                        <label>
-                                            <input class="screenshot-download-checkbox" type="checkbox">
-                                        </label>
-                                        I have read and agree to the <a
-                                            href="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/downloads/WhatsApp-Brand-Guidelines-Optimized.pdf"
-                                            target="_blank">usage guidelines.</a>
-                                    </p>
-                                    <a onclick="" class="button screenshot-download-button"
-                                       style="background-color: rgb(255,45,75);">Download</a>
-                                </div>
+                    </div>
+                    <div class="column">
+                        <div class="screenshot-block" style="background-color:rgba(255,255,255,0);">
+                            <div class="screenshot-box">
+                                <img
+                                    src="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/images/calling-thumb-android-3.png"
+                                    alt style="width: 270px; height: 450px">
+                            </div>
+                            <div class="screenshot-copy">
+                                <h5>WhatsApp Calling</h5>
+                                <p></p>
+                            </div>
+                            <div class="screenshot-overlay" style="opacity:1;">
+                                <p>
+                                    <label>
+                                        <input class="screenshot-download-checkbox" type="checkbox">
+                                    </label>
+                                    I have read and agree to the <a
+                                        href="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/downloads/WhatsApp-Brand-Guidelines-Optimized.pdf"
+                                        target="_blank">usage guidelines.</a>
+                                </p>
+                                <a onclick="" class="button screenshot-download-button"
+                                   style="background-color: rgb(255,45,75);">Download</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="tabs-content">
-                    <div id="panel-ios" class="content" aria-hidden="true" tabindex="-1">
-                        <div class="column">
-                            <div class="screenshot-block" style="background-color:rgba(255,255,255,0);">
-                                <div class="screenshot-box">
-                                    <img
-                                        src="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/images/chat-thumb-iphone-1.png"
-                                        alt style="width: 270px; height: 450px">
-                                </div>
-                                <div class="screenshot-copy">
-                                    <h5>Chats</h5>
-                                    <p></p>
-                                </div>
-                                <div class="screenshot-overlay" style="opacity:1;">
-                                    <p>
-                                        <label>
-                                            <input class="screenshot-download-checkbox" type="checkbox">
-                                        </label>
-                                        I have read and agree to the <a
-                                            href="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/downloads/WhatsApp-Brand-Guidelines-Optimized.pdf"
-                                            target="_blank">usage guidelines.</a>
-                                    </p>
-                                    <a onclick="" class="button screenshot-download-button"
-                                       style="background-color: rgb(255,45,75);">Download</a>
-                                </div>
+        </div>
+        <div class="row">
+            <div class="tabs-content">
+                <div id="panel-ios" class="content" aria-hidden="true" tabindex="-1">
+                    <div class="column">
+                        <div class="screenshot-block" style="background-color:rgba(255,255,255,0);">
+                            <div class="screenshot-box">
+                                <img
+                                    src="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/images/chat-thumb-iphone-1.png"
+                                    alt style="width: 270px; height: 450px">
+                            </div>
+                            <div class="screenshot-copy">
+                                <h5>Chats</h5>
+                                <p></p>
+                            </div>
+                            <div class="screenshot-overlay" style="opacity:1;">
+                                <p>
+                                    <label>
+                                        <input class="screenshot-download-checkbox" type="checkbox">
+                                    </label>
+                                    I have read and agree to the <a
+                                        href="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/downloads/WhatsApp-Brand-Guidelines-Optimized.pdf"
+                                        target="_blank">usage guidelines.</a>
+                                </p>
+                                <a onclick="" class="button screenshot-download-button"
+                                   style="background-color: rgb(255,45,75);">Download</a>
                             </div>
                         </div>
-                        <div class="column">
-                            <div class="screenshot-block" style="background-color:rgba(255,255,255,0);">
-                                <div class="screenshot-box">
-                                    <img
-                                        src="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/images/photo-thumb-iphone-2.png"
-                                        alt style="width: 270px; height: 450px">
-                                </div>
-                                <div class="screenshot-copy">
-                                    <h5>Photo and video sending</h5>
-                                    <p></p>
-                                </div>
-                                <div class="screenshot-overlay" style="opacity:1;">
-                                    <p>
-                                        <label>
-                                            <input class="screenshot-download-checkbox" type="checkbox">
-                                        </label>
-                                        I have read and agree to the <a
-                                            href="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/downloads/WhatsApp-Brand-Guidelines-Optimized.pdf"
-                                            target="_blank">usage guidelines.</a>
-                                    </p>
-                                    <a onclick="" class="button screenshot-download-button"
-                                       style="background-color: rgb(255,45,75);">Download</a>
-                                </div>
+                    </div>
+                    <div class="column">
+                        <div class="screenshot-block" style="background-color:rgba(255,255,255,0);">
+                            <div class="screenshot-box">
+                                <img
+                                    src="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/images/photo-thumb-iphone-2.png"
+                                    alt style="width: 270px; height: 450px">
+                            </div>
+                            <div class="screenshot-copy">
+                                <h5>Photo and video sending</h5>
+                                <p></p>
+                            </div>
+                            <div class="screenshot-overlay" style="opacity:1;">
+                                <p>
+                                    <label>
+                                        <input class="screenshot-download-checkbox" type="checkbox">
+                                    </label>
+                                    I have read and agree to the <a
+                                        href="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/downloads/WhatsApp-Brand-Guidelines-Optimized.pdf"
+                                        target="_blank">usage guidelines.</a>
+                                </p>
+                                <a onclick="" class="button screenshot-download-button"
+                                   style="background-color: rgb(255,45,75);">Download</a>
                             </div>
                         </div>
-                        <div class="column">
-                            <div class="screenshot-block" style="background-color:rgba(255,255,255,0);">
-                                <div class="screenshot-box">
-                                    <img
-                                        src="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/images/calling-thumb-iphone-3.png"
-                                        alt style="width: 270px; height: 450px">
-                                </div>
-                                <div class="screenshot-copy">
-                                    <h5>WhatsApp Calling</h5>
-                                    <p></p>
-                                </div>
-                                <div class="screenshot-overlay" style="opacity:1;">
-                                    <p>
-                                        <label>
-                                            <input class="screenshot-download-checkbox" type="checkbox">
-                                        </label>
-                                        I have read and agree to the <a
-                                            href="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/downloads/WhatsApp-Brand-Guidelines-Optimized.pdf"
-                                            target="_blank">usage guidelines.</a>
-                                    </p>
-                                    <a onclick="" class="button screenshot-download-button"
-                                       style="background-color: rgb(255,45,75);">Download</a>
-                                </div>
+                    </div>
+                    <div class="column">
+                        <div class="screenshot-block" style="background-color:rgba(255,255,255,0);">
+                            <div class="screenshot-box">
+                                <img
+                                    src="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/images/calling-thumb-iphone-3.png"
+                                    alt style="width: 270px; height: 450px">
+                            </div>
+                            <div class="screenshot-copy">
+                                <h5>WhatsApp Calling</h5>
+                                <p></p>
+                            </div>
+                            <div class="screenshot-overlay" style="opacity:1;">
+                                <p>
+                                    <label>
+                                        <input class="screenshot-download-checkbox" type="checkbox">
+                                    </label>
+                                    I have read and agree to the <a
+                                        href="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/downloads/WhatsApp-Brand-Guidelines-Optimized.pdf"
+                                        target="_blank">usage guidelines.</a>
+                                </p>
+                                <a onclick="" class="button screenshot-download-button"
+                                   style="background-color: rgb(255,45,75);">Download</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="tabs-content">
-                    <div id="panel-windows-phone" class="content" aria-hidden="true" tabindex="-1">
-                        <div class="column">
-                            <div class="screenshot-block" style="background-color:rgba(255,255,255,0);">
-                                <div class="screenshot-box">
-                                    <img
-                                        src="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/images/chat-thumb-wp-1.png"
-                                        alt style="width: 270px; height: 450px">
-                                </div>
-                                <div class="screenshot-copy">
-                                    <h5>Chats</h5>
-                                    <p></p>
-                                </div>
-                                <div class="screenshot-overlay" style="opacity:1;">
-                                    <p>
-                                        <label>
-                                            <input class="screenshot-download-checkbox" type="checkbox">
-                                        </label>
-                                        I have read and agree to the <a
-                                            href="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/downloads/WhatsApp-Brand-Guidelines-Optimized.pdf"
-                                            target="_blank">usage guidelines.</a>
-                                    </p>
-                                    <a onclick="" class="button screenshot-download-button"
-                                       style="background-color: rgb(255,45,75);">Download</a>
-                                </div>
+        </div>
+        <div class="row">
+            <div class="tabs-content">
+                <div id="panel-windows-phone" class="content" aria-hidden="true" tabindex="-1">
+                    <div class="column">
+                        <div class="screenshot-block" style="background-color:rgba(255,255,255,0);">
+                            <div class="screenshot-box">
+                                <img
+                                    src="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/images/chat-thumb-wp-1.png"
+                                    alt style="width: 270px; height: 450px">
+                            </div>
+                            <div class="screenshot-copy">
+                                <h5>Chats</h5>
+                                <p></p>
+                            </div>
+                            <div class="screenshot-overlay" style="opacity:1;">
+                                <p>
+                                    <label>
+                                        <input class="screenshot-download-checkbox" type="checkbox">
+                                    </label>
+                                    I have read and agree to the <a
+                                        href="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/downloads/WhatsApp-Brand-Guidelines-Optimized.pdf"
+                                        target="_blank">usage guidelines.</a>
+                                </p>
+                                <a onclick="" class="button screenshot-download-button"
+                                   style="background-color: rgb(255,45,75);">Download</a>
                             </div>
                         </div>
-                        <div class="column">
-                            <div class="screenshot-block" style="background-color:rgba(255,255,255,0);">
-                                <div class="screenshot-box">
-                                    <img
-                                        src="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/images/photo-thumb-wp-2.png"
-                                        alt style="width: 270px; height: 450px">
-                                </div>
-                                <div class="screenshot-copy">
-                                    <h5>Photo and video sending</h5>
-                                    <p></p>
-                                </div>
-                                <div class="screenshot-overlay" style="opacity:1;">
-                                    <p>
-                                        <label>
-                                            <input class="screenshot-download-checkbox" type="checkbox">
-                                        </label>
-                                        I have read and agree to the <a
-                                            href="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/downloads/WhatsApp-Brand-Guidelines-Optimized.pdf"
-                                            target="_blank">usage guidelines.</a>
-                                    </p>
-                                    <a onclick="" class="button screenshot-download-button"
-                                       style="background-color: rgb(255,45,75);">Download</a>
-                                </div>
+                    </div>
+                    <div class="column">
+                        <div class="screenshot-block" style="background-color:rgba(255,255,255,0);">
+                            <div class="screenshot-box">
+                                <img
+                                    src="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/images/photo-thumb-wp-2.png"
+                                    alt style="width: 270px; height: 450px">
+                            </div>
+                            <div class="screenshot-copy">
+                                <h5>Photo and video sending</h5>
+                                <p></p>
+                            </div>
+                            <div class="screenshot-overlay" style="opacity:1;">
+                                <p>
+                                    <label>
+                                        <input class="screenshot-download-checkbox" type="checkbox">
+                                    </label>
+                                    I have read and agree to the <a
+                                        href="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/downloads/WhatsApp-Brand-Guidelines-Optimized.pdf"
+                                        target="_blank">usage guidelines.</a>
+                                </p>
+                                <a onclick="" class="button screenshot-download-button"
+                                   style="background-color: rgb(255,45,75);">Download</a>
                             </div>
                         </div>
-                        <div class="column">
-                            <div class="screenshot-block" style="background-color:rgba(255,255,255,0);">
-                                <div class="screenshot-box">
-                                    <img
-                                        src="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/images/calling-thumb-wp-3.png"
-                                        alt style="width: 270px; height: 450px">
-                                </div>
-                                <div class="screenshot-copy">
-                                    <h5>WhatsApp Calling</h5>
-                                    <p></p>
-                                </div>
-                                <div class="screenshot-overlay" style="opacity:1;">
-                                    <p>
-                                        <label>
-                                            <input class="screenshot-download-checkbox" type="checkbox">
-                                        </label>
-                                        I have read and agree to the <a
-                                            href="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/downloads/WhatsApp-Brand-Guidelines-Optimized.pdf"
-                                            target="_blank">usage guidelines.</a>
-                                    </p>
-                                    <a onclick="" class="button screenshot-download-button"
-                                       style="background-color: rgb(255,45,75);">Download</a>
-                                </div>
+                    </div>
+                    <div class="column">
+                        <div class="screenshot-block" style="background-color:rgba(255,255,255,0);">
+                            <div class="screenshot-box">
+                                <img
+                                    src="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/images/calling-thumb-wp-3.png"
+                                    alt style="width: 270px; height: 450px">
+                            </div>
+                            <div class="screenshot-copy">
+                                <h5>WhatsApp Calling</h5>
+                                <p></p>
+                            </div>
+                            <div class="screenshot-overlay" style="opacity:1;">
+                                <p>
+                                    <label>
+                                        <input class="screenshot-download-checkbox" type="checkbox">
+                                    </label>
+                                    I have read and agree to the <a
+                                        href="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/downloads/WhatsApp-Brand-Guidelines-Optimized.pdf"
+                                        target="_blank">usage guidelines.</a>
+                                </p>
+                                <a onclick="" class="button screenshot-download-button"
+                                   style="background-color: rgb(255,45,75);">Download</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="tabs-content">
-                    <div id="panel-web" class="content" aria-hidden="true" tabindex="-1">
-                        <div class="column">
-                            <div class="screenshot-block" style="background-color:rgba(255,255,255,0);">
-                                <div class="screenshot-box">
-                                    <img
-                                        src="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/images/chat-thumb-web-1.png"
-                                        alt style="width: 1800px; height: 360px">
-                                </div>
-                                <div class="screenshot-copy">
-                                    <h5>Chats</h5>
-                                    <p></p>
-                                </div>
-                                <div class="screenshot-overlay" style="opacity:1;">
-                                    <p>
-                                        <label>
-                                            <input class="screenshot-download-checkbox" type="checkbox">
-                                        </label>
-                                        I have read and agree to the <a
-                                            href="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/downloads/WhatsApp-Brand-Guidelines-Optimized.pdf"
-                                            target="_blank">usage guidelines.</a>
-                                    </p>
-                                    <a onclick="" class="button screenshot-download-button"
-                                       style="background-color: rgb(255,45,75);">Download</a>
-                                </div>
+        </div>
+        <div class="row">
+            <div class="tabs-content">
+                <div class="container">
+                <div id="panel-web" class="content" aria-hidden="true" tabindex="-1">
+                    <div class="column">
+                        <div class="screenshot-block" style="background-color:rgba(255,255,255,0);">
+                            <div class="screenshot-box">
+                                <img
+                                    src="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/images/chat-thumb-web-1.png"
+                                    alt style="width: 1400px; height: 360px">
+                            </div>
+                            <div class="screenshot-copy">
+                                <h5>Chats</h5>
+                                <p></p>
+                            </div>
+                            <div class="screenshot-overlay" style="opacity:1;">
+                                <p>
+                                    <label>
+                                        <input class="screenshot-download-checkbox" type="checkbox">
+                                    </label>
+                                    I have read and agree to the <a
+                                        href="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/downloads/WhatsApp-Brand-Guidelines-Optimized.pdf"
+                                        target="_blank">usage guidelines.</a>
+                                </p>
+                                <a onclick="" class="button screenshot-download-button"
+                                   style="background-color: rgb(255,45,75);">Download</a>
                             </div>
                         </div>
-                        <div class="column">
-                            <div class="screenshot-block" style="background-color:rgba(255,255,255,0);">
-                                <div class="screenshot-box">
-                                    <img
-                                        src="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/images/vm-thumb-web-2.png"
-                                        alt style="width: 1800px; height: 360px">
-                                </div>
-                                <div class="screenshot-copy">
-                                    <h5>Photo and video sending</h5>
-                                    <p></p>
-                                </div>
-                                <div class="screenshot-overlay" style="opacity:1;">
-                                    <p>
-                                        <label>
-                                            <input class="screenshot-download-checkbox" type="checkbox">
-                                        </label>
-                                        I have read and agree to the <a
-                                            href="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/downloads/WhatsApp-Brand-Guidelines-Optimized.pdf"
-                                            target="_blank">usage guidelines.</a>
-                                    </p>
-                                    <a onclick="" class="button screenshot-download-button"
-                                       style="background-color: rgb(255,45,75);">Download</a>
-                                </div>
+                    </div>
+                    <div class="column">
+                        <div class="screenshot-block" style="background-color:rgba(255,255,255,0);">
+                            <div class="screenshot-box">
+                                <img
+                                    src="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/images/vm-thumb-web-2.png"
+                                    alt style="width: 1400px; height: 360px">
+                            </div>
+                            <div class="screenshot-copy">
+                                <h5>Photo and video sending</h5>
+                                <p></p>
+                            </div>
+                            <div class="screenshot-overlay" style="opacity:1;">
+                                <p>
+                                    <label>
+                                        <input class="screenshot-download-checkbox" type="checkbox">
+                                    </label>
+                                    I have read and agree to the <a
+                                        href="https://whatsappbrand.com/wp-content/themes/whatsapp-brc/downloads/WhatsApp-Brand-Guidelines-Optimized.pdf"
+                                        target="_blank">usage guidelines.</a>
+                                </p>
+                                <a onclick="" class="button screenshot-download-button"
+                                   style="background-color: rgb(255,45,75);">Download</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            </div>
+        </div>
         </div>
     </section>
 
@@ -1115,6 +1197,7 @@
             <div class="brand_guidelines" style="overflow: hidden">
                 <div id="guidelines-preview">
                     <h2 id="guidelines">Brand Guidelines</h2>
+                    <div>
                     <h3 id="#introduction">Introduction</h3>
                     <p>
                         As a condition to using the WhatsApp brand assets ("WhatsApp Brand Resources"), you agree to all
@@ -1141,9 +1224,11 @@
                 <p>The WhatsApp name and logos are trademarks of WhatsApp and may only be used as described in these
                     Guidelines. Avoid using the WhatsApp Brand Resources for anything that would be inconsistent with
                     WhatsApp's Terms of Service and these Guidelines. We may evaluate your use of the WhatsApp Brand
-                    Resources at any time to determine if you are violating our Terms of Service or these Guidelines. We may
+                    Resources at any time to determine if you are violating our Terms of Service or these Guidelines. We
+                    may
                     also revoke your permission to use the WhatsApp Brand Resources at any time.
                 </p>
+            </div>
             </div>
             <div class="borderBtm"></div>
             <div id="guidelines-more" style="display: block;">
