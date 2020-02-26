@@ -97,7 +97,7 @@ li{
     }
     #hdng{
         color:#87CEEB;
-        font-family: Times;
+        font-family: "Noto Sans CJK HK", sans-serif;
     }
     .mission{
         background-color: rgba(0,0,0,0);
@@ -285,8 +285,10 @@ li{
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <section id="one" class="section" >
-    <div class="w3-container w3-teal has-text-centered">
+    <div class="hero is-dark">
+        <div class="container has-text-centered">
         <h1 style="font-family:Times New Roman">Products</h1>
+        </div>
     </div>
         <div class="tile is-ancestor" >
             <div class="tile is-parent">

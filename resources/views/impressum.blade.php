@@ -25,7 +25,7 @@
     .btm{
         opacity: 0.3;
     }
-    .cont {
+    .notification {
 
 
         font-family: Times;
@@ -44,8 +44,10 @@
 
 </style>
 <section class="section">
-    <div class="cont">
-    <div class="content has-text-centered">
+
+    <div class="container has-text-centered">
+        <div class="notification">
+
     <h1 style="color:#7C0A02">Impressum</h1>
 <h4 style="color:#0F4C81">Name & Address</h4>
     <p>ALLPS GmbH <br>
@@ -56,6 +58,7 @@
 <p>support@ipropal.com</p>
 <h4 style="color:#0F4C81">Phone</h4>
 <p>+41 (0) 766812378</p>
+
     </div>
     </div>
 </section>

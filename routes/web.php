@@ -25,9 +25,7 @@ Route::get('/articles/{articles}','API\ArticleController@show')->name('articles.
 Route::get('/articles/{articles}/edit','API\ArticleController@edit');
 Route::put('/articles/{articles}','API\ArticleController@update');
 //Route::resource('/profile/show/{profileId}', 'API\ProfileController');
-Route::get('/contact', function () {
-    return view('contact');
-});
+
 Route::get('/about', function () {
     return view('about');
 });
@@ -40,3 +38,8 @@ Route::get('/impressum', function () {
 Route::get('/privacypolicy', function () {
     return view('privacypolicy');
 });
+
+
+Route::get('/contact','API\ContactController@create');
+Route::post('/contact','API\ContactController@store');
+

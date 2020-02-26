@@ -450,7 +450,7 @@
             body {
                 background-color: #f0f0f0;
                 color: #8a8a8a;
-                font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+                font-family: "Noto Sans CJK HK", sans-serif;
             }
             body {
                 background: #fff;
