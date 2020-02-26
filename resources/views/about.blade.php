@@ -5,8 +5,9 @@
 <style>
     .image {
         border-radius: 50%;
-        height:200px;
-        left: 18%;
+        height:210px;
+        width:210px;
+        left: 15%;
         padding-top:15px;
     }
 
@@ -61,7 +62,7 @@
                 <div class="card">
                     <div class="card-image">
                         <figure class="image is-2by1">
-                            <img class="image" src="https://allps.ch/images/jakeer.jpeg" alt="Placeholder image" style="width:200px">
+                            <img class="image" src="https://allps.ch/images/jakeer.jpeg" alt="Placeholder image">
                         </figure>
                     </div>
 
@@ -82,35 +83,12 @@
                     </div>
                 </div>
             </div>
-            <div class="column">
-                <div class="card">
-                    <div class="card-image">
-                        <figure class="image is-2by1">
-                            <img class="image" src="https://allps.ch/images/markus.jpg" alt="Placeholder image" style="width:200px">
-                        </figure>
-                    </div>
-                    <div class="card-content">
-                        <div class="media">
-                            <div class="media-content">
-                                <p class="title is-4">Markus Klinkner</p>
-                                <p class="subtitle is-6">Advisor/Investor</p>
-                            </div>
-                        </div>
 
-                        <div class="content">
-                            Buisiness experience of 20 years in Banking Domain.
-                            <a>@ipropal</a>.
-                            <!--<a href="#">#css</a>
-                            <a href="#">#responsive</a>-->
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="column">
                 <div class="card">
                     <div class="card-image">
                         <figure class="image is-2by1">
-                            <img class="image" src="https://allps.ch/images/feroz.jpg" alt="Placeholder image" style="width:200px">
+                            <img class="image" src="https://allps.ch/images/feroz.jpg" alt="Placeholder image">
                         </figure>
                     </div>
                     <div class="card-content">
@@ -135,7 +113,32 @@
                 <div class="card">
                     <div class="card-image">
                         <figure class="image is-2by1">
-                            <img class="image" src="https://allps.ch/images/javed.jpg" alt="Placeholder image" style="width:200px">
+                            <img class="image" src="https://allps.ch/images/markus.jpg" alt="Placeholder image">
+                        </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-content">
+                                <p class="title is-4">Markus Klinkner</p>
+                                <p class="subtitle is-6">Advisor/Investor</p>
+                            </div>
+                        </div>
+
+                        <div class="content">
+                            Buisiness experience of 20 years in Banking Domain.
+                            <a>@ipropal</a>.
+                            <!--<a href="#">#css</a>
+                            <a href="#">#responsive</a>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-2by1">
+                            <img class="image" src="https://allps.ch/images/javed.jpg" alt="Placeholder image" style="width:200px; left: 4%">
                         </figure>
                     </div>
                     <div class="card-content">
