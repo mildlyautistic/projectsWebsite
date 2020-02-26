@@ -5,28 +5,23 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
 use App\Profile;
+use App;
 use Validator;
 use App\Http\Resources\Profile as ProfileResource;
 
 class ProfileController extends BaseController
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
         $profiles = Profile::all();
 
-        return $this->sendResponse(ProfileResource::collection($profiles), 'Profiles retrieved successfully.');
+        return view('profiles');
+
+       // return $this->sendResponse(ProfileResource::collection($profiles), 'Profiles retrieved successfully.');
+
     }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $input = $request->all();
@@ -63,7 +58,8 @@ class ProfileController extends BaseController
         {
             if($emailpart==$data[$x]){
                 $profile = Profile::create($input);
-               return $this->sendResponse(new ProfileResource($profile), 'profile created successfully.');
+                return response()->json($profile);
+               //return $this->sendResponse(new ProfileResource($profile), 'profile created successfully.');
             }
         }
         if($x==$c){
@@ -78,12 +74,7 @@ class ProfileController extends BaseController
         return $this->sendResponse(new ProfileResource($profile), 'Profile created successfully.');*/
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
         $profile = Profile::find($id);
@@ -91,17 +82,12 @@ class ProfileController extends BaseController
         if (is_null($profile)) {
             return $this->sendError('Profile not found.');
         }
+        return response()->json($profile);
+        //return $this->sendResponse(new ProfileResource($profile), 'Profile retrieved successfully.');
 
-        return $this->sendResponse(new ProfileResource($profile), 'Profile retrieved successfully.');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param Profile $profile
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, Profile $profile)
     {
         $input = $request->all();
@@ -140,7 +126,8 @@ class ProfileController extends BaseController
 
                //return $this->sendResponse(new ProfileResource($profile), 'profile updated successfully.');
                 $profile->update($this->validateProfile());
-                return $this->sendResponse(new ProfileResource($profile), 'profile updated successfully.');
+                //return $this->sendResponse(new ProfileResource($profile), 'profile updated successfully.');
+                return response()->json($profile);
             }
         }
         if($x==$c){
@@ -164,17 +151,13 @@ class ProfileController extends BaseController
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(Profile $profile)
     {
         $profile->delete();
 
-        return $this->sendResponse([], 'Profile deleted successfully.');
+        //return $this->sendResponse([], 'Profile deleted successfully.');
+        return response()->json("ok");
     }
 
     protected function validateProfile()
