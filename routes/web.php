@@ -36,6 +36,8 @@ Route::get('/projects','API\ProjectController@index');
 Route::get('/articles','API\ArticleController@index');
 
 
+Route::get('/profiles','API\ProfileController@index');
+
 
 Route::get('/contact','API\ContactController@create');
 Route::post('/contact','API\ContactController@store');

@@ -9,6 +9,9 @@ import CreateProject from './components/CreateProject';
 import Articles from './components/Articles';
 import CreateArticle from './components/CreateArticle';
 
+import Profiles from './components/Profiles';
+import createProfile from './components/CreateProfile';
+
 require('./bootstrap');
 
 window.Vue = require('vue');
@@ -20,6 +23,7 @@ window.Vue = require('vue');
  *
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
+import store from './store/index'
 
 //import store from './store/index_project'
 
@@ -34,23 +38,12 @@ import store from './store/index_article'
 Vue.component('articles', Articles);
 Vue.component('createArticle', CreateArticle);
 
+Vue.component('profiles', Profiles);
+Vue.component('createProfile', createProfile);
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
+//Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 const app = new Vue({
     el: '#app',
     store
     //store_articles
 });
-
-
-
-
-
-
-
-

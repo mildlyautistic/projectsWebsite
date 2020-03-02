@@ -54,3 +54,23 @@ Route::post('login', 'API\RegisterController@login');
     Route::resource('profiles', 'API\ProfileController');
    // Route::get('/profile/show/{profileId}', 'API\ProfileController@show');
 });*/
+});*/
+Route::middleware('auth:api')->group( function () {
+    Route::post('profiles', 'API\ProfileController@store');
+
+//Route::put('profiles/{id}','API\ProfileController@update');
+
+    Route::delete('profiles/{id}', 'API\ProfileController@delete');
+});
+Route::get('profiles', 'API\ProfileController@show');
+
+Route::middleware('auth:api')->group( function () {
+    //Route::resource('projects', 'API\ProjectController');
+Route::post('projects', 'API\ProjectController@store');
+});
+//Route::post('projects', 'API\ProjectController@store');
+
+
+Route::middleware('auth:api')->group( function () {
+    Route::resource('assets', 'API\AssetController');
+});
