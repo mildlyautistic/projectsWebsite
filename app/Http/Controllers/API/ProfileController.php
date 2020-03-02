@@ -14,9 +14,11 @@ class ProfileController extends BaseController
 
     public function index()
     {
-        $profiles = Profile::all();
+        //$profiles = Profile::all();
 
         return view('profiles');
+
+
 
        // return $this->sendResponse(ProfileResource::collection($profiles), 'Profiles retrieved successfully.');
 
@@ -25,11 +27,21 @@ class ProfileController extends BaseController
     public function store(Request $request)
     {
         $input = $request->all();
+        $pid =$input['user_id'];
+        $uid=auth()->user()->id;
         $email = $request->email;
         $parts = explode('@', $email);
         $emailpart=$parts[1];
         $data = ['ipropal.com','allps.ch'];
         $c=count($data);
+
+
+        if($pid!=$uid)
+       {
+
+           return $this->sendError('Sorry, your user_id should be the id in which you are logged in.');
+
+        }
         //$profile = Profile::create($input);
         //$profile -> user() -> associate($user) -> save();
 
@@ -58,8 +70,8 @@ class ProfileController extends BaseController
         {
             if($emailpart==$data[$x]){
                 $profile = Profile::create($input);
-                return response()->json($profile);
-               //return $this->sendResponse(new ProfileResource($profile), 'profile created successfully.');
+                //return response()->json($profile);
+               return $this->sendResponse(new ProfileResource($profile), 'profile created successfully.');
             }
         }
         if($x==$c){
@@ -75,14 +87,20 @@ class ProfileController extends BaseController
     }
 
 
-    public function show($id)
+    public function show()
     {
-        $profile = Profile::find($id);
+        /*$profile = Profile::find($id);
 
         if (is_null($profile)) {
             return $this->sendError('Profile not found.');
-        }
-        return response()->json($profile);
+        }*/
+
+        $profiles = Profile::all();
+        return response()->json($profiles);
+
+        /*$profiles = Profile::orderBy('created_at', 'desc')->get();
+        return response()->json($profiles);*/
+
         //return $this->sendResponse(new ProfileResource($profile), 'Profile retrieved successfully.');
 
     }
@@ -152,9 +170,10 @@ class ProfileController extends BaseController
     }
 
 
-    public function destroy(Profile $profile)
+    public function delete($id)
     {
-        $profile->delete();
+        //$profile->delete();
+        Profile::destroy($id);
 
         //return $this->sendResponse([], 'Profile deleted successfully.');
         return response()->json("ok");
