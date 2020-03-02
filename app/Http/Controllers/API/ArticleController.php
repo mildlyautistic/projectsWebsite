@@ -15,17 +15,19 @@ class ArticleController extends BaseController
 {
     public function index()
     {
-        $articles = Article::all();
+        //$articles = Article::all();
+
+        return view('articles');
 
         //return $this->sendResponse(ArticleResource::collection($articles), 'Articles retrieved successfully.');
-        return view('articles.index', ['articles' => $articles]);
+       // return view('articles.index', ['articles' => $articles]);
     }
 
-    public function create()
+    public function get(Request $request)
     {
-        return view('articles.create', ['tags' => Tag::all()]);
+        $articles = Article::orderBy('created_at', 'desc')->get();
+        return response()->json($articles);
     }
-
 
     public function store(Request $request)
     {
@@ -67,8 +69,10 @@ class ArticleController extends BaseController
 
         $article->tags()->attach($tag_id_array);
 
-       // return $this->sendResponse(new ArticleResource($article), 'Article created successfully.');
-        return view('articles.show', ['article' => $article]);
+        return response()->json($article);
+
+        //return $this->sendResponse(new ArticleResource($article), 'Article created successfully.');
+       // return view('articles.show', ['article' => $article]);
        // return redirect(route('article.index'));
     }
 
@@ -80,8 +84,10 @@ class ArticleController extends BaseController
             return $this->sendError('Article not found.');
         }
 
-        //return $this->sendResponse(new ArticleResource($articles), 'Article retrieved successfully.');
-        return view('articles.show', ['articles' => $article]);
+        return response()->json($article);
+
+       // return $this->sendResponse(new ArticleResource($article), 'Article retrieved successfully.');
+        //return view('articles.show', ['articles' => $article]);
     }
 
     public function update(Request $request, Article $article)
@@ -123,23 +129,22 @@ class ArticleController extends BaseController
         $article->excerpt=$input['excerpt'];
         $article->save();
         $article->update($this->validateArticle());
-        //return $this->sendResponse(new ArticleResource($articles), 'Article updated successfully.');
-        return redirect($article->path());
+
+        return response()->json($article);
+
+        //return $this->sendResponse(new ArticleResource($article), 'Article updated successfully.');
+        //return redirect($article->path());
     }
 
-    public function destroy(Article $article)
+    public function destroy($id)
     {
-        $article->delete();
+        //$article->delete();
+        Article::destroy($id);
 
        // return $this->sendResponse([], 'Article deleted successfully.');
-        return view('articles.show', ['articles' => $article]);
-    }
 
-    public function edit(Article $article)
-    {
-        return view('articles.edit', ['articles' => $article]);
-        //find the articles associated with the id
-
+        return response()->json("ok");
+        //return view('articles.show', ['articles' => $article]);
     }
 
     protected function validateArticle()

@@ -3,6 +3,11 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+import Projects from './components/Projects';
+import CreateProject from './components/CreateProject';
+
+import Articles from './components/Articles';
+import CreateArticle from './components/CreateArticle';
 
 require('./bootstrap');
 
@@ -16,10 +21,19 @@ window.Vue = require('vue');
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+//import store from './store/index_project'
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+import store from './store/index_article'
+
+ //const files = require.context('./', true, /\.vue$/i)
+ //files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+
+//Vue.component('projects', Projects);
+//Vue.component('createProject', CreateProject);
+
+Vue.component('articles', Articles);
+Vue.component('createArticle', CreateArticle);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -29,4 +43,14 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+    store
+    //store_articles
 });
+
+
+
+
+
+
+
+

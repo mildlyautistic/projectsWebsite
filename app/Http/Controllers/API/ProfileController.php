@@ -32,6 +32,11 @@ class ProfileController extends BaseController
         $c=count($data);
         //$profile = Profile::create($input);
         //$profile -> user() -> associate($user) -> save();
+        $pid=$request->user_id;
+        $uid=auth()->user()->id;
+        if($pid!=$uid){
+            return $this->sendError('you cannot update this!');
+        }
 
         $validator = Validator::make($input, [
 

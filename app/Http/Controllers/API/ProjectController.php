@@ -15,17 +15,22 @@ class ProjectController extends BaseController
 
     public function index()
     {
-        $projects = Project::all();
+       // $projects = Project::all();
 
         return view('projects');
 
        // return $this->sendResponse(ProjectResource::collection($projects), 'Projects retrieved successfully.');
     }
 
+    public function get(Request $request)
+    {
+        $projects = Project::orderBy('created_at', 'desc')->get();
+        return response()->json($projects);
+    }
+
     public function store(Request $request)
     {
         $input = $request->all();
-
         $proj_id =$input['user_id'];
         $usid = auth()->user()->id;
 
@@ -75,6 +80,8 @@ class ProjectController extends BaseController
         if (is_null($project)) {
             return $this->sendError('Project not found.');
         }
+
+       // $projects = Project::all();
 
         return response()->json($project);
 
@@ -127,9 +134,11 @@ class ProjectController extends BaseController
     }
 
 
-    public function destroy(Project $project)
+    public function destroy($id)
     {
-        $project->delete();
+        //$project->delete();
+
+        Project::destroy($id);
 
         return response()->json("ok");
 

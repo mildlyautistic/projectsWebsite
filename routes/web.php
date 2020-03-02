@@ -15,15 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::resource('/articles/show}', 'API\ArticleController');
 
-
-Route::get('/articles', 'API\ArticleController@index')->name('articles.index');
-Route::post('/articles','API\ArticleController@store');
-Route::get('/articles/create','API\ArticleController@create');
-Route::get('/articles/{articles}','API\ArticleController@show')->name('articles.show');
-Route::get('/articles/{articles}/edit','API\ArticleController@edit');
-Route::put('/articles/{articles}','API\ArticleController@update');
 //Route::resource('/profile/show/{profileId}', 'API\ProfileController');
 
 Route::get('/about', function () {
@@ -38,6 +30,11 @@ Route::get('/impressum', function () {
 Route::get('/privacypolicy', function () {
     return view('privacypolicy');
 });
+
+Route::get('/projects','API\ProjectController@index');
+
+Route::get('/articles','API\ArticleController@index');
+
 
 
 Route::get('/contact','API\ContactController@create');
