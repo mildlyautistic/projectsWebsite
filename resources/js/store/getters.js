@@ -11,3 +11,4 @@ let getters = {
 };
 
 export default  getters
+//fetches all the getters into it

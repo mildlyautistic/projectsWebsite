@@ -31,4 +31,5 @@ let mutations = {
     }
 
 };
-export default mutations
+export default mutations 
+// does all the required mutations

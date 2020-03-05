@@ -25,7 +25,7 @@ let actions = {
             console.log(err)
         })
     },
-    createArticle({commit}, article) {
+     createArticle({commit}, article) {
         axios.post('/api/articles', article)
             .then(res => {
                 commit('CREATE_ARTICLE', res.data)
@@ -78,5 +78,5 @@ let actions = {
         })
     }
 };
-
 export default actions
+//fetches all the actions and displays only the required ones

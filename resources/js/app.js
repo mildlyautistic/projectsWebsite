@@ -23,8 +23,7 @@ window.Vue = require('vue');
  *
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
-import store from './store/index'
-
+import store from './store/index.js'
 
 Vue.component('projects', Projects);
 Vue.component('createProject', CreateProject);
@@ -39,6 +38,6 @@ Vue.component('createProfile', createProfile);
 
 const app = new Vue({
     el: '#app',
-    store,
-
+    store
 });
+

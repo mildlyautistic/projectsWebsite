@@ -31,7 +31,7 @@
 </template>
 
 <script>
-    import {mapGetters} from 'vuex'
+    import {mapState} from 'vuex'
 
     export default {
         name: "Articles",
@@ -47,11 +47,11 @@
             }
         },
         computed: {
-            ...mapGetters([
+            ...mapState([
                 'articles'
             ])
         }
-    }
+    } 
 </script>
 
 <style scoped>

@@ -5,3 +5,4 @@ let state = {
 };
 
 export default state
+//fetches all the components
