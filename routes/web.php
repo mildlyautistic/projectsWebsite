@@ -35,6 +35,7 @@ Route::get('/projects','API\ProjectController@index');
 
 Route::get('/articles','API\ArticleController@index');
 
+Route::get('/register','API\RegisterController@get');
 
 Route::get('/profiles','API\ProfileController@index');
 

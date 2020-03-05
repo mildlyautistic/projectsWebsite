@@ -1,5 +1,8 @@
 let state = {
-    profiles: []
+    profiles: [],
+    articles: [],
+    projects: []
 };
 
 export default state
+//fetches all the components
