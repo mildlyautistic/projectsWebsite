@@ -25,15 +25,9 @@ window.Vue = require('vue');
  */
 import store from './store/index'
 
-//import store from './store/index_project'
 
-import store from './store/index_article'
-
- //const files = require.context('./', true, /\.vue$/i)
- //files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
-//Vue.component('projects', Projects);
-//Vue.component('createProject', CreateProject);
+Vue.component('projects', Projects);
+Vue.component('createProject', CreateProject);
 
 Vue.component('articles', Articles);
 Vue.component('createArticle', CreateArticle);
@@ -42,8 +36,9 @@ Vue.component('profiles', Profiles);
 Vue.component('createProfile', createProfile);
 
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+
 const app = new Vue({
     el: '#app',
-    store
-    //store_articles
+    store,
+
 });

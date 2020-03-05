@@ -7,6 +7,7 @@ import Login from './js/components/Login.vue'
 import Secure from './js/components/Secure.vue'
 import Register from './js/components/Register.vue'
 
+
 Vue.use(Router);
 
 let router = new Router({
@@ -39,7 +40,8 @@ let router = new Router({
             path: '/about',
             name: 'about',
             component: About
-        }
+        },
+
     ]
 });
 

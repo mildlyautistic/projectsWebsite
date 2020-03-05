@@ -23,7 +23,7 @@
             </div>
 
             <div>
-                <button type="submit">Register</button>
+                <button class="btn btn-block btn-primary">Submit</button>
             </div>
         </form>
     </div>
@@ -47,10 +47,8 @@
                     email: this.email,
                     password: this.password,
                     is_admin: this.is_admin
-                }
-                this.$store.dispatch('register', data)
-                    .then(() => this.$router.push('/'))
-                    .catch(err => console.log(err))
+                };
+                this.$store.dispatch('register', data).then(() => this.$router.push('/')).catch(err => console.log(err))
             }
         }
     }

@@ -23,15 +23,15 @@ class RegisterController extends BaseController
 {
 
     /**
+ * Register api
+ *
 
-     * Register api
-
-     *
-
-     * @return \Illuminate\Http\Response
-
-     */
-
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+ */
+    public function get()
+    {
+        return view('register');
+    }
     public function register(Request $request)
 
     {
