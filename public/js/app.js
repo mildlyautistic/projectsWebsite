@@ -21931,6 +21931,153 @@ var render = function() {
                     if ($event.target.composing) {
                       return
                     }
+                    _vm.$set(_vm.profile, "g_url", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ]),
+          _c("br"),
+          _c("br"),
+          _vm._v(" "),
+          _c("div", { staticClass: "row" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-block btn-primary",
+                attrs: { disabled: !_vm.isValid },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    return _vm.createProfile(_vm.profile)
+                  }
+                }
+              },
+              [_vm._v("Submit\n            ")]
+            )
+          ])
+        ])
+      ])
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-25" }, [
+      _c("label", { staticClass: "label", attrs: { for: "name" } }, [
+        _vm._v("Name:")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-25" }, [
+      _c("label", { staticClass: "label", attrs: { for: "user-name" } }, [
+        _vm._v("User Name:")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-25" }, [
+      _c("label", { staticClass: "label", attrs: { for: "image" } }, [
+        _vm._v("Image:")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-25" }, [
+      _c("label", { staticClass: "label", attrs: { for: "userid" } }, [
+        _vm._v("User ID:")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-25" }, [
+      _c("label", { staticClass: "label", attrs: { for: "email" } }, [
+        _vm._v("Email:")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-25" }, [
+      _c("label", { staticClass: "label", attrs: { for: "aboutme" } }, [
+        _vm._v("About Me:")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-25" }, [
+      _c("label", { staticClass: "label", attrs: { for: "likes" } }, [
+        _vm._v("Likes:")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-25" }, [
+      _c("label", { staticClass: "label", attrs: { for: "dislikes" } }, [
+        _vm._v("Dislikes:")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-25" }, [
+      _c("label", { staticClass: "label", attrs: { for: "url" } }, [
+        _vm._v("URL:")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-25" }, [
+      _c("label", { staticClass: "label", attrs: { for: "lurl" } }, [
+        _vm._v("Linkedin URL:")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-25" }, [
+      _c("label", { staticClass: "label", attrs: { for: "gurl" } }, [
+        _vm._v("Github URL:")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
 
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CreateProject.vue?vue&type=template&id=3477f8bc&scoped=true&":
 /*!****************************************************************************************************************************************************************************************************************************!*\
@@ -35862,7 +36009,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_CreateProject__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/CreateProject */ "./resources/js/components/CreateProject.vue");
 /* harmony import */ var _components_Articles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Articles */ "./resources/js/components/Articles.vue");
 /* harmony import */ var _components_CreateArticle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/CreateArticle */ "./resources/js/components/CreateArticle.vue");
-
+/* harmony import */ var _components_Profiles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Profiles */ "./resources/js/components/Profiles.vue");
+/* harmony import */ var _components_CreateProfile__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/CreateProfile */ "./resources/js/components/CreateProfile.vue");
+/* harmony import */ var _store_index_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./store/index.js */ "./resources/js/store/index.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -35896,7 +36045,7 @@ Vue.component('createProfile', _components_CreateProfile__WEBPACK_IMPORTED_MODUL
 
 var app = new Vue({
   el: '#app',
-
+  store: _store_index_js__WEBPACK_IMPORTED_MODULE_6__["default"]
 });
 
 /***/ }),
@@ -36538,7 +36687,7 @@ var actions = {
     });
   }
 };
-
+/* harmony default export */ __webpack_exports__["default"] = (actions); //fetches all the actions and displays only the required ones
 
 /***/ }),
 
@@ -36562,7 +36711,7 @@ var getters = {
     return state.projects;
   }
 };
-
+/* harmony default export */ __webpack_exports__["default"] = (getters); //fetches all the getters into it
 
 /***/ }),
 
@@ -36578,7 +36727,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-
+/* harmony import */ var _actions_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./actions.js */ "./resources/js/store/actions.js");
+/* harmony import */ var _mutations__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./mutations */ "./resources/js/store/mutations.js");
+/* harmony import */ var _getters__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./getters */ "./resources/js/store/getters.js");
+/* harmony import */ var _state__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./state */ "./resources/js/store/state.js");
 
 
 
@@ -36587,7 +36739,10 @@ __webpack_require__.r(__webpack_exports__);
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
-
+  state: _state__WEBPACK_IMPORTED_MODULE_5__["default"],
+  mutations: _mutations__WEBPACK_IMPORTED_MODULE_3__["default"],
+  getters: _getters__WEBPACK_IMPORTED_MODULE_4__["default"],
+  actions: _actions_js__WEBPACK_IMPORTED_MODULE_2__["default"]
 }));
 
 /***/ }),
@@ -36601,11 +36756,27 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-
+var mutations = {
+  CREATE_PROFILE: function CREATE_PROFILE(state, profile) {
+    state.profiles.unshift(profile);
   },
-
+  FETCH_PROFILES: function FETCH_PROFILES(state, profiles) {
+    return state.profiles = profiles;
   },
-
+  DELETE_PROFILE: function DELETE_PROFILE(state, profile) {
+    var index = state.profiles.findIndex(function (item) {
+      return item.id === profile.id;
+    });
+    state.profile.splice(index, 1);
+  },
+  CREATE_ARTICLE: function CREATE_ARTICLE(state, article) {
+    state.articles.unshift(article);
+  },
+  FETCH_ARTICLES: function FETCH_ARTICLES(state, articles) {
+    return state.articles = articles;
+  },
+  DELETE_ARTICLE: function DELETE_ARTICLE(state, article) {
+    var index = state.articles.findIndex(function (item) {
       return item.id === article.id;
     });
     state.articles.splice(index, 1);
@@ -36623,7 +36794,7 @@ __webpack_require__.r(__webpack_exports__);
     state.projects.splice(index, 1);
   }
 };
-
+/* harmony default export */ __webpack_exports__["default"] = (mutations); // does all the required mutations
 
 /***/ }),
 
@@ -36641,7 +36812,7 @@ var state = {
   articles: [],
   projects: []
 };
-
+/* harmony default export */ __webpack_exports__["default"] = (state); //fetches all the components
 
 /***/ }),
 
@@ -36663,8 +36834,8 @@ var state = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/nitya/work/projectsWebsite/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/nitya/work/projectsWebsite/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/ipropal/work/projectsWebsite/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/ipropal/work/projectsWebsite/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

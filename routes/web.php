@@ -31,6 +31,10 @@ Route::get('/privacypolicy', function () {
     return view('privacypolicy');
 });
 
+Route::get('/login',function() {
+	return view('Login');
+});
+
 Route::get('/projects','API\ProjectController@index');
 
 Route::get('/articles','API\ArticleController@index');

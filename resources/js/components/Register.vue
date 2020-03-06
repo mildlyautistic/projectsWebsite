@@ -1,59 +1,60 @@
 <template>
     <div>
-        <h4>Register</h4>
+    	<h1>Registration Form</h1>
         <form @submit.prevent="register">
-            <label for="name">Name</label>
-            <div>
-                <input id="name" type="text" v-model="name" required autofocus>
-            </div>
-
-            <label for="email" >E-Mail Address</label>
-            <div>
-                <input id="email" type="email" v-model="email" required>
-            </div>
-
-            <label for="password">Password</label>
-            <div>
-                <input id="password" type="password" v-model="password" required>
-            </div>
-
-            <label for="password-confirm">Confirm Password</label>
-            <div>
-                <input id="password-confirm" type="password" v-model="password_confirmation" required>
-            </div>
-
-            <div>
-                <button class="btn btn-block btn-primary">
-                    Register
-                </button>
-            </div>
+            <label for="name">
+                Name:
+            </label>
+            <input v-model="name" type="text" name="name" value>
+            <label for="email">
+                Email:
+            </label>
+            <input v-model="email" type="email" name="email" value>
+            <label for="password">
+                Password:
+            </label>
+            <input v-model="password" type="password" name="password" value>
+            <button type="submit" name="button">
+                Register
+            </button>
+            <p><ul>
+            	<li v-for="(error,index) in errors" :key="index">{{ error }}</li>
+            </ul></p>
+            <!--<div>
+            	Already have an account? <router-link to="/login">
+    		Login 
+    	</router-link>
+    </div>-->
         </form>
     </div>
 </template>
 <script>
-    export default {
-            name: "register",
-        data(){
-            return {
-                name : "",
-                email : "",
-                password : "",
-                password_confirmation : "",
-                is_admin : null
-            }
-        },
-        methods: {
-            register: function () {
-                let data = {
-                    name: this.name,
-                    email: this.email,
-                    password: this.password,
-                    is_admin: this.is_admin
-                };
-                this.$store.dispatch('register', data)
-                    .then(() => this.$router.push('/'))
-                    .catch(err => console.log(err))
-            }
+export default {
+    name: "Register",
+    data() {
+        return {
+            name: '',
+            email: '',
+            password: '',
+            errors: null
         }
+    },
+    methods: {
+    	register () {
+    		this.$store.dispatch('register', {
+    			name: this.name,
+    			email: this.email,
+    			password: this.password
+    		})
+    		.then(() => {
+    			this.$router.push({ name: 'dashboard' })
+    		})
+    		.catch(err => {
+    			this.errors = err.response.data.errors
+    		})
+    	}
     }
+}
 </script>
+<style scoped>
+</style>
