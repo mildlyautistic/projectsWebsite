@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>Allps Digital</title>
     <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
     <!-- Bulma Version 0.8.x-->
@@ -13,6 +14,7 @@
 
     <link href="default.css" rel="stylesheet"/>
     <link href="fonts.css" rel="stylesheet" />
+
     <style>
     body  {
     background-image: url("Images/banner.jpg");
@@ -25,6 +27,8 @@
         background-attachment: fixed;
     }
     </style>
+
+
 
 </head>
 
@@ -131,6 +135,8 @@
 </style>-->
 
 @yield('content')
+
+
 </body>
 
 </html>

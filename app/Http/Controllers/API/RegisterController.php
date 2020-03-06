@@ -26,24 +26,20 @@ class RegisterController extends BaseController
  * Register api
  *
 
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\Http\Response
  */
-
-    public function get() {
-        return view('register');
-    }
 
     public function register(Request $request)
 
     {
 
-        $validator = Validator::make($request->all(), [
+       $validator = Validator::make($request->all(), [
 
             'name' => 'required',
 
             'email' => 'required|email',
 
-            'password' => 'required',
+            'password' => 'required|min:6',
 
             'c_password' => 'required|same:password',
 
@@ -72,6 +68,20 @@ class RegisterController extends BaseController
 
 
         return $this->sendResponse($success, 'User register successfully.');
+       /* $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|min:6',
+        ]);
+
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+
+        $user->save();
+
+        return response()->json(['user' => $user]);*/
 
     }
 
@@ -111,6 +121,16 @@ class RegisterController extends BaseController
 
         }
 
+    }
+    /**
+     * Log the user out (Invalidate the token).
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function logout()
+    {
+        auth('api')->logout();
+        return response()->json(['message' => 'Successfully logged out']);
     }
 
 }

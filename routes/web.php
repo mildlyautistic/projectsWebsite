@@ -35,7 +35,18 @@ Route::get('/projects','API\ProjectController@index');
 
 Route::get('/articles','API\ArticleController@index');
 
-Route::get('/register','API\RegisterController@get');
+
+
+/*Route::group(['prefix' => 'auth'], function ($router) {
+    Route::post('/register', 'API\RegisterController@register');
+    Route::post('login', 'API\RegisterController@login');
+    Route::post('logout', 'API\RegisterController@logout');
+});*/
+
+Route::get('{any}', function () {
+    return view('wel');
+})->where('any', '.*');
+
 
 Route::get('/profiles','API\ProfileController@index');
 

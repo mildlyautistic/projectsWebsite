@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 
 Route::post('register', 'API\RegisterController@register');
 Route::post('login', 'API\RegisterController@login');
+Route::post('logout', 'API\RegisterController@logout');
 
 
 Route::get('articles', 'API\ArticleController@get');
@@ -76,4 +77,4 @@ Route::middleware('auth:api')->group( function () {
     Route::resource('assets', 'API\AssetController');
 });
 
-Route::post('register','API\RegisterController@register');
+//Route::post('register','API\RegisterController@register');
