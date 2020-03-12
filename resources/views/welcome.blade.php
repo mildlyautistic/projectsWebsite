@@ -424,7 +424,7 @@ li{
             <h1 style="color: white;margin-top: 4rem;font-family: Times">Testimonials</h1>
         </div>
         <div class="w3-content w3-section" style="max-width:500px; color: whitesmoke">
-            <div class="mySlides w3-animate-right" style="margin-bottom: 76px; margin-top: -5rem" id="One">
+            <div class="mySlides w3-animate-right" style="margin-bottom: 53px; margin-top: -5rem" id="One">
                 <h3><strong style="color:whitesmoke">Danny, Switzerland</strong></h3>
                 <p>Working with iProPal Enterprise was better than we expected. Results were delivered on time and we even received extra support. We are very happy with iProPal Enterprise services.</p>
             </div>
@@ -510,9 +510,9 @@ li{
             btn.innerHTML = "Play";
         }
     }*/
-    export default {
+    /*export default {
         components: {Register}
-    }
+    }*/
 </script>
 
 @endsection

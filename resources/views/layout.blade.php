@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+
+
+    <meta name="author" content="Symon Kibaru">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>Allps Digital</title>
     <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
     <!-- Bulma Version 0.8.x-->
@@ -28,11 +33,13 @@
     }
     </style>
 
-
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
 
 <body>
+
+
 
 <nav class="navbar is-dark">
     <div class="navbar-brand">
@@ -79,13 +86,21 @@
         </div>
 
         <div class="navbar-end">
-            <div class="navbar-item">
+           <!-- <div class="navbar-item">
                 <div class="field">
                     <div class="control">
                         <input class="input" type="text" placeholder="Search . . .">
                     </div>
                 </div>
-            </div>
+            </div>-->
+
+            <a class="navbar-item " href="/login" accesskey="1" title="">
+                Login
+            </a>
+            <a class="navbar-item " href="/register" accesskey="1" title="">
+                Register
+            </a>
+
         </div>
     </div>
 </nav>
@@ -134,9 +149,17 @@
     }
 </style>-->
 
+
 @yield('content')
 
 
 </body>
 
 </html>
+<!--<script>
+    /*import AppHeader from "../js/components/Header";
+    export default {
+        components: {AppHeader}
+    }*/
+</script>-->
+<!--<script src="{{ asset('js/app.js') }}"></script>-->

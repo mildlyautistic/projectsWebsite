@@ -1,9 +1,21 @@
-import {getLoggedinUser} from './partials/auth';
-const user = getLoggedinUser();
+import {getToken} from './partials/auth';
+const user = getToken()
+function getAuthHeaders(){
+    const token = getToken();
+    const customHeaders = {headers: { Authorization: "Bearer " + token }};
+
+    if(!token){
+        router.push('/login');
+    }
+
+    return customHeaders;
+}
 export default {
     state: {
         currentUser: user,
-        isLoggedIn: !!user,
+        //user: null,
+        isLoggedIn: null,
+        //isLoggedIn: !!localStorage.getItem('token'),
         loading: false,
         auth_error: null,
         reg_error:null,
@@ -17,7 +29,10 @@ export default {
             return state.loading;
         },
         isLoggedin(state){
+           // state.currentUser = Object.assign({}, state.user, {token: state.access_token});
+            //localStorage.setItem("user", JSON.stringify(state.currentUser));
             return state.isLoggedIn;
+            //return !!state.user
         },
         currentUser(state){
             return state.currentUser;
@@ -46,26 +61,36 @@ export default {
             state.loading = true;
             state.auth_error = null;
         },
-
-        loginSuccess(state, payload){
+        register(state){
             state.auth_error = null;
-            state.isLoggedin = true;
+            },
+
+        loginSuccess(state, payload) {
+            state.auth_error = null;
+            state.isLoggedIn = true;
             state.loading = false;
-            state.currentUser = Object.assign({}, payload.user, {token: payload.access_token});
-            localStorage.setItem("user", JSON.stringify(state.currentUser));
-        },
+            state.currentUser = payload.data.token;
+            //console.log(state.currentUser);
+            localStorage.setItem('user', JSON.stringify(state.currentUser));
+        }
+        ,
         loginFailed(state, payload){
+           /* alert('Login failed');
+            console.log(payload.error);*/
             state.loading = false;
             state.auth_error = payload.error;
         },
         logout(state){
             localStorage.removeItem("user");
-            state.isLoggedin = false;
+            state.isLoggedIn = false;
             state.currentUser = null;
         },
         registerSuccess(state, payload){
             state.reg_error = null;
+            state.isLoggedIn = true;
             state.registeredUser = payload.user;
+            state.currentUser = Object.assign({}, payload.user, {token: payload.access_token});
+            localStorage.setItem("user", JSON.stringify(state.currentUser));
         },
         registerFailed(state, payload){
             state.reg_error = payload.error;
@@ -106,8 +131,13 @@ export default {
             context.commit("login");
         },
 
+        register(context){
+            context.commit("register");
+        },
+
         createProfile({commit}, profile) {
-            axios.post('/api/profiles', profile)
+            const headers = getAuthHeaders();
+            axios.post('/api/create-profile', profile, headers)
                 .then(res => {
                     commit('CREATE_PROFILE', res.data)
                 }).catch(err => {
@@ -133,7 +163,8 @@ export default {
             })
         },
         createArticle({commit}, article) {
-            axios.post('/api/articles', article)
+            const headers = getAuthHeaders();
+            axios.post('/api/create-article', article, headers)
                 .then(res => {
                     commit('CREATE_ARTICLE', res.data)
                 }).catch(err => {
@@ -159,7 +190,8 @@ export default {
             })
         },
         createProject({commit}, project) {
-            axios.post('/api/projects', project)
+            const headers = getAuthHeaders();
+            axios.post('/api/create-project', project, headers)
                 .then(res => {
                     commit('CREATE_PROJECT', res.data)
                 }).catch(err => {

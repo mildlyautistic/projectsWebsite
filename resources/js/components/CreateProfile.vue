@@ -1,7 +1,7 @@
 
 
 <template>
-   <form action="" @submit="createProfile(profile)">
+   <form @submit.prevent="createProfile">
        <section class="section">
         <div class="container has-text-centered">
 
@@ -106,7 +106,7 @@
         </div><br><br>
         <!--<div class="field is-grouped">-->
             <div class="row">
-            <button :disabled="!isValid" class="btn btn-block btn-primary" @click.prevent="createProfile(profile)">Submit
+            <button :disabled="!isValid" class="btn btn-block btn-primary">Submit
             </button></div>
         </div>
        </section>
@@ -322,6 +322,8 @@
 </template>
 
 <script>
+    import { createProfile} from "../partials/auth";
+
     export default {
         name: "CreateProfile",
         data() {
@@ -343,8 +345,8 @@
             }
         },
         methods: {
-            createProfile(profile) {
-                this.$store.dispatch('createProfile', profile)
+            createProfile () {
+                this.$store.dispatch('createProfile', this.$data.profile)
             }
         },
         computed: {

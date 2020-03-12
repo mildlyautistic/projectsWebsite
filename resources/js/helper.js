@@ -1,5 +1,5 @@
 import { mapGetters } from 'vuex'
 
 export const authComputed = { // for login
-    ...mapGetters(['loggedIn'])
+    ...mapGetters(['isLoggedin'])
 }

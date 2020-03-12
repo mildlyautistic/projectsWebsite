@@ -5,7 +5,14 @@ export function registerUser(credentials){
                 res(response.data);
             })
             .catch(err => {
-                rej('An error occured.. try again later.')
+                if(credentials.password.length < 6) {
+                    rej("Password should contain at least 6 characters.")
+                }
+                if(credentials.password !== credentials.c_password) {
+
+                    rej('Both passwords should match.')
+                }
+
             })
     })
 }
@@ -22,7 +29,7 @@ export function login(credentials){
     })
 }
 
-export function getLoggedinUser(){
+export function getToken(){
     const userStr = localStorage.getItem('user');
 
     if(!userStr){

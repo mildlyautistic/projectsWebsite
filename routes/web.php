@@ -14,7 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/welcome', function () {
+    return view('welcome');
+});
 
 //Route::resource('/profile/show/{profileId}', 'API\ProfileController');
 
@@ -43,6 +45,9 @@ Route::get('/articles','API\ArticleController@index');
     Route::post('logout', 'API\RegisterController@logout');
 });*/
 
+/*Route::get('{any}', function () {
+    return view('wel');
+})->where('any', '.*');*/
 Route::get('{any}', function () {
     return view('wel');
 })->where('any', '.*');

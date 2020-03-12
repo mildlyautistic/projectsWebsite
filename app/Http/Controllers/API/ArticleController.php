@@ -139,6 +139,7 @@ class ArticleController extends BaseController
     public function destroy($id)
     {
         //$article->delete();
+
         Article::destroy($id);
 
        // return $this->sendResponse([], 'Article deleted successfully.');

@@ -7,30 +7,31 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent"><div class="navbar-nav ml-auto">
             <template v-if="!currentUser">
-                <li>
+                <!--<li>
                     <router-link to="/register" class="nav-link">Register</router-link>
                 </li>
                     <router-link to="/login" class="nav-link">Login</router-link>
                 <li>
 
-                </li>
+                </li>-->
             </template>
 
-               <!-- <li>
+            <template v-else>
+                <li>
                     <router-link to="/articles" class="nav-link">Articles</router-link>
-                </li>-->
-                <!--<li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{currentUser.name}} <span class="caret"></span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a href="#!" @click.prevent="logout" class="dropdown-item">Logout</a>
-                    </div>
-                </li>-->
+                </li>
+                <li>
+                    <router-link to="/profiles" class="nav-link">Profiles</router-link>
+                </li>
+                <li>
+                    <router-link to="/projects" class="nav-link">Projects</router-link>
+                </li>
 
-                <button v-else type="button" @click="logout">
+
+                <button type="button" @click="logout">
                     Logout
                 </button>
+            </template>
 
 
 
@@ -45,12 +46,15 @@
         name: 'app-header',
     methods:{
         logout(){
+
             this.$store.commit('logout');
-            this.$router.push('/login');
+                this.$router.push({path: '/login'});
+
+
         }
     },
     computed:{
-        currentUser(){
+       currentUser(){
             return this.$store.getters.currentUser
         },
         ...authComputed

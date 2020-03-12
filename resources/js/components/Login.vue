@@ -24,6 +24,12 @@
                         <div class="form-group row">
                             <input type="submit" value="Login" class="btn btn-outline-primary ml-auto">
                         </div>
+
+                        <p>{{ error }}</p>
+                        <router-link to="/register">
+                            Don't have an account? Register.
+                        </router-link>
+
                     </form>
                 </div>
             </div>
@@ -37,7 +43,7 @@
             return {
                 formLogin: {
                     email: '',
-            password: ''
+                    password: ''
         },
             error: null
         }
@@ -48,7 +54,7 @@
                 login(this.$data.formLogin)
                     .then(res => {
                         this.$store.commit("loginSuccess", res);
-                        this.$router.push({path: '/articles'});
+                        this.$router.push({path: '/dashboard'});
                     })
                     .catch(error => {
                             this.$store.commit("loginFailed", {error});
