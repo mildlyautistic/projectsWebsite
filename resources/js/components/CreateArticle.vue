@@ -57,10 +57,10 @@
         methods: {
             createArticle(article) {
                 this.$store.dispatch('createArticle', article)
-                this.$router.push({
+                /*this.$router.push({
                     name: 'article-show',
                     params: { id: this.article.id }
-                })
+                }) */
             }
         },
         computed: {

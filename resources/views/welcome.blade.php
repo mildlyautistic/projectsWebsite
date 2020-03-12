@@ -275,7 +275,7 @@ li{
         <div class="cont">
             <h1 id="hdng">Ipropal</h1>
             <p>A one-stop smart solution to execute IT projects. At iProPal , we believe that any project big or small can be done through online collaboration. For small scale projects , hire top-notch IT freelancers online at iProPal.For large and complex IT projects, hire in-house ipropal team through iProPal enterprise .</p>
-           <!-- <button id="myBtn" onclick="myFunction()">Pause</button>-->
+            <!--<button id="myBtn" onclick="myFunction()">Pause</button> -->
             <a href="#one" class="button">Explore</a>
         </div>
     </div>

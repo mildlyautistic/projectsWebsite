@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>Allps Digital</title>
     <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
     <!-- Bulma Version 0.8.x-->
@@ -13,6 +14,7 @@
 
     <link href="default.css" rel="stylesheet"/>
     <link href="fonts.css" rel="stylesheet" />
+
     <style>
     body  {
     background-image: url("Images/banner.jpg");
@@ -25,6 +27,8 @@
         background-attachment: fixed;
     }
     </style>
+
+
 
 </head>
 
@@ -55,6 +59,12 @@
             </a>
             <a class="navbar-item" href="/contact" accesskey="4" title="">
                 Contact
+            </a>
+            <a class="navbar-item" href="/register" accesskey="5" title="">
+                Register
+            </a>
+            <a class="navbar-item" href="/login" accesskey="6" title="">
+                Login
             </a>
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link" href="/documentation/overview/start/">
@@ -131,6 +141,8 @@
 </style>-->
 
 @yield('content')
+
+
 </body>
 
 </html>

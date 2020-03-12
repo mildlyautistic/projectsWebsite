@@ -1,60 +1,86 @@
 <template>
-    <div>
-    	<h1>Registration Form</h1>
-        <form @submit.prevent="register">
-            <label for="name">
-                Name:
-            </label>
-            <input v-model="name" type="text" name="name" value>
-            <label for="email">
-                Email:
-            </label>
-            <input v-model="email" type="email" name="email" value>
-            <label for="password">
-                Password:
-            </label>
-            <input v-model="password" type="password" name="password" value>
-            <button type="submit" name="button">
-                Register
-            </button>
-            <p><ul>
-            	<li v-for="(error,index) in errors" :key="index">{{ error }}</li>
-            </ul></p>
-            <!--<div>
-            	Already have an account? <router-link to="/login">
-    		Login 
-    	</router-link>
-    </div>-->
-        </form>
+    <div class="login row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Register</h3>
+                </div>
+                <div class="card-body">
+                    <form @submit.prevent="register">
+                        <div class="form-group row" v-if="regError">
+                            <p class="error">
+                                {{regError}}
+                            </p>
+                        </div>
+                        <div class="form-group row">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" class="form-control" v-model="formRegister.name" placeholder="Name" required>
+
+                        </div>
+                        <div class="form-group row">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" class="form-control" v-model="formRegister.email" placeholder="Email address" required>
+
+                        </div>
+                        <div class="form-group row">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" class="form-control" v-model="formRegister.password" placeholder="password" required>
+
+                        </div>
+                        <div class="form-group row">
+                            <label for="c-password">Confirm Password</label>
+                            <input type="password" name="c-password" class="form-control" v-model="formRegister.c_password" placeholder="confirm password" required>
+
+                        </div>
+                        <div class="form-group row">
+                            <input type="submit" value="Register" class="btn btn-outline-primary ml-auto">
+                        </div>
+                    </form>
+                    Already have an account?
+                    <router-link to="/login">Login</router-link>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
+
 <script>
-export default {
-    name: "Register",
-    data() {
-        return {
-            name: '',
-            email: '',
-            password: '',
-            errors: null
-        }
-    },
-    methods: {
-    	register () {
-    		this.$store.dispatch('register', {
-    			name: this.name,
-    			email: this.email,
-    			password: this.password
-    		})
-    		.then(() => {
-    			this.$router.push({ name: 'dashboard' })
-    		})
-    		.catch(err => {
-    			this.errors = err.response.data.errors
-    		})
-    	}
+    import { registerUser } from "../partials/auth";
+
+    export default {
+        data () {
+            return {
+                formRegister: {
+                    name: '',
+                    email: '',
+                    password: '',
+                    c_password: ''
+                },
+                errors: null
+            }
+        },
+
+            methods:{
+                register(){
+                    registerUser(this.$data.formRegister)
+                        .then(res => {
+                            console.log(res);
+                            this.$store.commit("registerSuccess", res);
+                            //this.$router.push({path: '/login'});
+                            this.$router.push({path: '/dashboard'});
+                        })
+                        .catch(error => {
+                            this.$store.commit("registerFailed", {error});
+                        })
+                }
+            },
+            computed:{
+                regError(){
+                    return this.$store.getters.regError
+                }
+            }
+
+
     }
-}
 </script>
-<style scoped>
-</style>

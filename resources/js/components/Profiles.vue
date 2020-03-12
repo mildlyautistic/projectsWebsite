@@ -1,6 +1,7 @@
 <template>
     <div>
         <h4 class="text-center font-weight-bold" >Profiles</h4>
+         <router-link to="/create-profile" class="nav-link">Create</router-link>
         <table class="table table-striped">
             <thead>
             <tr>
