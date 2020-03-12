@@ -1,7 +1,7 @@
 <template>
     <div>
         <h4 class="text-center font-weight-bold">Projects</h4>
-         <router-link to="/create-project" class="nav-link">Create</router-link>
+        <h5><router-link to="/create-project" class="nav-link">Create</router-link></h5>
         <table class="table table-striped">
             <thead>
             <tr>

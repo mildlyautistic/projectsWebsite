@@ -20,29 +20,23 @@ Route::post('logout', 'API\RegisterController@logout');
 
 Route::get('articles', 'API\ArticleController@get');
 
-Route::delete('articles/{id}', 'API\ArticleController@destroy');
-
 Route::middleware('auth:api')->group( function () {
     //Route::resource('articles', 'API\ArticleController');
-    Route::post('articles', 'API\ArticleController@store');
+    Route::post('create-article', 'API\ArticleController@store');
 
     Route::put('articles/{id}', 'API\ArticleController@update');
+    Route::delete('articles/{id}', 'API\ArticleController@destroy');
 });
 
 
 Route::get('projects', 'API\ProjectController@get');
 
-Route::delete('projects/{id}', 'API\ProjectController@destroy');
-
 Route::middleware('auth:api')->group( function () {
     //Route::resource('projects', 'API\ProjectController');
-    Route::post('projects', 'API\ProjectController@store');
+    Route::post('create-project', 'API\ProjectController@store');
 
     Route::put('projects/{id}', 'API\ProjectController@update');
-});
-
-Route::middleware('auth:api')->group( function () {
-    Route::resource('assets', 'API\AssetController');
+    Route::delete('projects/{id}', 'API\ProjectController@destroy');
 });
 
 /*
@@ -56,8 +50,9 @@ Route::post('login', 'API\RegisterController@login');
    // Route::get('/profile/show/{profileId}', 'API\ProfileController@show');
 });*/
 
+
 Route::middleware('auth:api')->group( function () {
-    Route::post('profiles', 'API\ProfileController@store');
+    Route::post('create-profile', 'API\ProfileController@store');
 
 
     Route::delete('profiles/{id}', 'API\ProfileController@delete');
@@ -66,12 +61,8 @@ Route::middleware('auth:api')->group( function () {
 
 Route::get('profiles', 'API\ProfileController@show');
 
-Route::middleware('auth:api')->group( function () {
-    //Route::resource('projects', 'API\ProjectController');
-Route::post('projects', 'API\ProjectController@store');
-});
 
-
+//Route::get('assets','API\AssetController@index');
 
 Route::middleware('auth:api')->group( function () {
     Route::resource('assets', 'API\AssetController');

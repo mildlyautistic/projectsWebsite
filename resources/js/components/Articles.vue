@@ -1,7 +1,7 @@
 <template>
     <div>
         <h4 class="text-center font-weight-bold">Articles</h4>
-         <router-link to="/create-article" class="nav-link">Create</router-link>
+        <h5><router-link to="/create-article" class="nav-link">Create</router-link></h5>
         <table class="table table-striped">
             <thead>
             <tr>
@@ -52,7 +52,7 @@
                 'articles'
             ])
         }
-    } 
+    }
 </script>
 
 <style scoped>

@@ -24,6 +24,12 @@
                         <div class="form-group row">
                             <input type="submit" value="Login" class="btn btn-outline-primary ml-auto">
                         </div>
+
+                        <p>{{ error }}</p>
+                        <router-link to="/register">
+                            Don't have an account? Register.
+                        </router-link>
+
                     </form>
                          Don't have an account?
                     <router-link to="/register">Register</router-link>
@@ -39,7 +45,7 @@
             return {
                 formLogin: {
                     email: '',
-            password: ''
+                    password: ''
         },
             error: null
         }
