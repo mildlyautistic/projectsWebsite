@@ -346,7 +346,8 @@
         },
         methods: {
             createProfile () {
-                this.$store.dispatch('createProfile', this.$data.profile)
+                this.$store.dispatch('createProfile', this.$data.profile);
+                 this.$router.push({path: '/profiles'});
             }
         },
         computed: {

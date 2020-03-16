@@ -33,28 +33,15 @@ Route::get('/privacypolicy', function () {
     return view('privacypolicy');
 });
 
-Route::get('/projects','API\ProjectController@index');
-
-Route::get('/articles','API\ArticleController@index');
-
-
-
 /*Route::group(['prefix' => 'auth'], function ($router) {
     Route::post('/register', 'API\RegisterController@register');
     Route::post('login', 'API\RegisterController@login');
     Route::post('logout', 'API\RegisterController@logout');
 });*/
 
-/*Route::get('{any}', function () {
-    return view('wel');
-})->where('any', '.*');*/
 Route::get('{any}', function () {
     return view('wel');
 })->where('any', '.*');
-
-
-Route::get('/profiles','API\ProfileController@index');
-
 
 Route::get('/contact','API\ContactController@create');
 Route::post('/contact','API\ContactController@store');

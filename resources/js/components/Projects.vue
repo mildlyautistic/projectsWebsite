@@ -14,6 +14,7 @@
                 <th scope="col">Associated_with</th>
                 <th scope="col">Description</th>
                 <th scope="col">Proj_url</th>
+                <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
             </tr>
             </thead>
@@ -29,7 +30,10 @@
                 <td>{{project.description}}</td>
                 <td>{{project.proj_url}}</td>
                 <td>
-                    <button class="btn btn-danger" @click="deleteProject(project)"><i style="color:#000000;" class="fa fa-trash"></i></button>
+                    <button class="edit" @click="updateProject(project)">Edit</button>
+                </td>
+                <td>
+                    <button class="btn btn-danger" @click="deleteProject(project)">Delete</button>
                 </td>
             </tr>
             </tbody>
@@ -48,7 +52,13 @@
         },
         methods: {
             deleteProject(project) {
+              alert('Do you really want to delete this project? You might not be able to undo this action!')
                 this.$store.dispatch('deleteProject',project)
+            },
+            updateProject(project) {
+                //this.store.dispatch('updateArticle', article)
+                alert('Do you want to edit this project?')
+                this.$router.push({path: '/update-project'})
             }
         },
         computed: {

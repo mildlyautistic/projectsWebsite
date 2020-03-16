@@ -33,7 +33,7 @@
                 <td>{{profile.l_url}}</td>
                 <td>{{profile.g_url}}</td>
                 <td>
-                    <button class="btn btn-danger" @click="deleteProfile(profile)"><i style="color:darkred" class="fa fa-trash"></i></button>
+                    <button class="btn btn-danger" @click="deleteProfile(profile)">Delete</button>
                 </td>
             </tr>
             </tbody>
@@ -52,6 +52,7 @@
         },
         methods: {
             deleteProfile(profile) {
+                alert('Do you really want to delete your Profile? You might not be able to undo this action!')
                 this.$store.dispatch('deleteProfile',profile)
             }
         },

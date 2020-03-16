@@ -26,9 +26,6 @@
                         </div>
 
                         <p>{{ error }}</p>
-                        <router-link to="/register">
-                            Don't have an account? Register.
-                        </router-link>
 
                     </form>
                          Don't have an account?

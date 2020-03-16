@@ -111,6 +111,10 @@ export default {
         FETCH_ARTICLES(state, articles) {
             return state.articles = articles
         },
+        UPDATE_ARTICLE(state, article) {
+             let index = state.articles.findIndex(item => item.id === article.id)
+             state.articles.splice(index, 1, article)
+        },
         DELETE_ARTICLE(state, article) {
             let index = state.articles.findIndex(item => item.id === article.id)
             state.articles.splice(index, 1)
@@ -154,7 +158,8 @@ export default {
             })
         },
         deleteProfile({commit}, profile) {
-            axios.delete(`/api/profiles/${profile.id}`)
+            const headers = getAuthHeaders();
+            axios.delete(`/api/profiles/${profile.id}`, headers)
                 .then(res => {
                     if (res.data === 'ok')
                         commit('DELETE_PROFILE', profile)
@@ -180,8 +185,18 @@ export default {
                 console.log(err)
             })
         },
+        updateArticle({commit}, article) {
+             const headers = getAuthHeaders();
+             axios.put(`/api/articles/${article.id}`, article, headers)
+                .then(res => {
+                    commit('UPDATE_ARTICLE', article)
+                }).catch(err => {
+                console.log(err)
+            })
+        },
         deleteArticle({commit}, article) {
-            axios.delete(`/api/articles/${article.id}`)
+            const headers = getAuthHeaders();
+            axios.delete(`/api/articles/${article.id}`, headers)
                 .then(res => {
                     if (res.data === 'ok')
                         commit('DELETE_ARTICLE', article)
@@ -208,7 +223,8 @@ export default {
             })
         },
         deleteProject({commit}, project) {
-            axios.delete(`/api/projects/${project.id}`)
+            const headers = getAuthHeaders();
+            axios.delete(`/api/projects/${project.id}`, headers)
                 .then(res => {
                     if (res.data === 'ok')
                         commit('DELETE_PROJECT', project)

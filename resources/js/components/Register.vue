@@ -38,11 +38,6 @@
                         <div class="form-group row">
                             <input type="submit" value="Register" class="btn btn-outline-primary ml-auto">
                         </div>
-
-                        <router-link to="/login">
-                            Already have an account? Login.
-                        </router-link>
-
                     </form>
                     Already have an account?
                     <router-link to="/login">Login</router-link>

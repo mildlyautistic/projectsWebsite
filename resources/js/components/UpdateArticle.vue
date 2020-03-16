@@ -1,6 +1,6 @@
 <template>
-    <form action="" @submit="createArticle(article)">
-        <h4 class="text-center font-weight-bold">Article creation form</h4>
+    <form action="" @submit="updateArticle(article)">
+        <h4 class="text-center font-weight-bold">Article editing form</h4>
         <div class="form-group">
             <label for="user_id">User_id:</label>
             <input type="number" name="user_id" id="user_id" placeholder="Enter your user_id" v-model="article.user_id">
@@ -32,7 +32,7 @@
         </div>
 
         <div class="form-group">
-            <button :disabled="!isValid" class="btn btn-block btn-primary" @click.prevent="createArticle(article)">
+            <button :disabled="!isValid" class="btn btn-block btn-primary" @click.prevent="updateArticle(article)">
                 Submit
             </button>
         </div>
@@ -41,7 +41,7 @@
 
 <script>
     export default {
-        name: "CreateArticle",
+        name: "UpdateArticle",
         data() {
             return {
                 article: {
@@ -55,8 +55,8 @@
             }
         },
         methods: {
-            createArticle(article) {
-                this.$store.dispatch('createArticle', article);
+            updateArticle(article) {
+                this.$store.dispatch('updateArticle', article);
                 this.$router.push({path: '/articles'});
             }
         },

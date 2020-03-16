@@ -11,6 +11,7 @@
                 <th scope="col">Featured_image_url</th>
                 <th scope="col">Body</th>
                 <th scope="col">Tags</th>
+                <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
             </tr>
             </thead>
@@ -23,7 +24,10 @@
                 <td>{{article.body}}</td>
                 <td>{{article.tags}}</td>
                 <td>
-                    <button class="btn btn-danger" @click="deleteArticle(article)"><i style="color:#000000;" class="fa fa-trash"></i></button>
+                    <button class="edit" @click="updateArticle(article)">Edit</button>
+                </td>
+                <td>
+                    <button class="btn btn-danger" @click="deleteArticle(article)">Delete</button>
                 </td>
             </tr>
             </tbody>
@@ -44,7 +48,14 @@
 
         methods: {
             deleteArticle(article) {
+                alert('Do you really want to delete this article? You might not be able to undo this action!')
                 this.$store.dispatch('deleteArticle', article)
+            },
+
+            updateArticle(article) {
+                alert('Do you want to edit the article?')
+                this.$router.push({path: `/articles/${article.id}`})
+                //this.$store.dispatch('updateArticle', article)
             }
         },
         computed: {

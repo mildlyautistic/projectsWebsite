@@ -25,6 +25,7 @@ Route::middleware('auth:api')->group( function () {
     Route::post('create-article', 'API\ArticleController@store');
 
     Route::put('articles/{id}', 'API\ArticleController@update');
+    
     Route::delete('articles/{id}', 'API\ArticleController@destroy');
 });
 
@@ -36,20 +37,10 @@ Route::middleware('auth:api')->group( function () {
     Route::post('create-project', 'API\ProjectController@store');
 
     Route::put('projects/{id}', 'API\ProjectController@update');
+
     Route::delete('projects/{id}', 'API\ProjectController@destroy');
+    
 });
-
-/*
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-Route::post('register', 'API\RegisterController@register');
-Route::post('login', 'API\RegisterController@login');
- */
-/*Route::middleware('auth:api')->group( function () {
-    Route::resource('profiles', 'API\ProfileController');
-   // Route::get('/profile/show/{profileId}', 'API\ProfileController@show');
-});*/
-
 
 Route::middleware('auth:api')->group( function () {
     Route::post('create-profile', 'API\ProfileController@store');
