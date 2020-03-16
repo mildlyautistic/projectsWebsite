@@ -4,12 +4,12 @@ namespace App\Http\Controllers\API;
 
 use App\Tag;
 use Illuminate\Http\Request;
-
 use App\Http\Controllers\API\BaseController as BaseController;
 use App\Article;
 use App;
 use Illuminate\Support\Facades\DB;
 use Validator;
+use Illuminate\Support\Facades\DB;
 use App\Http\Resources\Article as ArticleResource;
 
 class ArticleController extends BaseController
@@ -140,6 +140,15 @@ class ArticleController extends BaseController
 
     public function destroy($id)
     {
+
+        $aid = DB::table('articles')->where('id', $id)->pluck('user_id')->first();
+        $usid = auth()->user()->id;
+
+        if($aid!=$usid)
+        {
+            return $this->sendError('Sorry, delete your own articles.');
+        }
+
         //$article->delete();
        // global $aid;
 

@@ -1,4 +1,3 @@
-//import welcome from '../views/welcome.blade.php';
 import Register from './components/Register.vue';
 import Login from './components/Login.vue';
 import Dashboard from './components/Dashboard.vue';
@@ -30,6 +29,21 @@ export const routes = [
         path: '/articles',
         name: 'articles',
         component: Articles,
+    },
+    {
+        path: '/create-article',
+        name: 'createArticle',
+        component: CreateArticle,
+    },
+    {
+        path: '/create-project',
+        name: 'createProject',
+        component: CreateProject,
+    },
+    {
+        path: '/create-profile',
+        name: 'createProfile',
+        component: CreateProfile,
     },
     {
         path: '/profiles',

@@ -116,6 +116,11 @@ export default {
         FETCH_ARTICLES(state, articles) {
             return state.articles = articles
         },
+        UPDATE_ARTICLE(state, article) {
+             let index = state.articles.findIndex(item => item.id === article.id)
+             state.articles.splice(index, 1)
+             state.articles.unshift(article)
+        },
         DELETE_ARTICLE(state, article) {
             let index = state.articles.findIndex(item => item.id === article.id);
             state.articles.splice(index, 1)
@@ -194,6 +199,15 @@ export default {
             axios.get('/api/articles', headers)
                 .then(res => {
                     commit('FETCH_ARTICLES', res.data)
+                }).catch(err => {
+                console.log(err)
+            })
+        },
+        updateArticle({commit}, article) {
+             const headers = getAuthHeaders();
+             axios.put(`/api/articles/${article.id}`, article, headers)
+                .then(res => {
+                    commit('UPDATE_ARTICLE', article)
                 }).catch(err => {
                 console.log(err)
             })

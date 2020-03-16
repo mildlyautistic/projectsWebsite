@@ -10,7 +10,7 @@ import Articles from './components/Articles';
 import CreateArticle from './components/CreateArticle';
 
 import Profiles from './components/Profiles';
-import createProfile from './components/CreateProfile';
+import CreateProfile from './components/CreateProfile';
 
 require('./bootstrap');
 
@@ -33,7 +33,7 @@ Vue.component('articles', Articles);
 Vue.component('createArticle', CreateArticle);
 
 Vue.component('profiles', Profiles);
-Vue.component('createProfile', createProfile);
+Vue.component('createProfile', CreateProfile);
 
 //Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 

@@ -42,7 +42,6 @@ Route::get('/privacypolicy', function () {
     Route::post('logout', 'API\RegisterController@logout');
 });*/
 
-
 Route::get('{any}', function () {
     return view('wel');
 })->where('any', '.*');

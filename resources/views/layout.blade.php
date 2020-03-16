@@ -94,12 +94,14 @@
                 </div>
             </div>-->
 
-            <a class="navbar-item " href="/login" accesskey="1" title="">
-                Login
-            </a>
             <a class="navbar-item " href="/register" accesskey="1" title="">
                 Register
             </a>
+
+            <a class="navbar-item " href="/login" accesskey="1" title="">
+                Login
+            </a>
+            
 
         </div>
     </div>

@@ -38,12 +38,9 @@
                         <div class="form-group row">
                             <input type="submit" value="Register" class="btn btn-outline-primary ml-auto">
                         </div>
-
-                        <router-link to="/login">
-                            Already have an account? Login.
-                        </router-link>
-
                     </form>
+                    Already have an account?
+                    <router-link to="/login">Login</router-link>
                 </div>
             </div>
         </div>
@@ -74,7 +71,7 @@
                             console.log(res);
                             this.$store.commit("registerSuccess", res);
                             //this.$router.push({path: '/login'});
-                            this.$router.push({path: '/profiles'});
+                            this.$router.push({path: '/dashboard'});
                         })
                         .catch(error => {
                             this.$store.commit("registerFailed", {error});

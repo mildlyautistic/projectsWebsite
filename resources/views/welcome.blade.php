@@ -480,7 +480,6 @@ li{
 
 <script>
 
-    //import Register from "../js/components/Register";
 
     var myIndex = 0;
     carousel();
