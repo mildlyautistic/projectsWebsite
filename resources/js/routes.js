@@ -71,7 +71,7 @@ export const routes = [
         component: CreateArticle,
     },
     {
-        path: '/articles/${id}',
+        path: '/articles/:id',
         name: 'update-article',
         component: UpdateArticle,
     }

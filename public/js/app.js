@@ -42326,8 +42326,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_CreateProject__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/CreateProject */ "./resources/js/components/CreateProject.vue");
 /* harmony import */ var _components_Articles__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/Articles */ "./resources/js/components/Articles.vue");
 /* harmony import */ var _components_CreateArticle__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/CreateArticle */ "./resources/js/components/CreateArticle.vue");
-/* harmony import */ var _components_Profiles__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/Profiles */ "./resources/js/components/Profiles.vue");
-/* harmony import */ var _components_CreateProfile__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/CreateProfile */ "./resources/js/components/CreateProfile.vue");
+/* harmony import */ var _components_UpdateArticle__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/UpdateArticle */ "./resources/js/components/UpdateArticle.vue");
+/* harmony import */ var _components_Profiles__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/Profiles */ "./resources/js/components/Profiles.vue");
+/* harmony import */ var _components_CreateProfile__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/CreateProfile */ "./resources/js/components/CreateProfile.vue");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -42391,6 +42392,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
+
  //import storee from './store'
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vee_validate__WEBPACK_IMPORTED_MODULE_3__);
@@ -42400,8 +42402,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('projects', _components_Pro
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('createProject', _components_CreateProject__WEBPACK_IMPORTED_MODULE_8__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('articles', _components_Articles__WEBPACK_IMPORTED_MODULE_9__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('createArticle', _components_CreateArticle__WEBPACK_IMPORTED_MODULE_10__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('profiles', _components_Profiles__WEBPACK_IMPORTED_MODULE_11__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('createProfile', _components_CreateProfile__WEBPACK_IMPORTED_MODULE_12__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('updateArticle', _components_UpdateArticle__WEBPACK_IMPORTED_MODULE_11__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('profiles', _components_Profiles__WEBPACK_IMPORTED_MODULE_12__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('createProfile', _components_CreateProfile__WEBPACK_IMPORTED_MODULE_13__["default"]);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   routes: _routes_js__WEBPACK_IMPORTED_MODULE_4__["routes"],
   mode: 'history'
@@ -43571,7 +43574,7 @@ var routes = [{
   name: 'create-article',
   component: _components_CreateArticle_vue__WEBPACK_IMPORTED_MODULE_8__["default"]
 }, {
-  path: '/articles/${id}',
+  path: '/articles/:id',
   name: 'update-article',
   component: _components_UpdateArticle_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
 }];
@@ -43712,7 +43715,8 @@ function getAuthHeaders() {
       var index = state.articles.findIndex(function (item) {
         return item.id === article.id;
       });
-      state.articles.splice(index, 1, article);
+      state.articles.splice(index, 1);
+      state.articles.unshift(article);
     },
     DELETE_ARTICLE: function DELETE_ARTICLE(state, article) {
       var index = state.articles.findIndex(function (item) {

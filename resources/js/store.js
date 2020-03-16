@@ -113,7 +113,8 @@ export default {
         },
         UPDATE_ARTICLE(state, article) {
              let index = state.articles.findIndex(item => item.id === article.id)
-             state.articles.splice(index, 1, article)
+             state.articles.splice(index, 1)
+             state.articles.unshift(article)
         },
         DELETE_ARTICLE(state, article) {
             let index = state.articles.findIndex(item => item.id === article.id)
