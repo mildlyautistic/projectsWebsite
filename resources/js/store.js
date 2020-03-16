@@ -102,17 +102,22 @@ export default {
             return state.profiles = profiles
         },
         DELETE_PROFILE(state, profile) {
-            let index = state.profiles.findIndex(item => item.id === profile.id)
+            let index = state.profiles.findIndex(item => item.id === profile.id);
             state.profile.splice(index, 1)
         },
         CREATE_ARTICLE(state, article) {
+            state.articles.unshift(article)
+        },
+        UPDATE_ARTICLE(state, article) {
+            let index = state.articles.findIndex(item => item.id === article.id);
+            state.articles.splice(index, 1);
             state.articles.unshift(article)
         },
         FETCH_ARTICLES(state, articles) {
             return state.articles = articles
         },
         DELETE_ARTICLE(state, article) {
-            let index = state.articles.findIndex(item => item.id === article.id)
+            let index = state.articles.findIndex(item => item.id === article.id);
             state.articles.splice(index, 1)
         },
         CREATE_PROJECT(state, project) {
@@ -154,7 +159,8 @@ export default {
             })
         },
         deleteProfile({commit}, profile) {
-            axios.delete(`/api/profiles/${profile.id}`)
+            const headers = getAuthHeaders();
+            axios.delete(`/api/profiles/${profile.id}`, headers)
                 .then(res => {
                     if (res.data === 'ok')
                         commit('DELETE_PROFILE', profile)
@@ -172,8 +178,20 @@ export default {
             })
 
         },
+        updateArticle({commit}, article) {
+            const headers = getAuthHeaders();
+            axios.put(`/api/articles/${article.id}`, article, headers)
+                .then(res => {
+                    if (res.data === 'ok')
+                        commit('UPDATE_ARTICLE', res.data)
+                }).catch(err => {
+                console.log(err)
+            })
+
+        },
         fetchArticles({commit}) {
-            axios.get('/api/articles')
+            const headers = getAuthHeaders();
+            axios.get('/api/articles', headers)
                 .then(res => {
                     commit('FETCH_ARTICLES', res.data)
                 }).catch(err => {
@@ -181,7 +199,8 @@ export default {
             })
         },
         deleteArticle({commit}, article) {
-            axios.delete(`/api/articles/${article.id}`)
+            const headers = getAuthHeaders();
+            axios.delete(`/api/articles/${article.id}`, headers)
                 .then(res => {
                     if (res.data === 'ok')
                         commit('DELETE_ARTICLE', article)
@@ -208,7 +227,8 @@ export default {
             })
         },
         deleteProject({commit}, project) {
-            axios.delete(`/api/projects/${project.id}`)
+            const headers = getAuthHeaders();
+            axios.delete(`/api/projects/${project.id}`, headers)
                 .then(res => {
                     if (res.data === 'ok')
                         commit('DELETE_PROJECT', project)

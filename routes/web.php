@@ -33,9 +33,6 @@ Route::get('/privacypolicy', function () {
     return view('privacypolicy');
 });
 
-Route::get('/projects','API\ProjectController@index');
-
-Route::get('/articles','API\ArticleController@index');
 
 
 
@@ -45,15 +42,12 @@ Route::get('/articles','API\ArticleController@index');
     Route::post('logout', 'API\RegisterController@logout');
 });*/
 
-/*Route::get('{any}', function () {
-    return view('wel');
-})->where('any', '.*');*/
+
 Route::get('{any}', function () {
     return view('wel');
 })->where('any', '.*');
 
 
-Route::get('/profiles','API\ProfileController@index');
 
 
 Route::get('/contact','API\ContactController@create');

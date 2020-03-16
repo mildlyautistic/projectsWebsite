@@ -149,7 +149,8 @@
         },
         methods: {
             createProject(project) {
-                this.$store.dispatch('createProject', project)
+                this.$store.dispatch('createProject', project);
+                this.$router.push({path: '/projects'});
             }
         },
         computed: {

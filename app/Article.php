@@ -6,12 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    protected $guarded = [];
+    //protected $guarded = [];
+    protected $fillable = [
+        'user_id','title', 'excerpt','featured_image_url','body', 'tags'
+    ];
 
-    public function path()
-    {
-        return route('articles.show', $this);
-    }
 
     public function user()
     {

@@ -60,6 +60,7 @@ import CreateProject from './components/CreateProject';
 
 import Articles from './components/Articles';
 import CreateArticle from './components/CreateArticle';
+import UpdateArticle from './components/UpdateArticle';
 
 import Profiles from './components/Profiles';
 import createProfile from './components/CreateProfile';
@@ -75,6 +76,7 @@ Vue.component('createProject', CreateProject);
 
 Vue.component('articles', Articles);
 Vue.component('createArticle', CreateArticle);
+Vue.component('updateArticle', UpdateArticle);
 
 Vue.component('profiles', Profiles);
 Vue.component('createProfile', createProfile);

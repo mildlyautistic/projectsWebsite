@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h1>Hello {{ currentUser.name }} . . . welcome to your work space.</h1>
+        <h1>Hello {{ currentUser.data.name }} . . . welcome to your work space.</h1>
     </div>
 </template>
 <script>
