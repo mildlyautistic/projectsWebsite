@@ -8,7 +8,6 @@ use App\Profile;
 use App;
 use Illuminate\Support\Facades\DB;
 use Validator;
-use Illuminate\Support\Facades\DB;
 use App\Http\Resources\Profile as ProfileResource;
 
 class ProfileController extends BaseController

@@ -9,7 +9,6 @@ use App\Project;
 use App;
 use Illuminate\Support\Facades\DB;
 use Validator;
-use Illuminate\Support\Facades\DB;
 use App\Http\Resources\Project as ProjectResource;
 
 class ProjectController extends BaseController

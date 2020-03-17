@@ -31,7 +31,7 @@ export function login(credentials){
 
 export function getToken(){
     const userStr = localStorage.getItem('user');
-
+//console.log(userStr);
     if(!userStr){
         return null
     }

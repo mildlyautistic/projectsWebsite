@@ -15,6 +15,7 @@ export default {
         currentUser: user,
         //user: null,
         isLoggedIn: null,
+        use:user,
         //isLoggedIn: !!localStorage.getItem('token'),
         loading: false,
         auth_error: null,
@@ -36,6 +37,9 @@ export default {
         },
         currentUser(state){
             return state.currentUser;
+        },
+        use(state){
+            return state.use;
         },
         authError(state){
             return state.auth_error;
@@ -70,6 +74,7 @@ export default {
             state.isLoggedIn = true;
             state.loading = false;
             state.currentUser = payload.data.token;
+            state.use = payload.data.name;
             //console.log(state.currentUser);
             localStorage.setItem('user', JSON.stringify(state.currentUser));
         }
@@ -108,11 +113,7 @@ export default {
         CREATE_ARTICLE(state, article) {
             state.articles.unshift(article)
         },
-        UPDATE_ARTICLE(state, article) {
-            let index = state.articles.findIndex(item => item.id === article.id);
-            state.articles.splice(index, 1);
-            state.articles.unshift(article)
-        },
+
         FETCH_ARTICLES(state, articles) {
             return state.articles = articles
         },
@@ -183,17 +184,7 @@ export default {
             })
 
         },
-        updateArticle({commit}, article) {
-            const headers = getAuthHeaders();
-            axios.put(`/api/articles/${article.id}`, article, headers)
-                .then(res => {
-                    if (res.data === 'ok')
-                        commit('UPDATE_ARTICLE', res.data)
-                }).catch(err => {
-                console.log(err)
-            })
 
-        },
         fetchArticles({commit}) {
             const headers = getAuthHeaders();
             axios.get('/api/articles', headers)

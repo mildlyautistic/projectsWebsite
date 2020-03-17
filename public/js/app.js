@@ -1964,10 +1964,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.$store.dispatch('deleteArticle', article);
     },
     updateArticle: function updateArticle(article) {
-      alert('Do you want to edit the article?');
+      //this.$store.dispatch('updateArticle', article)
       this.$router.push({
         path: "/articles/".concat(article.id)
-      }); //this.$store.dispatch('updateArticle', article)
+      });
     }
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['articles']))
@@ -2649,8 +2649,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
-    currentUser: function currentUser() {
-      return this.$store.getters.currentUser;
+    use: function use() {
+      //console.log(this.$store.getters.use)
+      return this.$store.getters.use;
     }
   }
 });
@@ -3197,11 +3198,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "UpdateArticle",
   data: function data() {
     return {
       article: {
+        id: '',
         user_id: '',
         title: '',
         excerpt: '',
@@ -3213,6 +3221,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     updateArticle: function updateArticle(article) {
+      //console.log(article.id)
       this.$store.dispatch('updateArticle', article);
       this.$router.push({
         path: '/articles'
@@ -23843,21 +23852,6 @@ var render = function() {
                   staticClass: "btn btn-danger",
                   on: {
                     click: function($event) {
-                      return _vm.updateArticle(article)
-                    }
-                  }
-                },
-                [_vm._v("edit")]
-              )
-            ]),
-            _vm._v(" "),
-            _c("td", [
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-danger",
-                  on: {
-                    click: function($event) {
                       return _vm.deleteArticle(article)
                     }
                   }
@@ -25122,11 +25116,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("h1", [
-      _vm._v(
-        "Hello , " +
-          _vm._s(_vm.currentUser.name) +
-          " . . . welcome to your work space."
-      )
+      _vm._v("Hello " + _vm._s(_vm.use) + " . . . welcome to your work space.")
     ])
   ])
 }
@@ -25940,7 +25930,7 @@ var render = function() {
   return _c(
     "form",
     {
-      attrs: { action: "" },
+      attrs: { action: "", method: "PUT" },
       on: {
         submit: function($event) {
           return _vm.updateArticle(_vm.article)
@@ -25949,7 +25939,37 @@ var render = function() {
     },
     [
       _c("h4", { staticClass: "text-center font-weight-bold" }, [
-        _vm._v("Article editing form")
+        _vm._v("Article updation form")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "id" } }, [_vm._v("id:")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.article.id,
+              expression: "article.id"
+            }
+          ],
+          attrs: {
+            type: "number",
+            name: "id",
+            id: "id",
+            placeholder: "Enter your id"
+          },
+          domProps: { value: _vm.article.id },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.article, "id", $event.target.value)
+            }
+          }
+        })
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "form-group" }, [
@@ -43499,7 +43519,7 @@ function login(credentials) {
   });
 }
 function getToken() {
-  var userStr = localStorage.getItem('user');
+  var userStr = localStorage.getItem('user'); //console.log(userStr);
 
   if (!userStr) {
     return null;
@@ -43530,7 +43550,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_CreateProject_vue__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/CreateProject.vue */ "./resources/js/components/CreateProject.vue");
 /* harmony import */ var _components_CreateArticle_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/CreateArticle.vue */ "./resources/js/components/CreateArticle.vue");
 /* harmony import */ var _components_UpdateArticle_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/UpdateArticle.vue */ "./resources/js/components/UpdateArticle.vue");
-
 
 
 
@@ -43630,6 +43649,7 @@ function getAuthHeaders() {
     currentUser: user,
     //user: null,
     isLoggedIn: null,
+    use: user,
     //isLoggedIn: !!localStorage.getItem('token'),
     loading: false,
     auth_error: null,
@@ -43650,6 +43670,9 @@ function getAuthHeaders() {
     },
     currentUser: function currentUser(state) {
       return state.currentUser;
+    },
+    use: function use(state) {
+      return state.use;
     },
     authError: function authError(state) {
       return state.auth_error;
@@ -43682,7 +43705,8 @@ function getAuthHeaders() {
       state.auth_error = null;
       state.isLoggedIn = true;
       state.loading = false;
-      state.currentUser = payload.data.token; //console.log(state.currentUser);
+      state.currentUser = payload.data.token;
+      state.use = payload.data.name; //console.log(state.currentUser);
 
       localStorage.setItem('user', JSON.stringify(state.currentUser));
     },
@@ -43722,13 +43746,6 @@ function getAuthHeaders() {
       state.profile.splice(index, 1);
     },
     CREATE_ARTICLE: function CREATE_ARTICLE(state, article) {
-      state.articles.unshift(article);
-    },
-    UPDATE_ARTICLE: function UPDATE_ARTICLE(state, article) {
-      var index = state.articles.findIndex(function (item) {
-        return item.id === article.id;
-      });
-      state.articles.splice(index, 1);
       state.articles.unshift(article);
     },
     FETCH_ARTICLES: function FETCH_ARTICLES(state, articles) {
@@ -43802,20 +43819,20 @@ function getAuthHeaders() {
         console.log(err);
       });
     },
-    updateArticle: function updateArticle(_ref5, article) {
+    fetchArticles: function fetchArticles(_ref5) {
       var commit = _ref5.commit;
       var headers = getAuthHeaders();
-      axios.put("/api/articles/".concat(article.id), article, headers).then(function (res) {
-        if (res.data === 'ok') commit('UPDATE_ARTICLE', res.data);
+      axios.get('/api/articles', headers).then(function (res) {
+        commit('FETCH_ARTICLES', res.data);
       })["catch"](function (err) {
         console.log(err);
       });
     },
-    fetchArticles: function fetchArticles(_ref6) {
+    updateArticle: function updateArticle(_ref6, article) {
       var commit = _ref6.commit;
       var headers = getAuthHeaders();
-      axios.get('/api/articles', headers).then(function (res) {
-        commit('FETCH_ARTICLES', res.data);
+      axios.put("/api/articles/".concat(article.id), article, headers).then(function (res) {
+        commit('UPDATE_ARTICLE', article);
       })["catch"](function (err) {
         console.log(err);
       });
@@ -43878,8 +43895,8 @@ function getAuthHeaders() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/ipropal/work/projectsWebsite/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/ipropal/work/projectsWebsite/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/nitya/work/projectsWebsite/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/nitya/work/projectsWebsite/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

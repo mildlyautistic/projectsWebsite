@@ -9,7 +9,6 @@ use App\Article;
 use App;
 use Illuminate\Support\Facades\DB;
 use Validator;
-use Illuminate\Support\Facades\DB;
 use App\Http\Resources\Article as ArticleResource;
 
 class ArticleController extends BaseController
@@ -93,10 +92,10 @@ class ArticleController extends BaseController
 
     public function update(Request $request, Article $article)
     {
+
         $input = $request->all();
         $aid =$request->user_id;
         $usid = auth()->user()->id;
-        //return $article;
 
         if($aid!=$usid)
         {
