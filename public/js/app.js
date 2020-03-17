@@ -1952,6 +1952,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Articles",
@@ -2649,8 +2651,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
-    currentUser: function currentUser() {
-      return this.$store.getters.currentUser;
+    details: function details() {
+      return this.$store.getters.details;
     }
   }
 });
@@ -2673,6 +2675,9 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
 //
 //
 //
@@ -3197,11 +3202,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "UpdateArticle",
   data: function data() {
     return {
       article: {
+        id: '',
         user_id: '',
         title: '',
         excerpt: '',
@@ -3213,10 +3224,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     updateArticle: function updateArticle(article) {
-      this.$store.dispatch('updateArticle', article);
-      this.$router.push({
-        path: '/articles'
-      });
+      //console.log(article.id)
+      this.$store.dispatch('updateArticle', article); //this.$router.push({path: '/articles'});
     }
   },
   computed: {
@@ -23809,6 +23818,8 @@ var render = function() {
         "tbody",
         _vm._l(_vm.articles, function(article) {
           return _c("tr", [
+            _c("td", [_vm._v(_vm._s(article.id))]),
+            _vm._v(" "),
             _c("td", [_vm._v(_vm._s(article.user_id))]),
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(article.title))]),
@@ -23864,6 +23875,8 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Article_id")]),
+        _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("User_id")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Title")]),
@@ -25108,9 +25121,7 @@ var render = function() {
   return _c("div", { staticClass: "container" }, [
     _c("h1", [
       _vm._v(
-        "Hello , " +
-          _vm._s(_vm.currentUser.name) +
-          " . . . welcome to your work space."
+        "Hello , " + _vm._s(_vm.details) + " . . . welcome to your work space."
       )
     ])
   ])
@@ -25161,6 +25172,21 @@ var render = function() {
               !_vm.currentUser
                 ? void 0
                 : [
+                    _c(
+                      "li",
+                      [
+                        _c(
+                          "router-link",
+                          {
+                            staticClass: "nav-link",
+                            attrs: { to: "/dashboard" }
+                          },
+                          [_vm._v("Dashboard")]
+                        )
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
                     _c(
                       "li",
                       [
@@ -25937,6 +25963,8 @@ var render = function() {
         _vm._v("Article editing form")
       ]),
       _vm._v(" "),
+      _vm._m(0),
+      _vm._v(" "),
       _c("div", { staticClass: "form-group" }, [
         _c("label", { attrs: { for: "user_id" } }, [_vm._v("User_id:")]),
         _vm._v(" "),
@@ -26140,7 +26168,25 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "id" } }, [_vm._v("id:")]),
+      _vm._v(" "),
+      _c("input", {
+        attrs: {
+          type: "number",
+          name: "id",
+          id: "id",
+          placeholder: "Enter your article id"
+        }
+      })
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -43614,6 +43660,7 @@ function getAuthHeaders() {
     currentUser: user,
     //user: null,
     isLoggedIn: null,
+    details: user,
     //isLoggedIn: !!localStorage.getItem('token'),
     loading: false,
     auth_error: null,
@@ -43631,6 +43678,9 @@ function getAuthHeaders() {
       // state.currentUser = Object.assign({}, state.user, {token: state.access_token});
       //localStorage.setItem("user", JSON.stringify(state.currentUser));
       return state.isLoggedIn; //return !!state.user
+    },
+    details: function details(state) {
+      return state.details;
     },
     currentUser: function currentUser(state) {
       return state.currentUser;
@@ -43666,7 +43716,8 @@ function getAuthHeaders() {
       state.auth_error = null;
       state.isLoggedIn = true;
       state.loading = false;
-      state.currentUser = payload.data.token; //console.log(state.currentUser);
+      state.currentUser = payload.data.token;
+      state.details = payload.data.name; //console.log(state.currentUser);
 
       localStorage.setItem('user', JSON.stringify(state.currentUser));
     },

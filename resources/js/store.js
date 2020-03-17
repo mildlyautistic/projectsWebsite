@@ -15,6 +15,7 @@ export default {
         currentUser: user,
         //user: null,
         isLoggedIn: null,
+        details: user,
         //isLoggedIn: !!localStorage.getItem('token'),
         loading: false,
         auth_error: null,
@@ -33,6 +34,9 @@ export default {
             //localStorage.setItem("user", JSON.stringify(state.currentUser));
             return state.isLoggedIn;
             //return !!state.user
+        },
+        details(state){
+            return state.details;
         },
         currentUser(state){
             return state.currentUser;
@@ -70,6 +74,7 @@ export default {
             state.isLoggedIn = true;
             state.loading = false;
             state.currentUser = payload.data.token;
+            state.details = payload.data.name;
             //console.log(state.currentUser);
             localStorage.setItem('user', JSON.stringify(state.currentUser));
         }

@@ -2,6 +2,11 @@
     <form action="" @submit="updateArticle(article)">
         <h4 class="text-center font-weight-bold">Article editing form</h4>
         <div class="form-group">
+            <label for="id">id:</label>
+            <input type="number" name="id" id="id" placeholder="Enter your article id">
+        </div>
+
+        <div class="form-group">
             <label for="user_id">User_id:</label>
             <input type="number" name="user_id" id="user_id" placeholder="Enter your user_id" v-model="article.user_id">
         </div>
@@ -45,6 +50,7 @@
         data() {
             return {
                 article: {
+                    id: '',
                     user_id: '',
                     title: '',
                     excerpt: '',
@@ -56,8 +62,9 @@
         },
         methods: {
             updateArticle(article) {
+                //console.log(article.id)
                 this.$store.dispatch('updateArticle', article);
-                this.$router.push({path: '/articles'});
+                //this.$router.push({path: '/articles'});
             }
         },
         computed: {

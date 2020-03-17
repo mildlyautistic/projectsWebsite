@@ -121,7 +121,6 @@ class ArticleController extends BaseController
             array_push($tag_id_array, $tag->id);
         }
         $article->tags()->sync($tag_id_array);
-
         $article->title = $input['title'];
         $article->excerpt = $input['excerpt'];
         $article->body = $input['body'];
