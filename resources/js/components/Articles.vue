@@ -53,11 +53,9 @@
                 alert('Do you really want to delete this article? You might not be able to undo this action!')
                 this.$store.dispatch('deleteArticle', article)
             },
-
             updateArticle(article) {
-                alert('Do you want to edit the article?')
-                this.$router.push({path: `/articles/${article.id}`})
                 //this.$store.dispatch('updateArticle', article)
+                this.$router.push({path: `/articles/${article.id}`});
             }
         },
         computed: {

@@ -6,12 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    protected $guarded = [];
+    //protected $guarded = [];
+    protected $fillable = [
+        'user_id','title', 'excerpt','featured_image_url','body', 'tags'
+    ];
 
-    public function path()
-    {
-        return route('articles.show', $this);
-    }
 
     public function user()
     {
@@ -20,7 +19,7 @@ class Article extends Model
 
     public function tags()
     {
-        //return $this->belongsToMany(Tag::class);
-        return $this->belongsToMany('App\Tag');
+        return $this->belongsToMany(Tag::class);
+        //return $this->belongsToMany('App\Tag');
     }
 }

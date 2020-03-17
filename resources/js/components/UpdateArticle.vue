@@ -1,6 +1,12 @@
 <template>
-    <form action="" @submit="updateArticle(article)">
-        <h4 class="text-center font-weight-bold">Article editing form</h4>
+    <form action="" method="PUT" @submit="updateArticle(article)">
+
+        <h4 class="text-center font-weight-bold">Article updation form</h4>
+        <div class="form-group">
+            <label for="id">id:</label>
+            <input type="number" name="id" id="id" placeholder="Enter your id" v-model="article.id">
+        </div>
+
         <div class="form-group">
             <label for="id">id:</label>
             <input type="number" name="id" id="id" placeholder="Enter your article id">
@@ -45,6 +51,9 @@
 </template>
 
 <script>
+
+
+
     export default {
         name: "UpdateArticle",
         data() {

@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
 use App\Project;
 use App;
-use Validator;
 use Illuminate\Support\Facades\DB;
+use Validator;
 use App\Http\Resources\Project as ProjectResource;
 
 class ProjectController extends BaseController
@@ -146,6 +146,14 @@ class ProjectController extends BaseController
             return $this->sendError('Sorry, delete your own projects.');
         }
         //$project->delete();
+
+        $pid = DB::table('projects')->where('id', $id)->pluck('user_id')->first();
+
+        $usid = auth()->user()->id;
+        if($pid !== $usid)
+        {
+            return $this->sendError('Sorry, you can delete your own project.');
+        }
 
         Project::destroy($id);
 

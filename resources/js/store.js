@@ -107,12 +107,13 @@ export default {
             return state.profiles = profiles
         },
         DELETE_PROFILE(state, profile) {
-            let index = state.profiles.findIndex(item => item.id === profile.id)
+            let index = state.profiles.findIndex(item => item.id === profile.id);
             state.profile.splice(index, 1)
         },
         CREATE_ARTICLE(state, article) {
             state.articles.unshift(article)
         },
+
         FETCH_ARTICLES(state, articles) {
             return state.articles = articles
         },
@@ -122,7 +123,7 @@ export default {
              state.articles.unshift(article)
         },
         DELETE_ARTICLE(state, article) {
-            let index = state.articles.findIndex(item => item.id === article.id)
+            let index = state.articles.findIndex(item => item.id === article.id);
             state.articles.splice(index, 1)
         },
         CREATE_PROJECT(state, project) {
@@ -183,8 +184,10 @@ export default {
             })
 
         },
+
         fetchArticles({commit}) {
-            axios.get('/api/articles')
+            const headers = getAuthHeaders();
+            axios.get('/api/articles', headers)
                 .then(res => {
                     commit('FETCH_ARTICLES', res.data)
                 }).catch(err => {

@@ -33,6 +33,9 @@ Route::get('/privacypolicy', function () {
     return view('privacypolicy');
 });
 
+
+
+
 /*Route::group(['prefix' => 'auth'], function ($router) {
     Route::post('/register', 'API\RegisterController@register');
     Route::post('login', 'API\RegisterController@login');
@@ -42,6 +45,9 @@ Route::get('/privacypolicy', function () {
 Route::get('{any}', function () {
     return view('wel');
 })->where('any', '.*');
+
+
+
 
 Route::get('/contact','API\ContactController@create');
 Route::post('/contact','API\ContactController@store');

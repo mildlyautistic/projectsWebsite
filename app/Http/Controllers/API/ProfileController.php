@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
 use App\Profile;
 use App;
-use Validator;
 use Illuminate\Support\Facades\DB;
+use Validator;
 use App\Http\Resources\Profile as ProfileResource;
 
 class ProfileController extends BaseController
@@ -187,6 +187,15 @@ class ProfileController extends BaseController
         }
 
         //$profile->delete();
+
+        $pid = DB::table('profiles')->where('id', $id)->pluck('user_id')->first();
+
+        $usid = auth()->user()->id;
+        if($pid !== $usid)
+        {
+            return $this->sendError('Sorry, you can delete your own profile.');
+        }
+
         Profile::destroy($id);
 
         //return $this->sendResponse([], 'Profile deleted successfully.');

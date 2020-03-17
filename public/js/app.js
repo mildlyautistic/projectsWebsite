@@ -1966,10 +1966,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.$store.dispatch('deleteArticle', article);
     },
     updateArticle: function updateArticle(article) {
-      alert('Do you want to edit the article?');
+      //this.$store.dispatch('updateArticle', article)
       this.$router.push({
         path: "/articles/".concat(article.id)
-      }); //this.$store.dispatch('updateArticle', article)
+      });
     }
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(['articles']))
@@ -3207,6 +3207,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "UpdateArticle",
   data: function data() {
@@ -3225,7 +3226,10 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     updateArticle: function updateArticle(article) {
       //console.log(article.id)
-      this.$store.dispatch('updateArticle', article); //this.$router.push({path: '/articles'});
+      this.$store.dispatch('updateArticle', article);
+      this.$router.push({
+        path: '/articles'
+      });
     }
   },
   computed: {
@@ -25951,7 +25955,7 @@ var render = function() {
   return _c(
     "form",
     {
-      attrs: { action: "" },
+      attrs: { action: "", method: "PUT" },
       on: {
         submit: function($event) {
           return _vm.updateArticle(_vm.article)
@@ -25960,7 +25964,37 @@ var render = function() {
     },
     [
       _c("h4", { staticClass: "text-center font-weight-bold" }, [
-        _vm._v("Article editing form")
+        _vm._v("Article updation form")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "form-group" }, [
+        _c("label", { attrs: { for: "id" } }, [_vm._v("id:")]),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.article.id,
+              expression: "article.id"
+            }
+          ],
+          attrs: {
+            type: "number",
+            name: "id",
+            id: "id",
+            placeholder: "Enter your id"
+          },
+          domProps: { value: _vm.article.id },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.article, "id", $event.target.value)
+            }
+          }
+        })
       ]),
       _vm._v(" "),
       _vm._m(0),
@@ -43530,7 +43564,7 @@ function login(credentials) {
   });
 }
 function getToken() {
-  var userStr = localStorage.getItem('user');
+  var userStr = localStorage.getItem('user'); //console.log(userStr);
 
   if (!userStr) {
     return null;
@@ -43832,7 +43866,8 @@ function getAuthHeaders() {
     },
     fetchArticles: function fetchArticles(_ref5) {
       var commit = _ref5.commit;
-      axios.get('/api/articles').then(function (res) {
+      var headers = getAuthHeaders();
+      axios.get('/api/articles', headers).then(function (res) {
         commit('FETCH_ARTICLES', res.data);
       })["catch"](function (err) {
         console.log(err);
@@ -43905,8 +43940,8 @@ function getAuthHeaders() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/ipropal/work/projectsWebsite/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/ipropal/work/projectsWebsite/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/nitya/work/projectsWebsite/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/nitya/work/projectsWebsite/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

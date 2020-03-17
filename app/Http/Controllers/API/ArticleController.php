@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
 use App\Article;
 use App;
-use Validator;
 use Illuminate\Support\Facades\DB;
+use Validator;
 use App\Http\Resources\Article as ArticleResource;
 
 class ArticleController extends BaseController
@@ -92,13 +92,14 @@ class ArticleController extends BaseController
 
     public function update(Request $request, Article $article)
     {
+
         $input = $request->all();
         $aid =$request->user_id;
         $usid = auth()->user()->id;
 
         if($aid!=$usid)
         {
-            return $this->sendError('Sorry, edit your own articles.');
+            return $this->sendError('Sorry, edit your own article.');
         }
 
         $validator = Validator::make($input, [
@@ -147,12 +148,25 @@ class ArticleController extends BaseController
         }
 
         //$article->delete();
+       // global $aid;
 
-        Article::destroy($id);
+        $aid = DB::table('articles')->where('id', $id)->pluck('user_id')->first();
 
-       // return $this->sendResponse([], 'Article deleted successfully.');
+        $usid = auth()->user()->id;
+        //return $usid;
 
-        return response()->json("ok");
+        if($aid !== $usid)
+        {
+            return $this->sendError('Sorry, you can delete your own article.');
+        }
+
+        else {
+            Article::destroy($id);
+
+            // return $this->sendResponse([], 'Article deleted successfully.');
+
+            return response()->json("ok");
+        }
         //return view('articles.show', ['articles' => $article]);
     }
 
