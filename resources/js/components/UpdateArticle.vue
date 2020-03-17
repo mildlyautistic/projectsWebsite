@@ -42,9 +42,10 @@
 </template>
 
 <script>
+
 import {art} from "./Articles";
 const arti = art
-    export default {
+export default {
         name: "UpdateArticle",
         data() {
             return {
@@ -60,6 +61,7 @@ const arti = art
             }
         },
         methods: {
+
             updateArticle(article) {
                 //console.log(article.id)
                 this.$store.dispatch('updateArticle', article);

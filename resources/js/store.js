@@ -112,6 +112,11 @@ export default {
         FETCH_PROFILES(state, profiles) {
             return state.profiles = profiles
         },
+        UPDATE_PROFILE(state, profile) {
+            let index = state.profiles.findIndex(item => item.id === profile.id)
+            state.profiles.splice(index, 1)
+            state.profiles.unshift(profile)
+        },
         DELETE_PROFILE(state, profile) {
             let index = state.profiles.findIndex(item => item.id === profile.id);
             state.profile.splice(index, 1)
@@ -252,8 +257,8 @@ export default {
             })
         },
         updateProject({commit}, project) {
-             const headers = getAuthHeaders();
-             axios.put(`/api/projects/${project.id}`, project, headers)
+            const headers = getAuthHeaders();
+            axios.put(`/api/projects/${project.id}`, project, headers)
                 .then(res => {
                     commit('UPDATE_PROJECT', project)
                 }).catch(err => {

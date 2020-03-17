@@ -2919,6 +2919,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Profiles",
@@ -2929,6 +2932,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     deleteProfile: function deleteProfile(profile) {
       alert('Do you really want to delete your Profile? You might not be able to undo this action!');
       this.$store.dispatch('deleteProfile', profile);
+    },
+    updateProfile: function updateProfile(profile) {
+      //this.store.dispatch('updateArticle', article)
+      //alert('Do you want to edit this project?')
+      this.$router.push({
+        path: "/profiles/".concat(profile.id)
+      });
     }
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['profiles']))
@@ -3004,14 +3014,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: {
     deleteProject: function deleteProject(project) {
-      alert('Do you really want to delete this project? You might not be able to undo this action!');
+      //alert('Do you really want to delete this project? You might not be able to undo this action!')
       this.$store.dispatch('deleteProject', project);
     },
     updateProject: function updateProject(project) {
       //this.store.dispatch('updateArticle', article)
-      alert('Do you want to edit this project?');
+      //alert('Do you want to edit this project?')
       this.$router.push({
-        path: '/update-project'
+        path: "/projects/".concat(project.id)
       });
     }
   },
@@ -3165,6 +3175,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Articles__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Articles */ "./resources/js/components/Articles.vue");
+//
+//
+//
+//
 //
 //
 //
@@ -25525,6 +25539,21 @@ var render = function() {
               _c(
                 "button",
                 {
+                  staticClass: "edit",
+                  on: {
+                    click: function($event) {
+                      return _vm.updateProfile(profile)
+                    }
+                  }
+                },
+                [_vm._v("Edit")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("td", [
+              _c(
+                "button",
+                {
                   staticClass: "btn btn-danger",
                   on: {
                     click: function($event) {
@@ -43745,6 +43774,13 @@ function getAuthHeaders() {
     },
     FETCH_PROFILES: function FETCH_PROFILES(state, profiles) {
       return state.profiles = profiles;
+    },
+    UPDATE_PROFILE: function UPDATE_PROFILE(state, profile) {
+      var index = state.profiles.findIndex(function (item) {
+        return item.id === profile.id;
+      });
+      state.profiles.splice(index, 1);
+      state.profiles.unshift(profile);
     },
     DELETE_PROFILE: function DELETE_PROFILE(state, profile) {
       var index = state.profiles.findIndex(function (item) {
