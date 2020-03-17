@@ -47,14 +47,14 @@
 
 <script>
 
-
-
-    export default {
+import {art} from "./Articles";
+const arti = art
+export default {
         name: "UpdateArticle",
         data() {
             return {
                 article: {
-                    id:'',
+                    id:arti,
                     user_id: '',
                     title: '',
                     excerpt: '',
@@ -65,6 +65,7 @@
             }
         },
         methods: {
+
             updateArticle(article) {
                 //console.log(article.id)
                 this.$store.dispatch('updateArticle', article);

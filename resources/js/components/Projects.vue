@@ -52,13 +52,13 @@
         },
         methods: {
             deleteProject(project) {
-              alert('Do you really want to delete this project? You might not be able to undo this action!')
+              //alert('Do you really want to delete this project? You might not be able to undo this action!')
                 this.$store.dispatch('deleteProject',project)
             },
             updateProject(project) {
                 //this.store.dispatch('updateArticle', article)
-                alert('Do you want to edit this project?')
-                this.$router.push({path: '/update-project'})
+                //alert('Do you want to edit this project?')
+                this.$router.push({path: `/projects/${project.id}`})
             }
         },
         computed: {

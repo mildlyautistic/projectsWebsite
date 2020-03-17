@@ -33,6 +33,9 @@
                 <td>{{profile.l_url}}</td>
                 <td>{{profile.g_url}}</td>
                 <td>
+                    <button class="edit" @click="updateProfile(profile)">Edit</button>
+                </td>
+                <td>
                     <button class="btn btn-danger" @click="deleteProfile(profile)">Delete</button>
                 </td>
             </tr>
@@ -54,6 +57,11 @@
             deleteProfile(profile) {
                 alert('Do you really want to delete your Profile? You might not be able to undo this action!')
                 this.$store.dispatch('deleteProfile',profile)
+            },
+            updateProfile(profile) {
+                //this.store.dispatch('updateArticle', article)
+                //alert('Do you want to edit this project?')
+                this.$router.push({path: `/profiles/${profile.id}`})
             }
         },
         computed: {

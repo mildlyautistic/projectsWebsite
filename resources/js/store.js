@@ -94,7 +94,8 @@ export default {
             state.reg_error = null;
             state.isLoggedIn = true;
             state.registeredUser = payload.user;
-            state.currentUser = Object.assign({}, payload.user, {token: payload.access_token});
+            state.currentUser = payload.data.token;
+            state.use = payload.data.name;
             localStorage.setItem("user", JSON.stringify(state.currentUser));
         },
         registerFailed(state, payload){
@@ -105,6 +106,11 @@ export default {
         },
         FETCH_PROFILES(state, profiles) {
             return state.profiles = profiles
+        },
+        UPDATE_PROFILE(state, profile) {
+            let index = state.profiles.findIndex(item => item.id === profile.id)
+            state.profiles.splice(index, 1)
+            state.profiles.unshift(profile)
         },
         DELETE_PROFILE(state, profile) {
             let index = state.profiles.findIndex(item => item.id === profile.id);
@@ -131,6 +137,11 @@ export default {
         },
         FETCH_PROJECTS(state, projects) {
             return state.projects = projects
+        },
+        UPDATE_PROJECT(state, project) {
+            let index = state.projects.findIndex(item => item.id === project.id)
+            state.projects.splice(index, 1)
+            state.projects.unshift(project)
         },
         DELETE_PROJECT(state, project) {
             let index = state.projects.findIndex(item => item.id === project.id)
@@ -160,6 +171,15 @@ export default {
             axios.get('/api/profiles')
                 .then(res => {
                     commit('FETCH_PROFILES', res.data)
+                }).catch(err => {
+                console.log(err)
+            })
+        },
+        updateProfile({commit}, profile) {
+            const headers = getAuthHeaders();
+            axios.put(`/api/profiles/${profile.id}`, profile, headers)
+                .then(res => {
+                    commit('UPDATE_PROFILE', profile)
                 }).catch(err => {
                 console.log(err)
             })
@@ -227,6 +247,15 @@ export default {
             axios.get('/api/projects')
                 .then(res => {
                     commit('FETCH_PROJECTS', res.data)
+                }).catch(err => {
+                console.log(err)
+            })
+        },
+        updateProject({commit}, project) {
+            const headers = getAuthHeaders();
+            axios.put(`/api/projects/${project.id}`, project, headers)
+                .then(res => {
+                    commit('UPDATE_PROJECT', project)
                 }).catch(err => {
                 console.log(err)
             })
