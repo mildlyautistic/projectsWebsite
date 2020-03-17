@@ -1903,11 +1903,12 @@ module.exports = {
 /*!*******************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Articles.vue?vue&type=script&lang=js& ***!
   \*******************************************************************************************************************************************************************/
-/*! exports provided: default */
+/*! exports provided: art, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "art", function() { return art; });
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -1955,6 +1956,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 
+var art;
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Articles",
   mounted: function mounted() {
@@ -1967,6 +1969,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     updateArticle: function updateArticle(article) {
       //this.$store.dispatch('updateArticle', article)
+      art = article;
       this.$router.push({
         path: "/articles/".concat(article.id)
       });
@@ -3161,6 +3164,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Articles__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Articles */ "./resources/js/components/Articles.vue");
 //
 //
 //
@@ -3204,16 +3208,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
+
+var arti = _Articles__WEBPACK_IMPORTED_MODULE_0__["art"];
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "UpdateArticle",
   data: function data() {
     return {
       article: {
-        id: '',
+        id: arti,
         user_id: '',
         title: '',
         excerpt: '',
@@ -25968,38 +25970,6 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "form-group" }, [
-        _c("label", { attrs: { for: "id" } }, [_vm._v("id:")]),
-        _vm._v(" "),
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.article.id,
-              expression: "article.id"
-            }
-          ],
-          attrs: {
-            type: "number",
-            name: "id",
-            id: "id",
-            placeholder: "Enter your id"
-          },
-          domProps: { value: _vm.article.id },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.article, "id", $event.target.value)
-            }
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _vm._m(0),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group" }, [
         _c("label", { attrs: { for: "user_id" } }, [_vm._v("User_id:")]),
         _vm._v(" "),
         _c("input", {
@@ -26202,25 +26172,7 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c("label", { attrs: { for: "id" } }, [_vm._v("id:")]),
-      _vm._v(" "),
-      _c("input", {
-        attrs: {
-          type: "number",
-          name: "id",
-          id: "id",
-          placeholder: "Enter your article id"
-        }
-      })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -42537,14 +42489,16 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*!**********************************************!*\
   !*** ./resources/js/components/Articles.vue ***!
   \**********************************************/
-/*! exports provided: default */
+/*! exports provided: art, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Articles_vue_vue_type_template_id_03ba8128_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Articles.vue?vue&type=template&id=03ba8128&scoped=true& */ "./resources/js/components/Articles.vue?vue&type=template&id=03ba8128&scoped=true&");
 /* harmony import */ var _Articles_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Articles.vue?vue&type=script&lang=js& */ "./resources/js/components/Articles.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _Articles_vue_vue_type_style_index_0_id_03ba8128_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Articles.vue?vue&type=style&index=0&id=03ba8128&scoped=true&lang=css& */ "./resources/js/components/Articles.vue?vue&type=style&index=0&id=03ba8128&scoped=true&lang=css&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "art", function() { return _Articles_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["art"]; });
+
+/* harmony import */ var _Articles_vue_vue_type_style_index_0_id_03ba8128_scoped_true_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Articles.vue?vue&type=style&index=0&id=03ba8128&scoped=true&lang=css& */ "./resources/js/components/Articles.vue?vue&type=style&index=0&id=03ba8128&scoped=true&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -42576,13 +42530,15 @@ component.options.__file = "resources/js/components/Articles.vue"
 /*!***********************************************************************!*\
   !*** ./resources/js/components/Articles.vue?vue&type=script&lang=js& ***!
   \***********************************************************************/
-/*! exports provided: default */
+/*! exports provided: default, art */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Articles_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Articles.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Articles.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Articles_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "art", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Articles_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["art"]; });
+
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Articles_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -43770,15 +43726,21 @@ function getAuthHeaders() {
       state.reg_error = null;
       state.isLoggedIn = true;
       state.registeredUser = payload.user;
-      state.currentUser = Object.assign({}, payload.user, {
-        token: payload.access_token
-      });
+      state.details = payload.data.name;
+      state.currentUser = payload.data.token;
       localStorage.setItem("user", JSON.stringify(state.currentUser));
     },
     registerFailed: function registerFailed(state, payload) {
       state.reg_error = payload.error;
     },
     CREATE_PROFILE: function CREATE_PROFILE(state, profile) {
+      state.profiles.unshift(profile);
+    },
+    UPDATE_PROFILE: function UPDATE_PROFILE(state, profile) {
+      var index = state.profiles.findIndex(function (item) {
+        return item.id === profile.id;
+      });
+      state.profiles.splice(index, 1);
       state.profiles.unshift(profile);
     },
     FETCH_PROFILES: function FETCH_PROFILES(state, profiles) {
@@ -43815,6 +43777,13 @@ function getAuthHeaders() {
     FETCH_PROJECTS: function FETCH_PROJECTS(state, projects) {
       return state.projects = projects;
     },
+    UPDATE_PROJECT: function UPDATE_PROJECT(state, project) {
+      var index = state.projects.findIndex(function (item) {
+        return item.id === project.id;
+      });
+      state.projects.splice(index, 1);
+      state.projects.unshift(project);
+    },
     DELETE_PROJECT: function DELETE_PROJECT(state, project) {
       var index = state.projects.findIndex(function (item) {
         return item.id === project.id;
@@ -43846,8 +43815,17 @@ function getAuthHeaders() {
         console.log(err);
       });
     },
-    deleteProfile: function deleteProfile(_ref3, profile) {
+    updateProfile: function updateProfile(_ref3, profile) {
       var commit = _ref3.commit;
+      var headers = getAuthHeaders();
+      axios.put("/api/profiles/".concat(profile.id), profile, headers).then(function (res) {
+        commit('UPDATE_PROFILE', profile);
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    deleteProfile: function deleteProfile(_ref4, profile) {
+      var commit = _ref4.commit;
       var headers = getAuthHeaders();
       axios["delete"]("/api/profiles/".concat(profile.id), headers).then(function (res) {
         if (res.data === 'ok') commit('DELETE_PROFILE', profile);
@@ -43855,8 +43833,8 @@ function getAuthHeaders() {
         console.log(err);
       });
     },
-    createArticle: function createArticle(_ref4, article) {
-      var commit = _ref4.commit;
+    createArticle: function createArticle(_ref5, article) {
+      var commit = _ref5.commit;
       var headers = getAuthHeaders();
       axios.post('/api/create-article', article, headers).then(function (res) {
         commit('CREATE_ARTICLE', res.data);
@@ -43864,8 +43842,8 @@ function getAuthHeaders() {
         console.log(err);
       });
     },
-    fetchArticles: function fetchArticles(_ref5) {
-      var commit = _ref5.commit;
+    fetchArticles: function fetchArticles(_ref6) {
+      var commit = _ref6.commit;
       var headers = getAuthHeaders();
       axios.get('/api/articles', headers).then(function (res) {
         commit('FETCH_ARTICLES', res.data);
@@ -43873,8 +43851,8 @@ function getAuthHeaders() {
         console.log(err);
       });
     },
-    updateArticle: function updateArticle(_ref6, article) {
-      var commit = _ref6.commit;
+    updateArticle: function updateArticle(_ref7, article) {
+      var commit = _ref7.commit;
       var headers = getAuthHeaders();
       axios.put("/api/articles/".concat(article.id), article, headers).then(function (res) {
         commit('UPDATE_ARTICLE', article);
@@ -43882,8 +43860,8 @@ function getAuthHeaders() {
         console.log(err);
       });
     },
-    deleteArticle: function deleteArticle(_ref7, article) {
-      var commit = _ref7.commit;
+    deleteArticle: function deleteArticle(_ref8, article) {
+      var commit = _ref8.commit;
       var headers = getAuthHeaders();
       axios["delete"]("/api/articles/".concat(article.id), headers).then(function (res) {
         if (res.data === 'ok') commit('DELETE_ARTICLE', article);
@@ -43891,8 +43869,8 @@ function getAuthHeaders() {
         console.log(err);
       });
     },
-    createProject: function createProject(_ref8, project) {
-      var commit = _ref8.commit;
+    createProject: function createProject(_ref9, project) {
+      var commit = _ref9.commit;
       var headers = getAuthHeaders();
       axios.post('/api/create-project', project, headers).then(function (res) {
         commit('CREATE_PROJECT', res.data);
@@ -43900,16 +43878,25 @@ function getAuthHeaders() {
         console.log(err);
       });
     },
-    fetchProjects: function fetchProjects(_ref9) {
-      var commit = _ref9.commit;
+    fetchProjects: function fetchProjects(_ref10) {
+      var commit = _ref10.commit;
       axios.get('/api/projects').then(function (res) {
         commit('FETCH_PROJECTS', res.data);
       })["catch"](function (err) {
         console.log(err);
       });
     },
-    deleteProject: function deleteProject(_ref10, project) {
-      var commit = _ref10.commit;
+    updateProject: function updateProject(_ref11, project) {
+      var commit = _ref11.commit;
+      var headers = getAuthHeaders();
+      axios.put("/api/projects/".concat(project.id), project, headers).then(function (res) {
+        commit('UPDATE_PROJECT', project);
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    deleteProject: function deleteProject(_ref12, project) {
+      var commit = _ref12.commit;
       var headers = getAuthHeaders();
       axios["delete"]("/api/projects/".concat(project.id), headers).then(function (res) {
         if (res.data === 'ok') commit('DELETE_PROJECT', project);
@@ -43940,8 +43927,8 @@ function getAuthHeaders() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/nitya/work/projectsWebsite/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/nitya/work/projectsWebsite/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/ipropal/work/projectsWebsite/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/ipropal/work/projectsWebsite/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

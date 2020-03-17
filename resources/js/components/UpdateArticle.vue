@@ -2,15 +2,6 @@
     <form action="" method="PUT" @submit="updateArticle(article)">
 
         <h4 class="text-center font-weight-bold">Article updation form</h4>
-        <div class="form-group">
-            <label for="id">id:</label>
-            <input type="number" name="id" id="id" placeholder="Enter your id" v-model="article.id">
-        </div>
-
-        <div class="form-group">
-            <label for="id">id:</label>
-            <input type="number" name="id" id="id" placeholder="Enter your article id">
-        </div>
 
         <div class="form-group">
             <label for="user_id">User_id:</label>
@@ -51,15 +42,14 @@
 </template>
 
 <script>
-
-
-
+import {art} from "./Articles";
+const arti = art
     export default {
         name: "UpdateArticle",
         data() {
             return {
                 article: {
-                    id: '',
+                    id:arti,
                     user_id: '',
                     title: '',
                     excerpt: '',
@@ -73,7 +63,7 @@
             updateArticle(article) {
                 //console.log(article.id)
                 this.$store.dispatch('updateArticle', article);
-                //this.$router.push({path: '/articles'});
+                this.$router.push({path: '/articles'});
             }
         },
         computed: {

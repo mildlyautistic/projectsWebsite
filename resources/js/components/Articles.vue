@@ -39,7 +39,7 @@
 
 <script>
     import {mapState} from 'vuex'
-
+    export let art
     export default {
         name: "Articles",
 
@@ -55,6 +55,7 @@
             },
             updateArticle(article) {
                 //this.$store.dispatch('updateArticle', article)
+                art= article
                 this.$router.push({path: `/articles/${article.id}`});
             }
         },
