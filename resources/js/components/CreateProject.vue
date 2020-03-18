@@ -13,34 +13,12 @@
 
         <div class="form-group">
             <label for="s_month">Start_month:</label>
-            <!--<select name="s_month" id="s_month" v-model="project.s_month">
-                <option value="january">January</option>
-                <option value="february">February</option>
-                <option value="march">March</option>
-                <option value="april">April</option>
-                <option value="may">May</option>
-                <option value="june">June</option>
-                <option value="july">July</option>
-                <option value="august">August</option>
-                <option value="september">September</option>
-                <option value="october">October</option>
-                <option value="november">November</option>
-                <option value="december">December</option>
-            </select>-->
             <input type="month" id="s_month" name="s_month" v-model="project.s_month">
         </div>
 
         <div class="form-group">
             <label for="s_year">Start_Year:</label>
             <select name="s_year" id="s_year" v-model="project.s_year">
-                <option value="2000">2000</option>
-                <option value="2001">2001</option>
-                <option value="2002">2002</option>
-                <option value="2003">2003</option>
-                <option value="2004">2004</option>
-                <option value="2005">2005</option>
-                <option value="2006">2006</option>
-                <option value="2007">2007</option>
                 <option value="2008">2008</option>
                 <option value="2009">2009</option>
                 <option value="2010">2010</option>
@@ -59,52 +37,6 @@
             </select>
         </div>
 
-        <!--<div class="form-group">
-            <label for="e_month">End_month:</label>
-            <select name="e_month" id="e_month" v-model="project.e_month">
-                <option value="january">January</option>
-                <option value="february">February</option>
-                <option value="march">March</option>
-                <option value="april">April</option>
-                <option value="may">May</option>
-                <option value="june">June</option>
-                <option value="july">July</option>
-                <option value="august">August</option>
-                <option value="september">September</option>
-                <option value="october">October</option>
-                <option value="november">November</option>
-                <option value="december">December</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="e_year">End_Year:</label>
-            <select name="e_year" id="e_year" v-model="project.e_year">
-                <option value="2000">2000</option>
-                <option value="2001">2001</option>
-                <option value="2002">2002</option>
-                <option value="2003">2003</option>
-                <option value="2004">2004</option>
-                <option value="2005">2005</option>
-                <option value="2006">2006</option>
-                <option value="2007">2007</option>
-                <option value="2008">2008</option>
-                <option value="2009">2009</option>
-                <option value="2010">2010</option>
-                <option value="2011">2011</option>
-                <option value="2012">2012</option>
-                <option value="2013">2013</option>
-                <option value="2014">2014</option>
-                <option value="2015">2015</option>
-                <option value="2016">2016</option>
-                <option value="2017">2017</option>
-                <option value="2018">2018</option>
-                <option value="2019">2019</option>
-                <option value="2020">2020</option>
-                <option value="2021">2021</option>
-                <option value="2022">2022</option>
-            </select>
-        </div>-->
         <div class="form-group">
             <label for="e_month">End_month:</label>
             <input type="month" id="e_month" name="e_month" v-model="project.e_month">
@@ -113,16 +45,6 @@
         <div class="form-group">
             <label for="e_year">End_Year:</label>
             <select name="e_year" id="e_year" v-model="project.e_year">
-                <option value="2000">2000</option>
-                <option value="2001">2001</option>
-                <option value="2002">2002</option>
-                <option value="2003">2003</option>
-                <option value="2004">2004</option>
-                <option value="2005">2005</option>
-                <option value="2006">2006</option>
-                <option value="2007">2007</option>
-                <option value="2008">2008</option>
-                <option value="2009">2009</option>
                 <option value="2010">2010</option>
                 <option value="2011">2011</option>
                 <option value="2012">2012</option>

@@ -13,3 +13,10 @@
         }
     }
 </script>
+
+<style scoped>
+    div.container {
+        color:black;
+        font-size: 40px;
+    }
+</style>

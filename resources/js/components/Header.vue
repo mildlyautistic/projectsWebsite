@@ -1,18 +1,16 @@
 <template>
     <nav class="navbar navbar-expand-md navbar-light navbar-laravel mb-4">
-        <router-link class="navbar-brand" to="/">Authentication</router-link>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent"><div class="navbar-nav ml-auto">
             <template v-if="!currentUser">
-                <!--<li>
+                <li>
                     <router-link to="/register" class="nav-link">Register</router-link>
                 </li>
-                    <router-link to="/login" class="nav-link">Login</router-link>
                 <li>
-
-                </li>-->
+                    <router-link to="/login" class="nav-link">Login</router-link>
+                </li>
             </template>
 
             <template v-else>
@@ -63,3 +61,22 @@
     }
     }
 </script>
+
+<style scoped>
+    .navbar {
+        background-image: linear-gradient(to left, rgba(120,60,200,0.5), rgba(120,60,200,0.9));
+        color: solid black;
+        font-size: 20px;
+    }
+
+    button {
+        background-color: white ;
+        border-radius: 4px;
+        border-style: rounded solid black;
+    }
+
+    button:hover {
+        background-color:  rgba(120,60,200,0.3);
+            box-shadow: 0 0 15px #939393;
+    }
+</style>

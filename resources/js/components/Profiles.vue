@@ -56,7 +56,7 @@
         },
         methods: {
             deleteProfile(profile) {
-                alert('Do you really want to delete your Profile? You might not be able to undo this action!')
+                //alert('Do you really want to delete your Profile? You might not be able to undo this action!')
                 this.$store.dispatch('deleteProfile',profile)
             },
             updateProfile(profile) {

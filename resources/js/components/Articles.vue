@@ -50,7 +50,7 @@
 
         methods: {
             deleteArticle(article) {
-                alert('Do you really want to delete this article? You might not be able to undo this action!')
+                //alert('Do you really want to delete this article? You might not be able to undo this action!')
                 this.$store.dispatch('deleteArticle', article)
             },
             updateArticle(article) {
