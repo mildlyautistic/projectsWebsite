@@ -81,10 +81,10 @@ export default {
         registerSuccess(state, payload){
             state.reg_error = null;
             state.isLoggedIn = true;
-            //state.registeredUser = payload.user;
+            state.registeredUser = payload.user;
             state.currentUser = payload;
             localStorage.setItem("user", JSON.stringify(state.currentUser.data.token));
-            localStorage.setItem("complete", JSON.stringify(state.currentUser));
+            localStorage.setItem('complete', JSON.stringify(state.currentUser));
         },
         registerFailed(state, payload){
             state.reg_error = payload.error;
@@ -172,6 +172,7 @@ export default {
              const headers = getAuthHeaders();
              axios.put(`/api/profiles/${profile.id}`, profile, headers)
                 .then(res => {
+                    //console.log(profile)
                     commit('UPDATE_PROFILE', profile)
                 }).catch(err => {
                 console.log(err)

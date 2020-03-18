@@ -44,7 +44,7 @@
 
 <script>
     import {mapGetters} from 'vuex'
-
+    export let proj
     export default {
         name: "Projects",
         mounted() {
@@ -56,8 +56,7 @@
                 this.$store.dispatch('deleteProject',project)
             },
             updateProject(project) {
-                //this.store.dispatch('updateArticle', article)
-                //alert('Do you want to edit this project?')
+                proj = project
                 this.$router.push({path: `/projects/${project.id}`})
             }
         },

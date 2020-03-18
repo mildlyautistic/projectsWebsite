@@ -15,6 +15,7 @@ import MainApp from './components/MainApp.vue';
 import axios from 'axios';
 import Projects from './components/Projects';
 import CreateProject from './components/CreateProject';
+import UpdateProject from './components/UpdateProject';
 
 import Articles from './components/Articles';
 import CreateArticle from './components/CreateArticle';
@@ -22,6 +23,7 @@ import UpdateArticle from './components/UpdateArticle';
 
 import Profiles from './components/Profiles';
 import createProfile from './components/CreateProfile';
+import UpdateProfile from './components/UpdateProfile';
 
 Vue.use(VeeValidate);
 Vue.use(VueRouter);
@@ -29,6 +31,7 @@ Vue.use(Vuex);
 
 Vue.component('projects', Projects);
 Vue.component('createProject', CreateProject);
+Vue.component('updateProject', UpdateProject);
 
 Vue.component('articles', Articles);
 Vue.component('createArticle', CreateArticle);
@@ -36,6 +39,7 @@ Vue.component('updateArticle', UpdateArticle);
 
 Vue.component('profiles', Profiles);
 Vue.component('createProfile', createProfile);
+Vue.component('updateProfile', UpdateProfile);
 
 const router = new VueRouter({
     routes,

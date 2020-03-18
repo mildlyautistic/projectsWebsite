@@ -16,7 +16,8 @@
                 <th scope="col">URL</th>
                 <th scope="col">Linkedin URL</th>
                 <th scope="col">Github URL</th>
-                <th scope="col">Actions</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
             </tr>
             </thead>
             <tbody>
@@ -47,7 +48,7 @@
 
 <script>
     import {mapGetters} from 'vuex'
-
+    export let pro
     export default {
         name: "Profiles",
         mounted() {
@@ -59,8 +60,7 @@
                 this.$store.dispatch('deleteProfile',profile)
             },
             updateProfile(profile) {
-                //this.store.dispatch('updateArticle', article)
-                //alert('Do you want to edit this project?')
+                pro = profile
                 this.$router.push({path: `/profiles/${profile.id}`})
             }
         },

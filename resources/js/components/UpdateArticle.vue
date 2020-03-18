@@ -4,33 +4,30 @@
         <h4 class="text-center font-weight-bold">Article updation form</h4>
 
         <div class="form-group">
-            <label for="user_id">User_id:</label>
-            <input type="number" name="user_id" id="user_id" placeholder="Enter your user_id" v-model="article.user_id">
-        </div>
-
-        <div class="form-group">
             <label for="title">Title:</label>
-            <input type="text" name="title" id="title" placeholder="Enter your article title" v-model="article.title">
+            <input type="text" name="title" id="title" v-model="article.title">
+
         </div>
 
         <div class="form-group">
             <label for="excerpt">Excerpt:</label>
-            <input type="text" name="excerpt" id="excerpt" placeholder="Enter your excerpt" v-model="article.excerpt">
+            <input type="text" name="excerpt" id="excerpt" v-model="article.excerpt">
         </div>
 
         <div class="form-group">
             <label for="featured_image_url">Featured_image_url:</label>
-            <input type="url" name="featured_image_url" id="featured_image_url" placeholder="Enter your article image_url if exists*" v-model="article.featured_image_url">
+            <input type="url" name="featured_image_url" id="featured_image_url" v-model="article.featured_image_url">
         </div>
+
 
         <div class="form-group">
             <label class="label" for="body">Body: </label>
-            <textarea class="textarea" name="body" id="body" placeholder="Enter the body of your Article" v-model="article.body"></textarea>
+            <textarea class="textarea" name="body" id="body" v-model="article.body"></textarea>
         </div>
 
         <div class="form-group">
             <label for="tags">Tags:</label>
-            <input type="text" name="tags" id="tags" placeholder="Enter relevant tags" v-model="article.tags">
+            <input type="text" name="tags" id="tags" v-model="article.tags">
         </div>
 
         <div class="form-group">
@@ -51,19 +48,19 @@ export default {
             return {
                 article: {
                     id:art.id,
-                    user_id: 'art.user_id',
-                    title: '',
-                    excerpt: '',
-                    featured_image_url: '',
-                    body: '',
-                    tags: ''
+                    user_id: art.user_id,
+                    title: art.title,
+                    excerpt: art.excerpt,
+                    featured_image_url: art.featured_image_url,
+                    body: art.body,
+                    tags: art.tags
                 }
             }
         },
         methods: {
 
             updateArticle(article) {
-                //console.log(article.id)
+                //console.log(article)
                 this.$store.dispatch('updateArticle', article);
                 this.$router.push({path: '/articles'});
             }
@@ -73,7 +70,8 @@ export default {
                 return this.article.user_id !== '' && this.article.title !== '' && this.article.body !== ''
             }
         }
-    }
+
+}
 </script>
 
 <style scoped>

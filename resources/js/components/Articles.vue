@@ -26,7 +26,7 @@
                 <td>{{article.body}}</td>
                 <td>{{article.tags}}</td>
                 <td>
-                    <button class="edit" @click="updateArticle(article)">Edit</button>
+                    <button class="btn btn-info btn-xs" @click="updateArticle(article)">Edit</button>
                 </td>
                 <td>
                     <button class="btn btn-danger" @click="deleteArticle(article)">Delete</button>
