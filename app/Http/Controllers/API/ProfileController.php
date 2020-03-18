@@ -133,9 +133,9 @@ class ProfileController extends BaseController
             'url'=>'url',
             'l_url'=>'required|url',
             'g_url'=>'required|url',
-            //'about_me' => 'required',
-            //'likes' => 'required'
-            //'dislikes' => 'required'
+            'about_me' => '',
+            'likes' => '',
+            'dislikes' => ''
         ]);
 
         if($pid!=$uid){
@@ -144,6 +144,7 @@ class ProfileController extends BaseController
         if($validator->fails()){
             return $this->sendError('Validation Error.', $validator->errors());
         }
+
         for($x=0; $x<$c; $x++)
         {
             if($emailpart==$data[$x]){
@@ -159,15 +160,15 @@ class ProfileController extends BaseController
             return $this->sendError('Invalid email.');
         }
 
-        //$profile->image_url=$input['image_url'];
-        //$profile->user_id=$input['user_id'];
+        $profile->image_url=$input['image_url'];
+        $profile->user_id=$input['user_id'];
         $profile->name = $input['name'];
         $profile->username = $input['username'];
         $profile->email = $input['email'];
-        //$profile->about_me = $input['about_me'];
-        //$profile->likes = $input['likes'];
-        //$profile->dislikes = $input['dislikes'];
-        //$profile->url=$input['url'];
+        $profile->about_me = $input['about_me'];
+        $profile->likes = $input['likes'];
+        $profile->dislikes = $input['dislikes'];
+        $profile->url=$input['url'];
         $profile->l_url=$input['l_url'];
         $profile->g_url=$input['g_url'];
         $profile->save();
@@ -212,7 +213,10 @@ class ProfileController extends BaseController
             'username' => 'required',
             'url'=>'url',
             'l_url'=>'required|url',
-            'g_url'=>'required|url'
+            'g_url'=>'required|url',
+            'about_me' => '',
+            'likes' => '',
+            'dislikes' => ''
         ]);
     }
 }

@@ -105,7 +105,13 @@ class ProjectController extends BaseController
         $validator = Validator::make($input, [
             'name' => 'required',
             'proj_url' => 'url',
-            'user_id' => 'required'
+            'user_id' => 'required',
+            's_month' => '',
+            's_year' => '',
+            'e_month' =>'',
+            'e_year' =>'',
+            'associated_with' => '',
+            'description' => ''
 
 
         ]);
@@ -116,19 +122,19 @@ class ProjectController extends BaseController
         }
 
 
-
         $project->name = $input['name'];
         $project->s_month = $input['s_month'];
         $project->s_year = $input['s_year'];
         $project->e_month = $input['e_month'];
         $project->e_year = $input['e_year'];
-        //$project->associated_with = $input['associated_with'];
+        $project->associated_with = $input['associated_with'];
         $project->description = $input['description'];
         $project->proj_url = $input['proj_url'];
         $project->user_id=$input['user_id'];
         $project->save();
 
         return response()->json($project);
+
 
         //return $this->sendResponse(new ProjectResource($project), 'project updated successfully.');
 
@@ -162,15 +168,25 @@ class ProjectController extends BaseController
         //return $this->sendResponse([], 'Project deleted successfully.');
     }
 
-    /*protected function validateProject()
+   /* protected function validateProject()
     {
         return request()->validate([
-            'name' => 'required',
+            /*'name' => 'required',
             // 's_month',
             //'e_month' ,
             //'associated_with',
             //'description' ,
             'proj_url' => 'url'
+            'name' => 'required',
+            'proj_url' => 'url',
+            'user_id' => 'required',
+            's_month' ,
+            's_year' => '',
+            'e_month' =>'',
+            'e_year' =>'',
+            'associated_with' => '',
+            'description' => ''
+
         ]);
-    } */
+    }*/
 }

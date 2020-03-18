@@ -1,14 +1,9 @@
 <template>
-    <form action="" @submit="createProject(project)">
+    <form action="" @submit="updateProject(project)">
         <h4 class="text-center font-weight-bold">Project creation form</h4>
         <div class="form-group">
-            <label for="user_id">User_id:</label>
-            <input type="number" name="user_id" id="user_id" placeholder="Enter your user_id" v-model="project.user_id">
-        </div>
-
-        <div class="form-group">
             <label for="name">Name:</label>
-            <input type="text" name="name" id="name" placeholder="Enter your project title" v-model="project.name">
+            <input type="text" name="name" id="name" v-model="project.name">
         </div>
 
         <div class="form-group">
@@ -81,21 +76,21 @@
 
         <div class="form-group">
             <label for="associated_with">Associated_with:</label>
-            <input type="text" name="associated_with" id="associated_with" placeholder="Enter your team-mate name" v-model="project.associated_with">
+            <input type="text" name="associated_with" id="associated_with" v-model="project.associated_with">
         </div>
 
         <div class="form-group">
             <label class="label" for="description">Description: </label>
-            <textarea class="textarea" name="description" id="description" placeholder="Project Description" v-model="project.description"></textarea>
+            <textarea class="textarea" name="description" id="description" v-model="project.description"></textarea>
         </div>
 
         <div class="form-group">
             <label for="proj_url">Proj_url:</label>
-            <input type="url" name="proj_url" id="proj_url" placeholder="Enter your project_url if exists*" v-model="project.proj_url">
+            <input type="url" name="proj_url" id="proj_url" v-model="project.proj_url">
         </div>
 
         <div class="form-group">
-            <button :disabled="!isValid" class="btn btn-block btn-primary" @click.prevent="createProject(project)">
+            <button :disabled="!isValid" class="btn btn-block btn-primary" @click.prevent="updateProject(project)">
                 Submit
             </button>
         </div>
@@ -103,26 +98,28 @@
 </template>
 
 <script>
+    import {proj} from "./Projects";
     export default {
-        name: "CreateProject",
+        name: "UpdateProject",
         data() {
             return {
                 project: {
-                    user_id: '',
-                    name: '',
-                    s_month: '',
-                    s_year: '',
-                    e_month: '',
-                    e_year: '',
-                    associated_with: '',
-                    description: '',
-                    proj_url: ''
+                    id: proj.id,
+                    user_id: proj.user_id,
+                    name: proj.name,
+                    s_month: proj.s_month,
+                    s_year: proj.s_year,
+                    e_month: proj.e_month,
+                    e_year: proj.e_year,
+                    associated_with: proj.associated_with,
+                    description: proj.description,
+                    proj_url: proj.proj_url
                 }
             }
         },
         methods: {
-            createProject(project) {
-                this.$store.dispatch('createProject', project);
+            updateProject(project) {
+                this.$store.dispatch('updateProject', project);
                 this.$router.push({path: '/projects'});
             }
         },

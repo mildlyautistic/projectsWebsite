@@ -15,8 +15,6 @@ export default {
         currentUser: user,
         //user: null,
         isLoggedIn: null,
-        use:user,
-        //isLoggedIn: !!localStorage.getItem('token'),
         loading: false,
         auth_error: null,
         reg_error:null,
@@ -37,9 +35,6 @@ export default {
         },
         currentUser(state){
             return state.currentUser;
-        },
-        use(state){
-            return state.use;
         },
         authError(state){
             return state.auth_error;
@@ -73,10 +68,10 @@ export default {
             state.auth_error = null;
             state.isLoggedIn = true;
             state.loading = false;
-            state.currentUser = payload.data.token;
-            state.use = payload.data.name;
-            //console.log(state.currentUser);
-            localStorage.setItem('user', JSON.stringify(state.currentUser));
+            state.currentUser = payload;
+            //console.log(state.currentUser.name);
+            localStorage.setItem('user', JSON.stringify(state.currentUser.data.token));
+            localStorage.setItem('complete', JSON.stringify(state.currentUser));
         }
         ,
         loginFailed(state, payload){
@@ -87,6 +82,7 @@ export default {
         },
         logout(state){
             localStorage.removeItem("user");
+            localStorage.removeItem("complete");
             state.isLoggedIn = false;
             state.currentUser = null;
         },
@@ -94,9 +90,9 @@ export default {
             state.reg_error = null;
             state.isLoggedIn = true;
             state.registeredUser = payload.user;
-            state.currentUser = payload.data.token;
-            state.use = payload.data.name;
-            localStorage.setItem("user", JSON.stringify(state.currentUser));
+            state.currentUser = payload;
+            localStorage.setItem("user", JSON.stringify(state.currentUser.data.token));
+            localStorage.setItem('complete', JSON.stringify(state.currentUser));
         },
         registerFailed(state, payload){
             state.reg_error = payload.error;
@@ -140,8 +136,8 @@ export default {
         },
         UPDATE_PROJECT(state, project) {
             let index = state.projects.findIndex(item => item.id === project.id)
-            state.projects.splice(index, 1)
-            state.projects.unshift(project)
+            state.projects.splice(index, 1, project)
+            //state.projects.unshift(project)
         },
         DELETE_PROJECT(state, project) {
             let index = state.projects.findIndex(item => item.id === project.id)
@@ -177,8 +173,10 @@ export default {
         },
         updateProfile({commit}, profile) {
             const headers = getAuthHeaders();
+            //console.log(profile)
             axios.put(`/api/profiles/${profile.id}`, profile, headers)
                 .then(res => {
+                    //console.log(profile)
                     commit('UPDATE_PROFILE', profile)
                 }).catch(err => {
                 console.log(err)
