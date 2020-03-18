@@ -50,7 +50,7 @@
         logout(){
 
             this.$store.commit('logout');
-                this.$router.push({path: '/login'});
+            this.$router.push({path: '/login'});
 
 
         }

@@ -13,10 +13,7 @@ function getAuthHeaders(){
 export default {
     state: {
         currentUser: user,
-        //user: null,
         isLoggedIn: null,
-        details: user,
-        //isLoggedIn: !!localStorage.getItem('token'),
         loading: false,
         auth_error: null,
         reg_error:null,
@@ -30,13 +27,7 @@ export default {
             return state.loading;
         },
         isLoggedin(state){
-           // state.currentUser = Object.assign({}, state.user, {token: state.access_token});
-            //localStorage.setItem("user", JSON.stringify(state.currentUser));
             return state.isLoggedIn;
-            //return !!state.user
-        },
-        details(state){
-            return state.details;
         },
         currentUser(state){
             return state.currentUser;
@@ -73,30 +64,27 @@ export default {
             state.auth_error = null;
             state.isLoggedIn = true;
             state.loading = false;
-            state.currentUser = payload.data.token;
-            state.details = payload.data.name;
-            //console.log(state.currentUser);
-            localStorage.setItem('user', JSON.stringify(state.currentUser));
-        }
-        ,
+            state.currentUser = payload;
+            localStorage.setItem('user', JSON.stringify(state.currentUser.data.token));
+            localStorage.setItem('complete', JSON.stringify(state.currentUser));
+        },
         loginFailed(state, payload){
-           /* alert('Login failed');
-            console.log(payload.error);*/
             state.loading = false;
             state.auth_error = payload.error;
         },
         logout(state){
             localStorage.removeItem("user");
+            localStorage.removeItem("complete");
             state.isLoggedIn = false;
             state.currentUser = null;
         },
         registerSuccess(state, payload){
             state.reg_error = null;
             state.isLoggedIn = true;
-            state.registeredUser = payload.user;
-            state.details = payload.data.name;
-            state.currentUser = payload.data.token;
-            localStorage.setItem("user", JSON.stringify(state.currentUser));
+            //state.registeredUser = payload.user;
+            state.currentUser = payload;
+            localStorage.setItem("user", JSON.stringify(state.currentUser.data.token));
+            localStorage.setItem("complete", JSON.stringify(state.currentUser));
         },
         registerFailed(state, payload){
             state.reg_error = payload.error;

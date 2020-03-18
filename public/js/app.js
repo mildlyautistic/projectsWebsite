@@ -2654,8 +2654,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   computed: {
-    details: function details() {
-      return this.$store.getters.details;
+    currentUser: function currentUser() {
+      return this.$store.getters.currentUser;
     }
   }
 });
@@ -3218,19 +3218,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
+ //const arti = art
 
-var arti = _Articles__WEBPACK_IMPORTED_MODULE_0__["art"];
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "UpdateArticle",
   data: function data() {
     return {
       article: {
-        id: arti,
-        user_id: '',
+        id: _Articles__WEBPACK_IMPORTED_MODULE_0__["art"].id,
+        user_id: 'art.user_id',
         title: '',
         excerpt: '',
         featured_image_url: '',
@@ -25141,7 +25137,9 @@ var render = function() {
   return _c("div", { staticClass: "container" }, [
     _c("h1", [
       _vm._v(
-        "Hello , " + _vm._s(_vm.details) + " . . . welcome to your work space."
+        "Hello , " +
+          _vm._s(_vm.currentUser.data.name) +
+          " . . . welcome to your work space."
       )
     ])
   ])
@@ -42383,62 +42381,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _routes_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./routes.js */ "./resources/js/routes.js");
 /* harmony import */ var _store_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./store.js */ "./resources/js/store.js");
 /* harmony import */ var _components_MainApp_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/MainApp.vue */ "./resources/js/components/MainApp.vue");
-/* harmony import */ var _components_Projects__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Projects */ "./resources/js/components/Projects.vue");
-/* harmony import */ var _components_CreateProject__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/CreateProject */ "./resources/js/components/CreateProject.vue");
-/* harmony import */ var _components_Articles__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/Articles */ "./resources/js/components/Articles.vue");
-/* harmony import */ var _components_CreateArticle__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/CreateArticle */ "./resources/js/components/CreateArticle.vue");
-/* harmony import */ var _components_UpdateArticle__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/UpdateArticle */ "./resources/js/components/UpdateArticle.vue");
-/* harmony import */ var _components_Profiles__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/Profiles */ "./resources/js/components/Profiles.vue");
-/* harmony import */ var _components_CreateProfile__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/CreateProfile */ "./resources/js/components/CreateProfile.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _components_Projects__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/Projects */ "./resources/js/components/Projects.vue");
+/* harmony import */ var _components_CreateProject__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/CreateProject */ "./resources/js/components/CreateProject.vue");
+/* harmony import */ var _components_Articles__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/Articles */ "./resources/js/components/Articles.vue");
+/* harmony import */ var _components_CreateArticle__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/CreateArticle */ "./resources/js/components/CreateArticle.vue");
+/* harmony import */ var _components_UpdateArticle__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/UpdateArticle */ "./resources/js/components/UpdateArticle.vue");
+/* harmony import */ var _components_Profiles__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/Profiles */ "./resources/js/components/Profiles.vue");
+/* harmony import */ var _components_CreateProfile__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/CreateProfile */ "./resources/js/components/CreateProfile.vue");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-
-/*import Projects from './components/Projects';
-import CreateProject from './components/CreateProject';
-
-import Articles from './components/Articles';
-import CreateArticle from './components/CreateArticle';
-
-import Profiles from './components/Profiles';
-import CreateProfile from './components/CreateProfile';
-
-require('./bootstrap');
-
-window.Vue = require('vue');*/
-
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-
-/*import store from './store'
-
-
-Vue.component('projects', Projects);
-Vue.component('createProject', CreateProject);
-
-Vue.component('articles', Articles);
-Vue.component('createArticle', CreateArticle);
-
-Vue.component('profiles', Profiles);
-Vue.component('createProfile', CreateProfile);
-
-//Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-
-
-
-const app = new Vue({
-    el: '#app',
-    store
-
-});*/
-//.......................................................................................................................
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
@@ -42454,18 +42410,18 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
- //import storee from './store'
+
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vee_validate__WEBPACK_IMPORTED_MODULE_3__);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('projects', _components_Projects__WEBPACK_IMPORTED_MODULE_7__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('createProject', _components_CreateProject__WEBPACK_IMPORTED_MODULE_8__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('articles', _components_Articles__WEBPACK_IMPORTED_MODULE_9__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('createArticle', _components_CreateArticle__WEBPACK_IMPORTED_MODULE_10__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('updateArticle', _components_UpdateArticle__WEBPACK_IMPORTED_MODULE_11__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('profiles', _components_Profiles__WEBPACK_IMPORTED_MODULE_12__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('createProfile', _components_CreateProfile__WEBPACK_IMPORTED_MODULE_13__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('projects', _components_Projects__WEBPACK_IMPORTED_MODULE_8__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('createProject', _components_CreateProject__WEBPACK_IMPORTED_MODULE_9__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('articles', _components_Articles__WEBPACK_IMPORTED_MODULE_10__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('createArticle', _components_CreateArticle__WEBPACK_IMPORTED_MODULE_11__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('updateArticle', _components_UpdateArticle__WEBPACK_IMPORTED_MODULE_12__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('profiles', _components_Profiles__WEBPACK_IMPORTED_MODULE_13__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('createProfile', _components_CreateProfile__WEBPACK_IMPORTED_MODULE_14__["default"]);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   routes: _routes_js__WEBPACK_IMPORTED_MODULE_4__["routes"],
   mode: 'history'
@@ -42475,6 +42431,27 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#app',
   router: router,
   store: store,
+  created: function created() {
+    var _this = this;
+
+    var userString = localStorage.getItem('complete');
+
+    if (userString) {
+      var payload = JSON.parse(userString);
+      this.$store.commit('loginSuccess', payload);
+      this.$store.commit('login');
+    }
+
+    axios__WEBPACK_IMPORTED_MODULE_7___default.a.interceptors.response.use(function (response) {
+      return response;
+    }, function (error) {
+      if (error.response.status === 401) {
+        _this.$store.dispatch('logout');
+      }
+
+      return Promise.reject(error);
+    });
+  },
   components: {
     MainApp: _components_MainApp_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
   }
@@ -43549,7 +43526,7 @@ function login(credentials) {
   });
 }
 function getToken() {
-  var userStr = localStorage.getItem('user'); //console.log(userStr);
+  var userStr = localStorage.getItem('user');
 
   if (!userStr) {
     return null;
@@ -43656,6 +43633,10 @@ var routes = [{
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _partials_auth__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./partials/auth */ "./resources/js/partials/auth.js");
+var _mutations;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 var user = Object(_partials_auth__WEBPACK_IMPORTED_MODULE_0__["getToken"])();
 
@@ -43677,10 +43658,7 @@ function getAuthHeaders() {
 /* harmony default export */ __webpack_exports__["default"] = ({
   state: {
     currentUser: user,
-    //user: null,
     isLoggedIn: null,
-    details: user,
-    //isLoggedIn: !!localStorage.getItem('token'),
     loading: false,
     auth_error: null,
     reg_error: null,
@@ -43694,12 +43672,7 @@ function getAuthHeaders() {
       return state.loading;
     },
     isLoggedin: function isLoggedin(state) {
-      // state.currentUser = Object.assign({}, state.user, {token: state.access_token});
-      //localStorage.setItem("user", JSON.stringify(state.currentUser));
-      return state.isLoggedIn; //return !!state.user
-    },
-    details: function details(state) {
-      return state.details;
+      return state.isLoggedIn;
     },
     currentUser: function currentUser(state) {
       return state.currentUser;
@@ -43723,7 +43696,7 @@ function getAuthHeaders() {
       return state.projects;
     }
   },
-  mutations: {
+  mutations: (_mutations = {
     login: function login(state) {
       state.loading = true;
       state.auth_error = null;
@@ -43735,29 +43708,27 @@ function getAuthHeaders() {
       state.auth_error = null;
       state.isLoggedIn = true;
       state.loading = false;
-      state.currentUser = payload.data.token;
-      state.details = payload.data.name; //console.log(state.currentUser);
-
-      localStorage.setItem('user', JSON.stringify(state.currentUser));
+      state.currentUser = payload;
+      localStorage.setItem('user', JSON.stringify(state.currentUser.data.token));
+      localStorage.setItem('complete', JSON.stringify(state.currentUser));
     },
     loginFailed: function loginFailed(state, payload) {
-      /* alert('Login failed');
-       console.log(payload.error);*/
       state.loading = false;
       state.auth_error = payload.error;
     },
     logout: function logout(state) {
       localStorage.removeItem("user");
+      localStorage.removeItem("complete");
       state.isLoggedIn = false;
       state.currentUser = null;
     },
     registerSuccess: function registerSuccess(state, payload) {
       state.reg_error = null;
-      state.isLoggedIn = true;
-      state.registeredUser = payload.user;
-      state.details = payload.data.name;
-      state.currentUser = payload.data.token;
-      localStorage.setItem("user", JSON.stringify(state.currentUser));
+      state.isLoggedIn = true; //state.registeredUser = payload.user;
+
+      state.currentUser = payload;
+      localStorage.setItem("user", JSON.stringify(state.currentUser.data.token));
+      localStorage.setItem("complete", JSON.stringify(state.currentUser));
     },
     registerFailed: function registerFailed(state, payload) {
       state.reg_error = payload.error;
@@ -43774,59 +43745,49 @@ function getAuthHeaders() {
     },
     FETCH_PROFILES: function FETCH_PROFILES(state, profiles) {
       return state.profiles = profiles;
-    },
-    UPDATE_PROFILE: function UPDATE_PROFILE(state, profile) {
-      var index = state.profiles.findIndex(function (item) {
-        return item.id === profile.id;
-      });
-      state.profiles.splice(index, 1);
-      state.profiles.unshift(profile);
-    },
-    DELETE_PROFILE: function DELETE_PROFILE(state, profile) {
-      var index = state.profiles.findIndex(function (item) {
-        return item.id === profile.id;
-      });
-      state.profile.splice(index, 1);
-    },
-    CREATE_ARTICLE: function CREATE_ARTICLE(state, article) {
-      state.articles.unshift(article);
-    },
-    FETCH_ARTICLES: function FETCH_ARTICLES(state, articles) {
-      return state.articles = articles;
-    },
-    UPDATE_ARTICLE: function UPDATE_ARTICLE(state, article) {
-      var index = state.articles.findIndex(function (item) {
-        return item.id === article.id;
-      });
-      state.articles.splice(index, 1);
-      state.articles.unshift(article);
-    },
-    DELETE_ARTICLE: function DELETE_ARTICLE(state, article) {
-      var index = state.articles.findIndex(function (item) {
-        return item.id === article.id;
-      });
-      state.articles.splice(index, 1);
-    },
-    CREATE_PROJECT: function CREATE_PROJECT(state, project) {
-      state.projects.unshift(project);
-    },
-    FETCH_PROJECTS: function FETCH_PROJECTS(state, projects) {
-      return state.projects = projects;
-    },
-    UPDATE_PROJECT: function UPDATE_PROJECT(state, project) {
-      var index = state.projects.findIndex(function (item) {
-        return item.id === project.id;
-      });
-      state.projects.splice(index, 1);
-      state.projects.unshift(project);
-    },
-    DELETE_PROJECT: function DELETE_PROJECT(state, project) {
-      var index = state.projects.findIndex(function (item) {
-        return item.id === project.id;
-      });
-      state.projects.splice(index, 1);
     }
-  },
+  }, _defineProperty(_mutations, "UPDATE_PROFILE", function UPDATE_PROFILE(state, profile) {
+    var index = state.profiles.findIndex(function (item) {
+      return item.id === profile.id;
+    });
+    state.profiles.splice(index, 1);
+    state.profiles.unshift(profile);
+  }), _defineProperty(_mutations, "DELETE_PROFILE", function DELETE_PROFILE(state, profile) {
+    var index = state.profiles.findIndex(function (item) {
+      return item.id === profile.id;
+    });
+    state.profile.splice(index, 1);
+  }), _defineProperty(_mutations, "CREATE_ARTICLE", function CREATE_ARTICLE(state, article) {
+    state.articles.unshift(article);
+  }), _defineProperty(_mutations, "FETCH_ARTICLES", function FETCH_ARTICLES(state, articles) {
+    return state.articles = articles;
+  }), _defineProperty(_mutations, "UPDATE_ARTICLE", function UPDATE_ARTICLE(state, article) {
+    var index = state.articles.findIndex(function (item) {
+      return item.id === article.id;
+    });
+    state.articles.splice(index, 1);
+    state.articles.unshift(article);
+  }), _defineProperty(_mutations, "DELETE_ARTICLE", function DELETE_ARTICLE(state, article) {
+    var index = state.articles.findIndex(function (item) {
+      return item.id === article.id;
+    });
+    state.articles.splice(index, 1);
+  }), _defineProperty(_mutations, "CREATE_PROJECT", function CREATE_PROJECT(state, project) {
+    state.projects.unshift(project);
+  }), _defineProperty(_mutations, "FETCH_PROJECTS", function FETCH_PROJECTS(state, projects) {
+    return state.projects = projects;
+  }), _defineProperty(_mutations, "UPDATE_PROJECT", function UPDATE_PROJECT(state, project) {
+    var index = state.projects.findIndex(function (item) {
+      return item.id === project.id;
+    });
+    state.projects.splice(index, 1);
+    state.projects.unshift(project);
+  }), _defineProperty(_mutations, "DELETE_PROJECT", function DELETE_PROJECT(state, project) {
+    var index = state.projects.findIndex(function (item) {
+      return item.id === project.id;
+    });
+    state.projects.splice(index, 1);
+  }), _mutations),
   actions: {
     login: function login(context) {
       context.commit("login");

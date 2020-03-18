@@ -44,14 +44,14 @@
 <script>
 
 import {art} from "./Articles";
-const arti = art
+//const arti = art
 export default {
         name: "UpdateArticle",
         data() {
             return {
                 article: {
-                    id:arti,
-                    user_id: '',
+                    id:art.id,
+                    user_id: 'art.user_id',
                     title: '',
                     excerpt: '',
                     featured_image_url: '',
