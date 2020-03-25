@@ -67,6 +67,12 @@
             <a class="navbar-item" href="/contact" accesskey="4" title="">
                 Contact
             </a>
+            <a class="navbar-item" href="/articles" accesskey="5" title="">
+                Articles
+            </a>
+            <a class="navbar-item" href="/projects" accesskey="6" title="">
+                Projects
+            </a>
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link" href="/documentation/overview/start/">
                     More
@@ -101,7 +107,7 @@
             <a class="navbar-item " href="/login" accesskey="1" title="">
                 Login
             </a>
-            
+
 
         </div>
     </div>
