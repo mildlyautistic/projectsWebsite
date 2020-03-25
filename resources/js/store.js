@@ -92,11 +92,6 @@ export default {
         CREATE_PROFILE(state, profile) {
             state.profiles.unshift(profile)
         },
-        UPDATE_PROFILE(state, profile) {
-             let index = state.profiles.findIndex(item => item.id === profile.id)
-             state.profiles.splice(index, 1)
-             state.profiles.unshift(profile)
-        },
         FETCH_PROFILES(state, profiles) {
             return state.profiles = profiles
         },
@@ -196,12 +191,9 @@ export default {
                 }).catch(err => {
                 console.log(err)
             })
-
         },
-
         fetchArticles({commit}) {
-            const headers = getAuthHeaders();
-            axios.get('/api/articles', headers)
+            axios.get('/api/articles')
                 .then(res => {
                     commit('FETCH_ARTICLES', res.data)
                 }).catch(err => {
@@ -235,7 +227,6 @@ export default {
                 }).catch(err => {
                 console.log(err)
             })
-
         },
         fetchProjects({commit}) {
             axios.get('/api/projects')

@@ -45074,10 +45074,6 @@ var routes = [{
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _partials_auth__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./partials/auth */ "./resources/js/partials/auth.js");
-var _mutations;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 var user = Object(_partials_auth__WEBPACK_IMPORTED_MODULE_0__["getToken"])();
 
@@ -45137,7 +45133,7 @@ function getAuthHeaders() {
       return state.projects;
     }
   },
-  mutations: (_mutations = {
+  mutations: {
     login: function login(state) {
       state.loading = true;
       state.auth_error = null;
@@ -45177,6 +45173,9 @@ function getAuthHeaders() {
     CREATE_PROFILE: function CREATE_PROFILE(state, profile) {
       state.profiles.unshift(profile);
     },
+    FETCH_PROFILES: function FETCH_PROFILES(state, profiles) {
+      return state.profiles = profiles;
+    },
     UPDATE_PROFILE: function UPDATE_PROFILE(state, profile) {
       var index = state.profiles.findIndex(function (item) {
         return item.id === profile.id;
@@ -45184,51 +45183,51 @@ function getAuthHeaders() {
       state.profiles.splice(index, 1);
       state.profiles.unshift(profile);
     },
-    FETCH_PROFILES: function FETCH_PROFILES(state, profiles) {
-      return state.profiles = profiles;
+    DELETE_PROFILE: function DELETE_PROFILE(state, profile) {
+      var index = state.profiles.findIndex(function (item) {
+        return item.id === profile.id;
+      });
+      state.profile.splice(index, 1);
+    },
+    CREATE_ARTICLE: function CREATE_ARTICLE(state, article) {
+      state.articles.unshift(article);
+    },
+    FETCH_ARTICLES: function FETCH_ARTICLES(state, articles) {
+      return state.articles = articles;
+    },
+    UPDATE_ARTICLE: function UPDATE_ARTICLE(state, article) {
+      var index = state.articles.findIndex(function (item) {
+        return item.id === article.id;
+      });
+      state.articles.splice(index, 1);
+      state.articles.unshift(article);
+    },
+    DELETE_ARTICLE: function DELETE_ARTICLE(state, article) {
+      var index = state.articles.findIndex(function (item) {
+        return item.id === article.id;
+      });
+      state.articles.splice(index, 1);
+    },
+    CREATE_PROJECT: function CREATE_PROJECT(state, project) {
+      state.projects.unshift(project);
+    },
+    FETCH_PROJECTS: function FETCH_PROJECTS(state, projects) {
+      return state.projects = projects;
+    },
+    UPDATE_PROJECT: function UPDATE_PROJECT(state, project) {
+      var index = state.projects.findIndex(function (item) {
+        return item.id === project.id;
+      });
+      state.projects.splice(index, 1);
+      state.projects.unshift(project);
+    },
+    DELETE_PROJECT: function DELETE_PROJECT(state, project) {
+      var index = state.projects.findIndex(function (item) {
+        return item.id === project.id;
+      });
+      state.projects.splice(index, 1);
     }
-  }, _defineProperty(_mutations, "UPDATE_PROFILE", function UPDATE_PROFILE(state, profile) {
-    var index = state.profiles.findIndex(function (item) {
-      return item.id === profile.id;
-    });
-    state.profiles.splice(index, 1);
-    state.profiles.unshift(profile);
-  }), _defineProperty(_mutations, "DELETE_PROFILE", function DELETE_PROFILE(state, profile) {
-    var index = state.profiles.findIndex(function (item) {
-      return item.id === profile.id;
-    });
-    state.profile.splice(index, 1);
-  }), _defineProperty(_mutations, "CREATE_ARTICLE", function CREATE_ARTICLE(state, article) {
-    state.articles.unshift(article);
-  }), _defineProperty(_mutations, "FETCH_ARTICLES", function FETCH_ARTICLES(state, articles) {
-    return state.articles = articles;
-  }), _defineProperty(_mutations, "UPDATE_ARTICLE", function UPDATE_ARTICLE(state, article) {
-    var index = state.articles.findIndex(function (item) {
-      return item.id === article.id;
-    });
-    state.articles.splice(index, 1);
-    state.articles.unshift(article);
-  }), _defineProperty(_mutations, "DELETE_ARTICLE", function DELETE_ARTICLE(state, article) {
-    var index = state.articles.findIndex(function (item) {
-      return item.id === article.id;
-    });
-    state.articles.splice(index, 1);
-  }), _defineProperty(_mutations, "CREATE_PROJECT", function CREATE_PROJECT(state, project) {
-    state.projects.unshift(project);
-  }), _defineProperty(_mutations, "FETCH_PROJECTS", function FETCH_PROJECTS(state, projects) {
-    return state.projects = projects;
-  }), _defineProperty(_mutations, "UPDATE_PROJECT", function UPDATE_PROJECT(state, project) {
-    var index = state.projects.findIndex(function (item) {
-      return item.id === project.id;
-    });
-    state.projects.splice(index, 1);
-    state.projects.unshift(project);
-  }), _defineProperty(_mutations, "DELETE_PROJECT", function DELETE_PROJECT(state, project) {
-    var index = state.projects.findIndex(function (item) {
-      return item.id === project.id;
-    });
-    state.projects.splice(index, 1);
-  }), _mutations),
+  },
   actions: {
     login: function login(context) {
       context.commit("login");
@@ -45283,8 +45282,7 @@ function getAuthHeaders() {
     },
     fetchArticles: function fetchArticles(_ref6) {
       var commit = _ref6.commit;
-      var headers = getAuthHeaders();
-      axios.get('/api/articles', headers).then(function (res) {
+      axios.get('/api/articles').then(function (res) {
         commit('FETCH_ARTICLES', res.data);
       })["catch"](function (err) {
         console.log(err);
@@ -45366,8 +45364,8 @@ function getAuthHeaders() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/ipropal/work/projectsWebsite/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/ipropal/work/projectsWebsite/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\nishi\projectsWebsite\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\nishi\projectsWebsite\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
