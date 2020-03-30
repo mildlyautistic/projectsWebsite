@@ -17,15 +17,19 @@ class ProjectController extends BaseController
     public function index()
     {
        // $projects = Project::all();
-
-        return view('projects');
+        $projects = Project::orderBy('created_at', 'desc')->get();
+        return view('works', [
+            'projects' => $projects
+        ]);
 
        // return $this->sendResponse(ProjectResource::collection($projects), 'Projects retrieved successfully.');
     }
 
     public function get(Request $request)
     {
-        $projects = Project::orderBy('created_at', 'desc')->get();
+        //$projects = Project::orderBy('user_id', 'desc')->get();
+        $usid = auth()->user()->id;
+        $projects = Project::where('user_id',  + $usid  )->get();
         return response()->json($projects);
     }
 
@@ -144,19 +148,10 @@ class ProjectController extends BaseController
     public function destroy($id)
     {
 
-        $proj_id = DB::table('projects')->where('id', $id)->pluck('user_id')->first();
-        $usid = auth()->user()->id;
-
-        if($proj_id!=$usid)
-        {
-            return $this->sendError('Sorry, delete your own projects.');
-        }
-        //$project->delete();
-
         $pid = DB::table('projects')->where('id', $id)->pluck('user_id')->first();
 
         $usid = auth()->user()->id;
-        if($pid !== $usid)
+        if($pid != $usid)
         {
             return $this->sendError('Sorry, you can delete your own project.');
         }

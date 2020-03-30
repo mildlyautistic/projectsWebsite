@@ -10,6 +10,9 @@ import CreateArticle from './components/CreateArticle.vue';
 import UpdateArticle from './components/UpdateArticle.vue';
 import UpdateProfile from './components/UpdateProfile.vue';
 import UpdateProject from './components/UpdateProject.vue';
+import ShowArticle from './components/ShowArticle.vue';
+import ShowProject from './components/ShowProject.vue';
+import ShowProfile from './components/ShowProfile.vue';
 export const routes = [
 
 {
@@ -73,18 +76,33 @@ export const routes = [
         component: CreateArticle,
     },
     {
-        path: '/articles/:id',
+        path: '/articles/edit/:id',
         name: 'update-article',
         component: UpdateArticle,
     },
     {
-        path: '/profiles/:id',
+        path: '/profiles/edit/:id',
         name: 'update-profile',
         component: UpdateProfile,
     },
     {
-        path: '/projects/:id',
+        path: '/projects/edit/:id',
         name: 'update-project',
         component: UpdateProject,
-    }
+    },
+    {
+        path: '/articles/:id',
+        name: 'show-article',
+        component: ShowArticle,
+    },
+    {
+        path: '/projects/:id',
+        name: 'show-project',
+        component: ShowProject,
+    },
+    {
+        path: '/profiles/:id',
+        name: 'show-profile',
+        component: ShowProfile,
+    },
 ]

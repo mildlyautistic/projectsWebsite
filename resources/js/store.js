@@ -95,6 +95,11 @@ export default {
         FETCH_PROFILES(state, profiles) {
             return state.profiles = profiles
         },
+        SHOW_PROFILE(state, profile) {
+            let index = state.profiles.findIndex(item => item.id === profile.id)
+            state.profiles.splice(index, 1)
+            state.profiles.unshift(profile)
+        },
         UPDATE_PROFILE(state, profile) {
             let index = state.profiles.findIndex(item => item.id === profile.id)
             state.profiles.splice(index, 1)
@@ -107,9 +112,13 @@ export default {
         CREATE_ARTICLE(state, article) {
             state.articles.unshift(article)
         },
-
         FETCH_ARTICLES(state, articles) {
             return state.articles = articles
+        },
+        SHOW_ARTICLE(state, article) {
+            let index = state.articles.findIndex(item => item.id === article.id)
+            state.articles.splice(index, 1)
+            state.articles.unshift(article)
         },
         UPDATE_ARTICLE(state, article) {
              let index = state.articles.findIndex(item => item.id === article.id)
@@ -125,6 +134,11 @@ export default {
         },
         FETCH_PROJECTS(state, projects) {
             return state.projects = projects
+        },
+        SHOW_PROJECT(state, project) {
+            let index = state.projects.findIndex(item => item.id === project.id)
+            state.projects.splice(index, 1)
+            state.projects.unshift(project)
         },
         UPDATE_PROJECT(state, project) {
              let index = state.projects.findIndex(item => item.id === project.id)
@@ -153,12 +167,21 @@ export default {
                 }).catch(err => {
                 console.log(err)
             })
-
         },
         fetchProfiles({commit}) {
-            axios.get('/api/profiles')
+            const headers = getAuthHeaders();
+            axios.get('/api/profiles', headers)
                 .then(res => {
                     commit('FETCH_PROFILES', res.data)
+                }).catch(err => {
+                console.log(err)
+            })
+        },
+        showProfile({commit}, profile) {
+            const headers = getAuthHeaders();
+            axios.get(`/api/profiles/${profile.id}`, profile, headers)
+                .then(res => {
+                    commit('SHOW_PROFILE', profile)
                 }).catch(err => {
                 console.log(err)
             })
@@ -193,9 +216,19 @@ export default {
             })
         },
         fetchArticles({commit}) {
-            axios.get('/api/articles')
+            const headers = getAuthHeaders();
+            axios.get('/api/articles', headers)
                 .then(res => {
                     commit('FETCH_ARTICLES', res.data)
+                }).catch(err => {
+                console.log(err)
+            })
+        },
+        showArticle({commit}, article) {
+            const headers = getAuthHeaders();
+            axios.get(`/api/articles/${article.id}`, article, headers)
+                .then(res => {
+                    commit('SHOW_ARTICLE', article)
                 }).catch(err => {
                 console.log(err)
             })
@@ -229,9 +262,19 @@ export default {
             })
         },
         fetchProjects({commit}) {
-            axios.get('/api/projects')
+            const headers = getAuthHeaders();
+            axios.get('/api/projects', headers)
                 .then(res => {
                     commit('FETCH_PROJECTS', res.data)
+                }).catch(err => {
+                console.log(err)
+            })
+        },
+        showProject({commit}, project) {
+            const headers = getAuthHeaders();
+            axios.get(`/api/projects/${project.id}`, project, headers)
+                .then(res => {
+                    commit('SHOW_PROJECT', project)
                 }).catch(err => {
                 console.log(err)
             })

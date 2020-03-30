@@ -5,6 +5,7 @@
         <table class="table table-striped">
             <thead>
             <tr>
+                <th scope="col">Project_id</th>
                 <th scope="col">User_id</th>
                 <th scope="col">Name</th>
                 <th scope="col">S_month</th>
@@ -14,12 +15,14 @@
                 <th scope="col">Associated_with</th>
                 <th scope="col">Description</th>
                 <th scope="col">Proj_url</th>
+                <th scope="col">Show</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
             </tr>
             </thead>
             <tbody>
             <tr v-for="project in projects">
+                <td>{{project.id}}</td>
                 <td>{{project.user_id}}</td>
                 <td>{{project.name}}</td>
                 <td>{{project.s_month}}</td>
@@ -29,6 +32,9 @@
                 <td>{{project.associated_with}}</td>
                 <td>{{project.description}}</td>
                 <td>{{project.proj_url}}</td>
+                <td>
+                    <button class="show" @click="showProject(project)">Show</button>
+                </td>
                 <td>
                     <button class="edit" @click="updateProject(project)">Edit</button>
                 </td>
@@ -51,13 +57,18 @@
             this.$store.dispatch('fetchProjects')
         },
         methods: {
+            showProject(project) {
+                proj= project
+                //console.log(project)
+                this.$router.push({path: `/projects/${project.id}`});
+            },
             deleteProject(project) {
               //alert('Do you really want to delete this project? You might not be able to undo this action!')
                 this.$store.dispatch('deleteProject',project)
             },
             updateProject(project) {
                 proj = project
-                this.$router.push({path: `/projects/${project.id}`})
+                this.$router.push({path: `/projects/edit/${project.id}`})
             }
         },
         computed: {

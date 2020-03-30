@@ -13,19 +13,20 @@ use App\Http\Resources\Article as ArticleResource;
 
 class ArticleController extends BaseController
 {
-    public function index()
+    public function index(Request $request)
     {
-        //$articles = Article::all();
-
-        return view('articles');
-
-        //return $this->sendResponse(ArticleResource::collection($articles), 'Articles retrieved successfully.');
-       // return view('articles.index', ['articles' => $articles]);
+        //$articles = DB::table('articles')->get();
+        $articles = Article::orderBy('created_at', 'desc')->get();
+        return view('posts', [
+            'articles' => $articles
+            ]);
     }
 
     public function get(Request $request)
     {
-        $articles = Article::orderBy('created_at', 'desc')->get();
+       // $articles = Article::orderBy('user_id', 'desc')->get();
+        $usid = auth()->user()->id;
+        $articles = Article::where('user_id',  + $usid  )->get();
         return response()->json($articles);
     }
 
@@ -142,20 +143,7 @@ class ArticleController extends BaseController
         $aid = DB::table('articles')->where('id', $id)->pluck('user_id')->first();
         $usid = auth()->user()->id;
 
-        if($aid!=$usid)
-        {
-            return $this->sendError('Sorry, delete your own articles.');
-        }
-
-        //$article->delete();
-       // global $aid;
-
-        $aid = DB::table('articles')->where('id', $id)->pluck('user_id')->first();
-
-        $usid = auth()->user()->id;
-        //return $usid;
-
-        if($aid !== $usid)
+        if($aid != $usid)
         {
             return $this->sendError('Sorry, you can delete your own article.');
         }
@@ -167,7 +155,6 @@ class ArticleController extends BaseController
 
             return response()->json("ok");
         }
-        //return view('articles.show', ['articles' => $article]);
     }
 
     protected function validateArticle()
