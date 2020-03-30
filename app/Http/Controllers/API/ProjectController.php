@@ -16,16 +16,16 @@ class ProjectController extends BaseController
 
     public function index()
     {
-       // $projects = Project::all();
+        // $projects = Project::all();
 
         return view('projects');
 
-       // return $this->sendResponse(ProjectResource::collection($projects), 'Projects retrieved successfully.');
+        // return $this->sendResponse(ProjectResource::collection($projects), 'Projects retrieved successfully.');
     }
 
     public function get(Request $request)
     {
-        $projects = Project::orderBy('created_at', 'desc')->get();
+        $projects = Project::all();
         return response()->json($projects);
     }
 
@@ -43,7 +43,7 @@ class ProjectController extends BaseController
         $validator = Validator::make($input, [
 
             'name' => 'required',
-           // 's_month',
+            // 's_month',
             //'e_month' ,
             //'associated_with',
             //'description' ,
@@ -61,7 +61,7 @@ class ProjectController extends BaseController
 
         $asset = Asset::all('id');
         //return $asset;
-       // $asset_id_array = array();
+        // $asset_id_array = array();
         //array_push($asset_id_array, $asset);
         //$project->assets()->attach($asset_id_array);
         foreach($asset as $asset_id)
@@ -82,11 +82,12 @@ class ProjectController extends BaseController
             return $this->sendError('Project not found.');
         }
 
-       // $projects = Project::all();
+        // $projects = Project::all();
 
-        return response()->json($project);
+        //return response()->json($project);
 
-       // return $this->sendResponse(new ProjectResource($project), 'Project retrieved successfully.');
+        // return $this->sendResponse(new ProjectResource($project), 'Project retrieved successfully.');
+        return view('projects_show', ['projects' => $project]);
     }
 
 
@@ -168,25 +169,25 @@ class ProjectController extends BaseController
         //return $this->sendResponse([], 'Project deleted successfully.');
     }
 
-   /* protected function validateProject()
-    {
-        return request()->validate([
-            /*'name' => 'required',
-            // 's_month',
-            //'e_month' ,
-            //'associated_with',
-            //'description' ,
-            'proj_url' => 'url'
-            'name' => 'required',
-            'proj_url' => 'url',
-            'user_id' => 'required',
-            's_month' ,
-            's_year' => '',
-            'e_month' =>'',
-            'e_year' =>'',
-            'associated_with' => '',
-            'description' => ''
+    /* protected function validateProject()
+     {
+         return request()->validate([
+             /*'name' => 'required',
+             // 's_month',
+             //'e_month' ,
+             //'associated_with',
+             //'description' ,
+             'proj_url' => 'url'
+             'name' => 'required',
+             'proj_url' => 'url',
+             'user_id' => 'required',
+             's_month' ,
+             's_year' => '',
+             'e_month' =>'',
+             'e_year' =>'',
+             'associated_with' => '',
+             'description' => ''
 
-        ]);
-    }*/
+         ]);
+     }*/
 }

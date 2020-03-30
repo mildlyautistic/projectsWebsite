@@ -34,7 +34,20 @@ Route::get('/privacypolicy', function () {
 });
 
 
+Route::get('/show-articles',function() {
+    return view('articles', ['articles' => App\Article::latest()->get()]);
+});
+Route::get('/show-articles/{article}','API\ArticleController@show');
 
+Route::get('/show-profiles',function() {
+    return view('profiles', ['profiles' => App\Profile::latest()->get()]);
+});
+Route::get('/show-profiles/{profile}','API\ProfileController@show');
+
+Route::get('/show-projects',function() {
+    return view('projects', ['projects' => App\Project::latest()->get()]);
+});
+Route::get('/show-projects/{project}','API\ProjectController@show');
 
 /*Route::group(['prefix' => 'auth'], function ($router) {
     Route::post('/register', 'API\RegisterController@register');

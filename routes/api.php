@@ -18,12 +18,12 @@ Route::post('login', 'API\RegisterController@login');
 Route::post('logout', 'API\RegisterController@logout');
 
 
-Route::get('articles', 'API\ArticleController@get');
+
 
 Route::middleware('auth:api')->group( function () {
-   // Route::resource('articles', 'API\ArticleController');
+    // Route::resource('articles', 'API\ArticleController');
     Route::post('create-article', 'API\ArticleController@store');
-
+    Route::get('articles', 'API\ArticleController@get');
     Route::put('articles/{article}', 'API\ArticleController@update');
     Route::delete('articles/{id}', 'API\ArticleController@destroy');
 });
@@ -32,12 +32,12 @@ Route::middleware('auth:api')->group( function () {
 Route::get('projects', 'API\ProjectController@get');
 
 Route::middleware('auth:api')->group( function () {
-   // Route::resource('projects', 'API\ProjectController');
+    // Route::resource('projects', 'API\ProjectController');
     Route::post('create-project', 'API\ProjectController@store');
 
     Route::put('projects/{project}', 'API\ProjectController@update');
     Route::delete('projects/{id}', 'API\ProjectController@destroy');
-    
+
 });
 
 Route::middleware('auth:api')->group( function () {
@@ -48,7 +48,7 @@ Route::middleware('auth:api')->group( function () {
 
 });
 
-Route::get('profiles', 'API\ProfileController@show');
+Route::get('profiles', 'API\ProfileController@get');
 
 
 //Route::get('assets','API\AssetController@index');
@@ -57,4 +57,5 @@ Route::middleware('auth:api')->group( function () {
     Route::resource('assets', 'API\AssetController');
 });
 
+Route::get('contact','API\ContactController@create');
 //Route::post('register','API\RegisterController@register');

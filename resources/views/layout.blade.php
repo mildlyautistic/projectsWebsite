@@ -21,16 +21,16 @@
     <link href="fonts.css" rel="stylesheet" />
 
     <style>
-    body  {
-    background-image: url("Images/banner.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    }
-    footer{
-        background-image: url("Images/banner.jpg");
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-    }
+        body  {
+            background-image: url("Images/banner.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        footer{
+            background-image: url("Images/banner.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
     </style>
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -67,38 +67,32 @@
             <a class="navbar-item" href="/contact" accesskey="4" title="">
                 Contact
             </a>
-            <a class="navbar-item" href="/articles" accesskey="5" title="">
-                Articles
-            </a>
-            <a class="navbar-item" href="/projects" accesskey="6" title="">
-                Projects
-            </a>
             <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link" href="/documentation/overview/start/">
+                <a class="navbar-link" >
                     More
                 </a>
                 <div class="navbar-dropdown is-boxed">
-                    <a class="navbar-item" href="/documentation/overview/start/">
-                        Mechandise
+                    <a class="navbar-item" href="/show-articles">
+                        Articles
                     </a>
-                    <a class="navbar-item" href="https://bulma.io/documentation/modifiers/syntax/">
-                        Extras
+                    <a class="navbar-item" href="/show-profiles">
+                        Profiles
                     </a>
-                    <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
-                        Media
+                    <a class="navbar-item" href="/show-projects">
+                        Projects
                     </a>
                 </div>
             </div>
         </div>
 
         <div class="navbar-end">
-           <!-- <div class="navbar-item">
-                <div class="field">
-                    <div class="control">
-                        <input class="input" type="text" placeholder="Search . . .">
-                    </div>
-                </div>
-            </div>-->
+            <!-- <div class="navbar-item">
+                 <div class="field">
+                     <div class="control">
+                         <input class="input" type="text" placeholder="Search . . .">
+                     </div>
+                 </div>
+             </div>-->
 
             <a class="navbar-item " href="/register" accesskey="1" title="">
                 Register

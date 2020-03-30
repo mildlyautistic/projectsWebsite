@@ -21,7 +21,7 @@ class ProfileController extends BaseController
 
 
 
-       // return $this->sendResponse(ProfileResource::collection($profiles), 'Profiles retrieved successfully.');
+        // return $this->sendResponse(ProfileResource::collection($profiles), 'Profiles retrieved successfully.');
 
     }
 
@@ -38,9 +38,9 @@ class ProfileController extends BaseController
 
 
         if($pid!=$uid)
-       {
+        {
 
-           return $this->sendError('Sorry, your user_id should be the id in which you are logged in.');
+            return $this->sendError('Sorry, your user_id should be the id in which you are logged in.');
 
         }
         //$profile = Profile::create($input);
@@ -77,7 +77,7 @@ class ProfileController extends BaseController
             if($emailpart==$data[$x]){
                 $profile = Profile::create($input);
                 //return response()->json($profile);
-               return $this->sendResponse(new ProfileResource($profile), 'profile created successfully.');
+                return $this->sendResponse(new ProfileResource($profile), 'profile created successfully.');
             }
         }
         if($x==$c){
@@ -93,13 +93,8 @@ class ProfileController extends BaseController
     }
 
 
-    public function show()
+    public function get()
     {
-        /*$profile = Profile::find($id);
-
-        if (is_null($profile)) {
-            return $this->sendError('Profile not found.');
-        }*/
 
         $profiles = Profile::all();
         return response()->json($profiles);
@@ -109,6 +104,16 @@ class ProfileController extends BaseController
 
         //return $this->sendResponse(new ProfileResource($profile), 'Profile retrieved successfully.');
 
+    }
+
+    public function show($id)
+    {
+        $profile = Profile::find($id);
+
+        if (is_null($profile)) {
+            return $this->sendError('Profile not found.');
+        }
+        return view('profiles_show', ['profiles' => $profile]);
     }
 
 
@@ -149,7 +154,7 @@ class ProfileController extends BaseController
         {
             if($emailpart==$data[$x]){
 
-               //return $this->sendResponse(new ProfileResource($profile), 'profile updated successfully.');
+                //return $this->sendResponse(new ProfileResource($profile), 'profile updated successfully.');
                 $profile->update($this->validateProfile());
                 //return $this->sendResponse(new ProfileResource($profile), 'profile updated successfully.');
                 return response()->json($profile);

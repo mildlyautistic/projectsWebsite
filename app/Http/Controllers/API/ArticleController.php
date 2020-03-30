@@ -13,20 +13,15 @@ use App\Http\Resources\Article as ArticleResource;
 
 class ArticleController extends BaseController
 {
-    public function index()
+
+    public function get()
     {
-        //$articles = Article::all();
+        $articles = Article::all();
 
-        return view('articles');
 
-        //return $this->sendResponse(ArticleResource::collection($articles), 'Articles retrieved successfully.');
-       // return view('articles.index', ['articles' => $articles]);
-    }
-
-    public function get(Request $request)
-    {
-        $articles = Article::orderBy('created_at', 'desc')->get();
         return response()->json($articles);
+        //return $this->sendResponse(ArticleResource::collection($articles), 'Articles retrieved successfully.');
+        // return view('articles.index', ['articles' => $articles]);
     }
 
     public function store(Request $request)
@@ -72,8 +67,8 @@ class ArticleController extends BaseController
         return response()->json($article);
 
         //return $this->sendResponse(new ArticleResource($article), 'Article created successfully.');
-       // return view('articles.show', ['article' => $article]);
-       // return redirect(route('article.index'));
+        // return view('articles.show', ['article' => $article]);
+        // return redirect(route('article.index'));
     }
 
     public function show($id)
@@ -84,10 +79,10 @@ class ArticleController extends BaseController
             return $this->sendError('Article not found.');
         }
 
-        return response()->json($article);
+        //return response()->json($article);
 
-       // return $this->sendResponse(new ArticleResource($article), 'Article retrieved successfully.');
-        //return view('articles.show', ['articles' => $article]);
+        // return $this->sendResponse(new ArticleResource($article), 'Article retrieved successfully.');
+        return view('articles_show', ['articles' => $article]);
     }
 
     public function update(Request $request, Article $article)
@@ -124,6 +119,7 @@ class ArticleController extends BaseController
         $article->tags()->sync($tag_id_array);
         $article->title = $input['title'];
         $article->excerpt = $input['excerpt'];
+        $article->featured_image_url = $input['featured_image_url'];
         $article->body = $input['body'];
         $article->tags = $input['tags'];
         $article->excerpt=$input['excerpt'];
@@ -139,16 +135,8 @@ class ArticleController extends BaseController
     public function destroy($id)
     {
 
-        $aid = DB::table('articles')->where('id', $id)->pluck('user_id')->first();
-        $usid = auth()->user()->id;
-
-        if($aid!=$usid)
-        {
-            return $this->sendError('Sorry, delete your own articles.');
-        }
-
         //$article->delete();
-       // global $aid;
+        // global $aid;
 
         $aid = DB::table('articles')->where('id', $id)->pluck('user_id')->first();
 
