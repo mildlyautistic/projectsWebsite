@@ -25,6 +25,13 @@ class ProfileController extends BaseController
 
     }
 
+    public function get()
+    {
+        $usid = auth()->user()->id;
+        $profiles = Profile::where('user_id',  + $usid  )->get();
+        return response()->json($profiles);
+    }
+
     public function store(Request $request)
     {
         $input = $request->all();
@@ -93,18 +100,6 @@ class ProfileController extends BaseController
     }
 
 
-    public function get()
-    {
-    	$usid = auth()->user()->id;
-        $profiles = Profile::where('user_id',  + $usid  )->get();
-        return response()->json($profiles);
-
-        /*$profiles = Profile::orderBy('created_at', 'desc')->get();
-        return response()->json($profiles);*/
-
-        //return $this->sendResponse(new ProfileResource($profile), 'Profile retrieved successfully.');
-
-    }
 
     public function show($id)
     {

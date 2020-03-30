@@ -40,7 +40,7 @@ Route::middleware('auth:api')->group( function () {
 });
 
 Route::middleware('auth:api')->group( function () {
-    Route::get('profiles', 'API\ProfileController@show');
+    Route::get('profiles', 'API\ProfileController@get');
     Route::post('create-profile', 'API\ProfileController@store');
 
     Route::put('profiles/{profile}', 'API\ProfileController@update');
@@ -48,7 +48,7 @@ Route::middleware('auth:api')->group( function () {
 
 });
 
-Route::get('profiles', 'API\ProfileController@get');
+
 
 
 //Route::get('assets','API\AssetController@index');
