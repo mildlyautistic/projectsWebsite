@@ -67,6 +67,15 @@
             <a class="navbar-item" href="/contact" accesskey="4" title="">
                 Contact
             </a>
+            <a class="navbar-item" href="/posts" accesskey="5" title="">
+                Posts
+            </a>
+            <a class="navbar-item" href="/works" accesskey="6" title="">
+                Projects
+            </a>
+            <a class="navbar-item" href="/teams" accesskey="7" title="">
+                Profiles
+            </a>
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link" >
                     More

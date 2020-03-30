@@ -29,10 +29,9 @@ Route::middleware('auth:api')->group( function () {
 });
 
 
-Route::get('projects', 'API\ProjectController@get');
-
 Route::middleware('auth:api')->group( function () {
     // Route::resource('projects', 'API\ProjectController');
+    Route::get('projects', 'API\ProjectController@get');
     Route::post('create-project', 'API\ProjectController@store');
 
     Route::put('projects/{project}', 'API\ProjectController@update');
@@ -41,6 +40,7 @@ Route::middleware('auth:api')->group( function () {
 });
 
 Route::middleware('auth:api')->group( function () {
+    Route::get('profiles', 'API\ProfileController@show');
     Route::post('create-profile', 'API\ProfileController@store');
 
     Route::put('profiles/{profile}', 'API\ProfileController@update');

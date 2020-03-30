@@ -5,6 +5,7 @@
         <table class="table table-striped">
             <thead>
             <tr>
+                <th scope="col">Profile_id</th>
                 <th scope="col">Name</th>
                 <th scope="col">Username</th>
                 <th scope="col">Image</th>
@@ -16,12 +17,14 @@
                 <th scope="col">URL</th>
                 <th scope="col">Linkedin URL</th>
                 <th scope="col">Github URL</th>
+                <th scope="col">Show</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
             </tr>
             </thead>
             <tbody>
             <tr v-for="profile in profiles">
+                <td>{{profile.id}}</td>
                 <td>{{profile.name}}</td>
                 <td>{{profile.username}}</td>
                 <td>{{profile.image_url}}</td>
@@ -33,6 +36,9 @@
                 <td>{{profile.url}}</td>
                 <td>{{profile.l_url}}</td>
                 <td>{{profile.g_url}}</td>
+                <td>
+                    <button class="show" @click="showProfile(profile)">Show</button>
+                </td>
                 <td>
                     <button class="edit" @click="updateProfile(profile)">Edit</button>
                 </td>
@@ -55,13 +61,16 @@
             this.$store.dispatch('fetchProfiles')
         },
         methods: {
+            showProfile(profile) {
+                pro = profile
+                this.$router.push({path: `/profiles/${profile.id}`})
+            },
             deleteProfile(profile) {
-                //alert('Do you really want to delete your Profile? You might not be able to undo this action!')
                 this.$store.dispatch('deleteProfile',profile)
             },
             updateProfile(profile) {
                 pro = profile
-                this.$router.push({path: `/profiles/${profile.id}`})
+                this.$router.push({path: `/profiles/edit/${profile.id}`})
             }
         },
         computed: {

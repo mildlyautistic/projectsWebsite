@@ -12,6 +12,7 @@
                 <th scope="col">Featured_image_url</th>
                 <th scope="col">Body</th>
                 <th scope="col">Tags</th>
+                <th scope="col">Show</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
             </tr>
@@ -25,6 +26,9 @@
                 <td>{{article.featured_image_url}}</td>
                 <td>{{article.body}}</td>
                 <td>{{article.tags}}</td>
+                <td>
+                    <button class="btn btn-info btn-xs" @click="showArticle(article)">Show</button>
+                </td>
                 <td>
                     <button class="btn btn-info btn-xs" @click="updateArticle(article)">Edit</button>
                 </td>
@@ -49,6 +53,11 @@
         },
 
         methods: {
+            showArticle(article) {
+                art= article
+                console.log(article)
+                this.$router.push({path: `/articles/${article.id}`});
+            },
             deleteArticle(article) {
                 //alert('Do you really want to delete this article? You might not be able to undo this action!')
                 this.$store.dispatch('deleteArticle', article)
@@ -56,7 +65,7 @@
             updateArticle(article) {
                 //this.$store.dispatch('updateArticle', article)
                 art= article
-                this.$router.push({path: `/articles/${article.id}`});
+                this.$router.push({path: `/articles/edit/${article.id}`});
             }
         },
         computed: {

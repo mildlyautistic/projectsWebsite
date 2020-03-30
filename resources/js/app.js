@@ -58,6 +58,7 @@ const app = new Vue({
         const payload = JSON.parse(userString)
         this.$store.commit('loginSuccess',payload)
         this.$store.commit('login')
+       // this.$store.commit('FETCH_ARTICLES')
     }
     axios.interceptors.response.use(
         response => response,

@@ -13,16 +13,21 @@ use App\Http\Resources\Article as ArticleResource;
 
 class ArticleController extends BaseController
 {
+    public function index(Request $request)
+    {
+        //$articles = DB::table('articles')->get();
+        $articles = Article::orderBy('created_at', 'desc')->get();
+        return view('posts', [
+            'articles' => $articles
+            ]);
+    }
 
     public function get()
     {
-        $articles = Article::all();
-
-
+        $usid = auth()->user()->id;
+        $articles = Article::where('user_id',  + $usid  )->get();
         return response()->json($articles);
-        //return $this->sendResponse(ArticleResource::collection($articles), 'Articles retrieved successfully.');
-        // return view('articles.index', ['articles' => $articles]);
-    }
+        }
 
     public function store(Request $request)
     {
@@ -155,7 +160,6 @@ class ArticleController extends BaseController
 
             return response()->json("ok");
         }
-        //return view('articles.show', ['articles' => $article]);
     }
 
     protected function validateArticle()

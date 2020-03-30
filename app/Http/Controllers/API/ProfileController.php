@@ -16,10 +16,10 @@ class ProfileController extends BaseController
     public function index()
     {
         //$profiles = Profile::all();
-
-        return view('profiles');
-
-
+        $profiles = Profile::orderBy('created_at', 'desc')->get();
+        return view('teams', [
+            'profiles' => $profiles
+        ]);
 
         // return $this->sendResponse(ProfileResource::collection($profiles), 'Profiles retrieved successfully.');
 
@@ -95,8 +95,8 @@ class ProfileController extends BaseController
 
     public function get()
     {
-
-        $profiles = Profile::all();
+    	$usid = auth()->user()->id;
+        $profiles = Profile::where('user_id',  + $usid  )->get();
         return response()->json($profiles);
 
         /*$profiles = Profile::orderBy('created_at', 'desc')->get();
@@ -185,19 +185,9 @@ class ProfileController extends BaseController
     public function delete($id)
     {
         $pid = DB::table('profiles')->where('id', $id)->pluck('user_id')->first();
-        $usid = auth()->user()->id;
-
-        if($pid!=$usid)
-        {
-            return $this->sendError('Sorry, delete your own profile.');
-        }
-
-        //$profile->delete();
-
-        $pid = DB::table('profiles')->where('id', $id)->pluck('user_id')->first();
 
         $usid = auth()->user()->id;
-        if($pid !== $usid)
+        if($pid != $usid)
         {
             return $this->sendError('Sorry, you can delete your own profile.');
         }
