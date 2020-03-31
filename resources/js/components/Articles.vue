@@ -6,12 +6,8 @@
             <thead>
             <tr>
                 <th scope="col">Article_id</th>
-                <th scope="col">User_id</th>
                 <th scope="col">Title</th>
                 <th scope="col">Excerpt</th>
-                <th scope="col">Featured_image_url</th>
-                <th scope="col">Body</th>
-                <th scope="col">Tags</th>
                 <th scope="col">Show</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
@@ -20,12 +16,8 @@
             <tbody>
             <tr v-for="article in articles">
                 <td>{{article.id}}</td>
-                <td>{{article.user_id}}</td>
                 <td>{{article.title}}</td>
                 <td>{{article.excerpt}}</td>
-                <td>{{article.featured_image_url}}</td>
-                <td>{{article.body}}</td>
-                <td>{{article.tags}}</td>
                 <td>
                     <button class="btn btn-info btn-xs" @click="showArticle(article)">Show</button>
                 </td>

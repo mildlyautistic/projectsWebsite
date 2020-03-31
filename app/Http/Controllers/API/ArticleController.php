@@ -13,14 +13,6 @@ use App\Http\Resources\Article as ArticleResource;
 
 class ArticleController extends BaseController
 {
-    public function index(Request $request)
-    {
-        //$articles = DB::table('articles')->get();
-        $articles = Article::orderBy('created_at', 'desc')->get();
-        return view('posts', [
-            'articles' => $articles
-            ]);
-    }
 
     public function get()
     {

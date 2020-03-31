@@ -13,17 +13,6 @@ use App\Http\Resources\Profile as ProfileResource;
 class ProfileController extends BaseController
 {
 
-    public function index()
-    {
-        //$profiles = Profile::all();
-        $profiles = Profile::orderBy('created_at', 'desc')->get();
-        return view('teams', [
-            'profiles' => $profiles
-        ]);
-
-        // return $this->sendResponse(ProfileResource::collection($profiles), 'Profiles retrieved successfully.');
-
-    }
 
     public function get()
     {

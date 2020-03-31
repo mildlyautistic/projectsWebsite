@@ -2,52 +2,23 @@
     <div>
         <h4 class="text-center font-weight-bold" >Profiles</h4>
         <h5><router-link to="/create-profile" class="nav-link">Create</router-link></h5>
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th scope="col">Profile_id</th>
-                <th scope="col">Name</th>
-                <th scope="col">Username</th>
-                <th scope="col">Image</th>
-                <th scope="col">UserId</th>
-                <th scope="col">Email</th>
-                <th scope="col">About me</th>
-                <th scope="col">Likes</th>
-                <th scope="col">Dislikes</th>
-                <th scope="col">URL</th>
-                <th scope="col">Linkedin URL</th>
-                <th scope="col">Github URL</th>
-                <th scope="col">Show</th>
-                <th scope="col">Edit</th>
-                <th scope="col">Delete</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr v-for="profile in profiles">
-                <td>{{profile.id}}</td>
-                <td>{{profile.name}}</td>
-                <td>{{profile.username}}</td>
-                <td>{{profile.image_url}}</td>
-                <td>{{profile.user_id}}</td>
-                <td>{{profile.email}}</td>
-                <td>{{profile.about_me}}</td>
-                <td>{{profile.likes}}</td>
-                <td>{{profile.dislikes}}</td>
-                <td>{{profile.url}}</td>
-                <td>{{profile.l_url}}</td>
-                <td>{{profile.g_url}}</td>
-                <td>
-                    <button class="show" @click="showProfile(profile)">Show</button>
-                </td>
-                <td>
-                    <button class="edit" @click="updateProfile(profile)">Edit</button>
-                </td>
-                <td>
-                    <button class="btn btn-danger" @click="deleteProfile(profile)">Delete</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+
+        <div v-for="profile in profiles">
+            <div class="first">
+                <h4>{{ profile.name }}</h4>
+                <p style=" color: #48ad26">{{ profile.username }}</p>
+                <p style="color: grey">{{ profile.email }}</p>
+                <div style="padding-bottom: 20px">
+                        <button class="show" @click="showProfile(profile)">Show</button>
+                &nbsp
+                        <button class="edit" @click="updateProfile(profile)">Edit</button>
+                &nbsp
+                        <button class="btn btn-danger" @click="deleteProfile(profile)">Delete</button>
+                </div>
+            </div>
+
+        <br>
+        </div>
     </div>
 
 </template>
@@ -87,27 +58,27 @@
         color: darkred;
     }
 
-    .table {
-        font-family: "Noto Sans", sans-serif;
-        border-collapse: collapse;
-        width: 100%;
+
+    .card {
+
+        font-family: Times;
+        font-size: 20px;
+        top:50%;
+        display: flex;
+        flex-wrap: wrap;
+        background: rgba(0, 0, 0, 0.5);
+        color: #f1f1f1;
+
+    }
+    .first {
+        border: 1px solid;
+        padding: 30px 0;
+        box-shadow: 10px 10px 5px #aaaaaa;
+        height: 300px;
+        text-align: center;
+        width: 300px;
+        margin: auto;
     }
 
-    .table td, .table th {
-        border: 1px solid #ddd;
-        padding: 8px;
-    }
-
-    .table tr:nth-child(even){background-color: #f2f2f2;}
-
-    .table tr:hover {background-color: #ddd;}
-
-    .table th {
-        padding-top: 12px;
-        padding-bottom: 12px;
-        text-align: left;
-        background-color: #009ACD;
-        color: white;
-    }
 
 </style>

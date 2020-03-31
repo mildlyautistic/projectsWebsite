@@ -1,14 +1,20 @@
 <template>
-    <div>
-        <h4 class="text-center font-weight-bold">{{article.title}}</h4>
-        <h3>ID: {{article.id}} </h3>
-        <h3>User_ID: {{article.user_id}} </h3>
-        <h3>Excerpt: {{article.excerpt}} </h3>
-        <h3>Featured Image URL: {{article.featured_image_url}} </h3>
-        <h3>Body: {{article.body}} </h3>
-        <h3>Tags: {{article.tags}} </h3>
+    <div class="container">
+        <div class="notification">
+            <div class="text-center font-weight-bold">
+                <h1>{{article.title}}</h1>
+            </div>
+            <h3><b>ID:</b> {{article.id}} </h3>
+            <h3><b>User ID:</b> {{article.user_id}}</h3>
+            <h3><b>Excerpt:</b> {{article.excerpt}}</h3>
+            <h3><b>Body:</b> {{article.body}}</h3>
+
+            <p style="margin-top: 1em">
+                <a href="/articles"> <h4>{{article.tags}}</h4></a>
+            </p>
 
 
+        </div>
     </div>
 </template>
 

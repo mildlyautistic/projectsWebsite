@@ -14,17 +14,6 @@ use App\Http\Resources\Project as ProjectResource;
 class ProjectController extends BaseController
 {
 
-    public function index()
-    {
-       // $projects = Project::all();
-        $projects = Project::orderBy('created_at', 'desc')->get();
-        return view('works', [
-            'projects' => $projects
-        ]);
-
-        // return $this->sendResponse(ProjectResource::collection($projects), 'Projects retrieved successfully.');
-    }
-
     public function get(Request $request)
     {
         //$projects = Project::orderBy('user_id', 'desc')->get();

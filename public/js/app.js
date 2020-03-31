@@ -1951,14 +1951,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 var art;
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2832,35 +2824,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 var pro;
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2907,20 +2870,6 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -3133,6 +3082,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Articles__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Articles */ "./resources/js/components/Articles.vue");
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -3814,7 +3769,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nh4[data-v-642dbc55]{\n    font-size: 40px;\n    color: darkred;\n}\n.table[data-v-642dbc55] {\n    font-family: \"Noto Sans\", sans-serif;\n    border-collapse: collapse;\n    width: 100%;\n}\n.table td[data-v-642dbc55], .table th[data-v-642dbc55] {\n    border: 1px solid #ddd;\n    padding: 8px;\n}\n.table tr[data-v-642dbc55]:nth-child(even){background-color: #f2f2f2;}\n.table tr[data-v-642dbc55]:hover {background-color: #ddd;}\n.table th[data-v-642dbc55] {\n    padding-top: 12px;\n    padding-bottom: 12px;\n    text-align: left;\n    background-color: #009ACD;\n    color: white;\n}\n\n", ""]);
+exports.push([module.i, "\nh4[data-v-642dbc55]{\n    font-size: 40px;\n    color: darkred;\n}\n.card[data-v-642dbc55] {\n\n    font-family: Times;\n    font-size: 20px;\n    top:50%;\n    display: flex;\n    flex-wrap: wrap;\n    background: rgba(0, 0, 0, 0.5);\n    color: #f1f1f1;\n}\n.first[data-v-642dbc55] {\n    border: 1px solid;\n    padding: 30px 0;\n    box-shadow: 10px 10px 5px #aaaaaa;\n    height: 300px;\n    text-align: center;\n    width: 300px;\n    margin: auto;\n}\n\n\n", ""]);
 
 // exports
 
@@ -24448,17 +24403,9 @@ var render = function() {
           return _c("tr", [
             _c("td", [_vm._v(_vm._s(article.id))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(article.user_id))]),
-            _vm._v(" "),
             _c("td", [_vm._v(_vm._s(article.title))]),
             _vm._v(" "),
             _c("td", [_vm._v(_vm._s(article.excerpt))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(article.featured_image_url))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(article.body))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(article.tags))]),
             _vm._v(" "),
             _c("td", [
               _c(
@@ -24520,17 +24467,9 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Article_id")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("User_id")]),
-        _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Title")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Excerpt")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Featured_image_url")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Body")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Tags")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Show")]),
         _vm._v(" "),
@@ -26102,55 +26041,39 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h4", { staticClass: "text-center font-weight-bold" }, [
-      _vm._v("Profiles")
-    ]),
-    _vm._v(" "),
-    _c(
-      "h5",
-      [
-        _c(
-          "router-link",
-          { staticClass: "nav-link", attrs: { to: "/create-profile" } },
-          [_vm._v("Create")]
-        )
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c("table", { staticClass: "table table-striped" }, [
-      _vm._m(0),
+  return _c(
+    "div",
+    [
+      _c("h4", { staticClass: "text-center font-weight-bold" }, [
+        _vm._v("Profiles")
+      ]),
       _vm._v(" "),
       _c(
-        "tbody",
-        _vm._l(_vm.profiles, function(profile) {
-          return _c("tr", [
-            _c("td", [_vm._v(_vm._s(profile.id))]),
+        "h5",
+        [
+          _c(
+            "router-link",
+            { staticClass: "nav-link", attrs: { to: "/create-profile" } },
+            [_vm._v("Create")]
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm._l(_vm.profiles, function(profile) {
+        return _c("div", [
+          _c("div", { staticClass: "first" }, [
+            _c("h4", [_vm._v(_vm._s(profile.name))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(profile.name))]),
+            _c("p", { staticStyle: { color: "#48ad26" } }, [
+              _vm._v(_vm._s(profile.username))
+            ]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(profile.username))]),
+            _c("p", { staticStyle: { color: "grey" } }, [
+              _vm._v(_vm._s(profile.email))
+            ]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(profile.image_url))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(profile.user_id))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(profile.email))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(profile.about_me))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(profile.likes))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(profile.dislikes))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(profile.url))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(profile.l_url))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(profile.g_url))]),
-            _vm._v(" "),
-            _c("td", [
+            _c("div", { staticStyle: { "padding-bottom": "20px" } }, [
               _c(
                 "button",
                 {
@@ -26162,10 +26085,8 @@ var render = function() {
                   }
                 },
                 [_vm._v("Show")]
-              )
-            ]),
-            _vm._v(" "),
-            _c("td", [
+              ),
+              _vm._v("\n             \n                    "),
               _c(
                 "button",
                 {
@@ -26177,10 +26098,8 @@ var render = function() {
                   }
                 },
                 [_vm._v("Edit")]
-              )
-            ]),
-            _vm._v(" "),
-            _c("td", [
+              ),
+              _vm._v("\n             \n                    "),
               _c(
                 "button",
                 {
@@ -26194,53 +26113,16 @@ var render = function() {
                 [_vm._v("Delete")]
               )
             ])
-          ])
-        }),
-        0
-      )
-    ])
-  ])
+          ]),
+          _vm._v(" "),
+          _c("br")
+        ])
+      })
+    ],
+    2
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Profile_id")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Name")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Username")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Image")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("UserId")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Email")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("About me")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Likes")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Dislikes")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("URL")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Linkedin URL")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Github URL")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Show")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Edit")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Delete")])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -26288,23 +26170,9 @@ var render = function() {
           return _c("tr", [
             _c("td", [_vm._v(_vm._s(project.id))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(project.user_id))]),
-            _vm._v(" "),
             _c("td", [_vm._v(_vm._s(project.name))]),
             _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(project.s_month))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(project.s_year))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(project.e_month))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(project.e_year))]),
-            _vm._v(" "),
             _c("td", [_vm._v(_vm._s(project.associated_with))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(project.description))]),
-            _vm._v(" "),
-            _c("td", [_vm._v(_vm._s(project.proj_url))]),
             _vm._v(" "),
             _c("td", [
               _c(
@@ -26366,23 +26234,9 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Project_id")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("User_id")]),
-        _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Name")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("S_month")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("S_year")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("E_month")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("E_year")]),
-        _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Associated_with")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Description")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Proj_url")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Show")]),
         _vm._v(" "),
@@ -26640,26 +26494,38 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h4", { staticClass: "text-center font-weight-bold" }, [
-      _vm._v(_vm._s(_vm.article.title))
-    ]),
-    _vm._v(" "),
-    _c("h3", [_vm._v("ID: " + _vm._s(_vm.article.id) + " ")]),
-    _vm._v(" "),
-    _c("h3", [_vm._v("User_ID: " + _vm._s(_vm.article.user_id) + " ")]),
-    _vm._v(" "),
-    _c("h3", [_vm._v("Excerpt: " + _vm._s(_vm.article.excerpt) + " ")]),
-    _vm._v(" "),
-    _c("h3", [
-      _vm._v(
-        "Featured Image URL: " + _vm._s(_vm.article.featured_image_url) + " "
-      )
-    ]),
-    _vm._v(" "),
-    _c("h3", [_vm._v("Body: " + _vm._s(_vm.article.body) + " ")]),
-    _vm._v(" "),
-    _c("h3", [_vm._v("Tags: " + _vm._s(_vm.article.tags) + " ")])
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "notification" }, [
+      _c("div", { staticClass: "text-center font-weight-bold" }, [
+        _c("h1", [_vm._v(_vm._s(_vm.article.title))])
+      ]),
+      _vm._v(" "),
+      _c("h3", [
+        _c("b", [_vm._v("ID:")]),
+        _vm._v(" " + _vm._s(_vm.article.id) + " ")
+      ]),
+      _vm._v(" "),
+      _c("h3", [
+        _c("b", [_vm._v("User ID:")]),
+        _vm._v(" " + _vm._s(_vm.article.user_id))
+      ]),
+      _vm._v(" "),
+      _c("h3", [
+        _c("b", [_vm._v("Excerpt:")]),
+        _vm._v(" " + _vm._s(_vm.article.excerpt))
+      ]),
+      _vm._v(" "),
+      _c("h3", [
+        _c("b", [_vm._v("Body:")]),
+        _vm._v(" " + _vm._s(_vm.article.body))
+      ]),
+      _vm._v(" "),
+      _c("p", { staticStyle: { "margin-top": "1em" } }, [
+        _c("a", { attrs: { href: "/articles" } }, [
+          _c("h4", [_vm._v(_vm._s(_vm.article.tags))])
+        ])
+      ])
+    ])
   ])
 }
 var staticRenderFns = []

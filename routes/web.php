@@ -32,11 +32,7 @@ Route::get('/impressum', function () {
 Route::get('/privacypolicy', function () {
     return view('privacypolicy');
 });
-Route::get('/posts','API\ArticleController@index');
 
-Route::get('/works','API\ProjectController@index');
-
-Route::get('/teams','API\ProfileController@index');
 Route::get('/show-articles',function() {
     return view('articles', ['articles' => App\Article::latest()->get()]);
 });
